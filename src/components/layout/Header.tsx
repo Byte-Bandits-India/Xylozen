@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 import { navigationMenuData, MegaMenuData } from './nav-data'
 import { MegaMenu } from './MegaMenu'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useLenis } from 'lenis/react'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -17,6 +18,7 @@ export function Header() {
   
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
   const navContainerRef = useRef<HTMLDivElement>(null)
+  const lenis = useLenis()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +68,16 @@ export function Header() {
     
     const cleanId = id.replace('#', '')
     const element = document.getElementById(cleanId)
+
+    if (lenis) {
+      if (element) {
+        lenis.scrollTo(element, { offset: -80, duration: 1.2 })
+      } else {
+        lenis.scrollTo(0, { duration: 1.2 })
+      }
+      return
+    }
+
     if (element) {
       const headerOffset = 80
       const elementPosition = element.getBoundingClientRect().top

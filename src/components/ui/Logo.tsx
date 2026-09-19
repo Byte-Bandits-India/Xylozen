@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { cn } from '@/lib/utils'
+import { useLenis } from 'lenis/react'
 
 export interface LogoProps {
   /**
@@ -84,6 +85,7 @@ export function Logo({
 }: LogoProps) {
   const isDark = variant === 'dark'
   const currentSize = sizeConfig[size]
+  const lenis = useLenis()
 
   const handleClick = (e: React.MouseEvent) => {
     if (onClick) {
@@ -92,7 +94,11 @@ export function Logo({
     }
     if (scrollToTop) {
       e.preventDefault()
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      if (lenis) {
+        lenis.scrollTo(0, { duration: 1.2 })
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
     }
   }
 

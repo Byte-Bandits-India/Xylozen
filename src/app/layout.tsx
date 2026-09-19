@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import 'lenis/dist/lenis.css'
 import './globals.css'
 import { cn } from "@/lib/utils";
+import { SmoothScroll } from "@/components/providers/SmoothScroll";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -33,7 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(inter.variable, "font-sans")}>
       <body className="font-sans antialiased text-ink-900 bg-white selection:bg-brand-500/15 selection:text-brand-900">
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   )

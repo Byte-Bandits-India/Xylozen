@@ -114,7 +114,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
       <div className="w-[90%] mx-auto flex items-center justify-center">
         <motion.div
           style={{ scale }}
-          className="relative w-full min-h-[560px] sm:min-h-[640px] md:h-[720px] lg:h-[780px] overflow-hidden origin-center rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.65)] ring-1 ring-white/15 [will-change:transform]"
+          className="relative w-full min-h-[420px] sm:min-h-[540px] md:h-[720px] lg:h-[780px] overflow-hidden origin-center rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.65)] ring-1 ring-white/15 [will-change:transform]"
         >
           {/* Media background with smooth parallax */}
           <motion.div
@@ -128,7 +128,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
           <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(to_top,rgba(5,28,80,0.92),rgba(5,28,80,0.48)_50%,rgba(5,28,80,0.7))]" />
 
           {/* Overlay Content */}
-          <div className="relative z-20 w-full h-full flex flex-col items-center justify-center p-6 sm:p-10 md:p-14 text-center">
+          <div className="relative z-20 w-full h-full flex flex-col items-center justify-center p-4 sm:p-8 md:p-14 text-center">
             {children ? (
               children
             ) : title ? (
@@ -137,7 +137,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   Dedicated Pods in Production
                 </div>
-                <h3 className="text-display font-bold text-white [text-shadow:0_4px_30px_rgba(0,0,0,0.7)]">
+                <h3 className="text-2xl sm:text-4xl md:text-display font-bold text-white [text-shadow:0_4px_30px_rgba(0,0,0,0.7)]">
                   {title}
                 </h3>
               </div>

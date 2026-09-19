@@ -15,7 +15,7 @@ export function FinalCTA() {
   return (
     <section
       id="contact"
-      className="relative py-20 sm:py-28 bg-brand-gradient overflow-hidden selection:bg-brand-500 selection:text-white"
+      className="relative py-14 sm:py-20 lg:py-28 bg-brand-gradient overflow-hidden selection:bg-brand-500 selection:text-white"
     >
       {/* Ambient atmospheric glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -31,14 +31,14 @@ export function FinalCTA() {
           className="flex flex-col items-center"
         >
           {/* Headline verbatim from HomePage.MD */}
-          <h2 className="text-display text-white mb-8 sm:mb-10 max-w-xl">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-display font-bold text-white mb-6 sm:mb-8 max-w-xl tracking-tight">
             Tell us what you&apos;re trying to build
           </h2>
 
           {/* Primary Action CTA Button (Single Orange button per brand guidelines) */}
           <a
             href="mailto:contact@xylozen.com"
-            className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-lg bg-cta hover:bg-[#D93A16] text-white text-btn transition-colors duration-200 cursor-pointer shadow-sm shadow-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#051C50]"
+            className="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-7 sm:px-8 py-3.5 rounded-lg bg-cta hover:bg-[#D93A16] text-white text-btn transition-colors duration-200 cursor-pointer shadow-sm shadow-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#051C50]"
           >
             <span>Start a project</span>
             <ArrowRight className="w-5 h-5" />

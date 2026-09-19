@@ -3,6 +3,7 @@
 import React from 'react'
 import { Logo } from '@/components/ui/Logo'
 import { Mail, Linkedin, Twitter, ArrowUpRight } from 'lucide-react'
+import { useLenis } from 'lenis/react'
 
 // =============================================================================
 // MAIN COMPONENT: Footer
@@ -11,9 +12,21 @@ import { Mail, Linkedin, Twitter, ArrowUpRight } from 'lucide-react'
 // =============================================================================
 
 export function Footer() {
+  const lenis = useLenis()
+
   const scrollToSection = (id: string) => {
     const cleanId = id.replace('#', '')
     const element = document.getElementById(cleanId)
+
+    if (lenis) {
+      if (element) {
+        lenis.scrollTo(element, { offset: -80, duration: 1.2 })
+      } else {
+        lenis.scrollTo(0, { duration: 1.2 })
+      }
+      return
+    }
+
     if (element) {
       const headerOffset = 80
       const elementPosition = element.getBoundingClientRect().top

@@ -16,9 +16,9 @@ export default function HomePage() {
       <main>
         <Hero />
         <ScrollExpand src={scrollExpandImg.src} shrinkAmount={0.11}>
-          <div className="max-w-4xl mx-auto px-6 text-white text-center flex flex-col items-center select-none">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-white text-center flex flex-col items-center select-none">
             {/* Main Headline */}
-            <h2 className="text-display font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-display font-bold text-white mb-4 sm:mb-6 tracking-tight">
               Where Clean Architecture <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-teal-200 to-white">
                 Powers Unbroken Execution
@@ -26,7 +26,7 @@ export default function HomePage() {
             </h2>
 
             {/* Subtext */}
-            <p className="text-lead text-slate-200/90 max-w-2xl mx-auto mb-10">
+            <p className="text-sm sm:text-base md:text-lead text-slate-200/90 max-w-2xl mx-auto mb-6 sm:mb-10 px-2 leading-relaxed">
               Every system is engineered for longevity, high concurrency, and zero downtime.
               Your dedicated pod designs, builds, and maintains your complete technical infrastructure.
             </p>

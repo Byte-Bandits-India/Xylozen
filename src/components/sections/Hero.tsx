@@ -15,14 +15,25 @@ import {
   ArrowRight,
   TrendingUp,
 } from 'lucide-react'
-import { Marquee } from '@/components/ui/Marquee'
+import { useLenis } from 'lenis/react'
 
 export function Hero() {
   const [isToggled, setIsToggled] = useState(true)
+  const lenis = useLenis()
 
   const scrollToSection = (id: string) => {
     const cleanId = id.replace('#', '')
     const element = document.getElementById(cleanId)
+
+    if (lenis) {
+      if (element) {
+        lenis.scrollTo(element, { offset: -80, duration: 1.2 })
+      } else {
+        lenis.scrollTo(0, { duration: 1.2 })
+      }
+      return
+    }
+
     if (element) {
       const headerOffset = 80
       const elementPosition = element.getBoundingClientRect().top
@@ -67,7 +78,7 @@ export function Hero() {
         {/* ----------------------------------------------------------------------- */}
         {/* TOP TIER: Center Headline Flanked by Left & Right Floating Cards        */}
         {/* ----------------------------------------------------------------------- */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-6 items-center min-h-[290px] mb-20">
+        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-6 items-center min-h-0 lg:min-h-[290px] mb-10 sm:mb-14 lg:mb-20">
           
           {/* ===================================================================== */}
           {/* TOP-LEFT: Without vs With Xylozen Card + Clean Grey Connectors        */}
@@ -151,21 +162,21 @@ export function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-display text-brand-900 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-display font-bold text-brand-900 mb-4 tracking-tight">
               Precision Operationalized
             </h1>
 
             {/* Subtitle */}
-            <p className="text-lead text-ink-500 max-w-[54ch] mx-auto mb-8">
+            <p className="text-base sm:text-lead text-ink-500 max-w-[54ch] mx-auto mb-6 sm:mb-8 px-1">
               From your first website to a fully automated business — designed, built, integrated,
               and maintained by one in-house team.
             </p>
 
             {/* Action Buttons (10% Action Orange CTA + Ghost Supporting) */}
-            <div className="flex flex-wrap items-center justify-center gap-3.5">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-3.5 w-full max-w-xs sm:max-w-none mx-auto">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="group px-8 py-3 rounded-lg bg-cta hover:bg-[#D93A16] text-white text-btn shadow-sm shadow-cta/20 hover:shadow-md transition-all duration-200 cursor-pointer flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+                className="group w-full sm:w-auto px-7 sm:px-8 py-3 rounded-lg bg-cta hover:bg-[#D93A16] text-white text-btn shadow-sm shadow-cta/20 hover:shadow-md transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
               >
                 <span>Talk to us</span>
                 <ArrowRight className="w-4.5 h-4.5 opacity-90 transition-transform duration-200 group-hover:translate-x-1" />
@@ -173,7 +184,7 @@ export function Hero() {
 
               <button
                 onClick={() => scrollToSection('our-work')}
-                className="px-8 py-3.5 rounded-lg bg-surface border border-line hover:border-slate-300 text-brand-900 hover:text-brand-500 text-btn transition-all duration-200 cursor-pointer shadow-xs"
+                className="w-full sm:w-auto px-7 sm:px-8 py-3.5 rounded-lg bg-surface border border-line hover:border-slate-300 text-brand-900 hover:text-brand-500 text-btn transition-all duration-200 cursor-pointer shadow-xs flex items-center justify-center"
               >
                 See our work
               </button>
@@ -247,7 +258,7 @@ export function Hero() {
             {/* 1. LEFT CARD: "Your Customers"                                      */}
             {/* =================================================================== */}
             <div className="md:col-span-4 flex flex-col relative">
-              <div className="text-base font-sans font-semibold text-brand-900 mb-2 pl-1 flex items-center gap-2">
+              <div className="text-base font-sans font-semibold text-brand-900 mb-2 pl-0 md:pl-1 flex items-center justify-center md:justify-start gap-2">
                 <Users className="w-4.5 h-4.5 text-brand-500" />
                 <span>Your Customers</span>
               </div>
@@ -299,7 +310,7 @@ export function Hero() {
               </div>
 
               <div
-                className="rounded-2xl border border-dashed border-slate-200 relative h-[270px] flex items-center justify-between px-2.5 sm:px-3 lg:px-4 py-4 overflow-visible hover:border-slate-300 hover:shadow-md transition-all duration-300"
+                className="rounded-2xl border border-dashed border-slate-200 relative h-[270px] flex items-center justify-between px-2 sm:px-3 lg:px-4 py-4 overflow-visible hover:border-slate-300 hover:shadow-md transition-all duration-300"
                 style={{
                   backgroundImage: 'radial-gradient(circle, #CBD5E1 0.8px, transparent 0.8px)',
                   backgroundSize: '16px 16px',
@@ -402,7 +413,7 @@ export function Hero() {
             {/* 3. RIGHT CARD: "Your Dedicated Pod" (Constellation Layout)          */}
             {/* =================================================================== */}
             <div className="md:col-span-4 flex flex-col relative">
-              <div className="self-end mb-2 pr-1 h-6 flex items-center">
+              <div className="self-center md:self-end mb-2 md:pr-1 h-6 flex items-center">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-line text-sm font-sans font-semibold text-brand-900 shadow-xs">
                   <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                   <span>Your Dedicated Pod</span>
@@ -484,7 +495,7 @@ export function Hero() {
                 </div>
 
                 {/* Clean Grey Exit Line dropping straight down toward Marquee */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-full w-8 h-10 pointer-events-none">
+                <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-full w-8 h-10 pointer-events-none">
                   <svg className="w-full h-full overflow-visible" viewBox="0 0 32 40">
                     <line x1="16" y1="0" x2="16" y2="30" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="4 4" />
                     <path d="M 16 30 L 12 22 M 16 30 L 20 22" stroke="#94A3B8" strokeWidth="1.5" strokeLinecap="round" />

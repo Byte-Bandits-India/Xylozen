@@ -51,20 +51,20 @@ const iconColorMap = {
 
 export function WhatWeDo() {
   return (
-    <section id="what-we-do" className="py-24 bg-white">
+    <section id="what-we-do" className="py-14 sm:py-20 lg:py-24 bg-white">
       <div className="container-section">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6 }}
-          className="mb-14"
+          className="mb-8 sm:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-badge text-slate-700 mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-cta" />
             Capabilities
           </div>
-          <h2 className="text-h2 text-brand-900">What we do</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-h2 font-bold text-brand-900">What we do</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -75,25 +75,25 @@ export function WhatWeDo() {
                 key={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
+                viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="bg-white border border-line rounded-card p-8 hover:border-brand-500 hover:bg-surface/40 transition-all duration-300 group flex flex-col"
+                className="bg-white border border-line rounded-card p-5 sm:p-7 lg:p-8 hover:border-brand-500 hover:bg-surface/40 transition-all duration-300 group flex flex-col"
               >
-                <div className="flex items-start gap-4 mb-6">
+                <div className="flex items-start gap-4 mb-5 sm:mb-6">
                   <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center ${gradientMap[service.line as keyof typeof gradientMap]}`}
+                    className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 ${gradientMap[service.line as keyof typeof gradientMap]}`}
                   >
-                    <Icon className={`w-6 h-6 ${iconColorMap[service.line as keyof typeof iconColorMap]}`} />
+                    <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${iconColorMap[service.line as keyof typeof iconColorMap]}`} />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-small font-semibold text-brand-900">{service.title}</h3>
                   </div>
                 </div>
 
-                <p className="text-h3 text-brand-900 mb-3 leading-tight">{service.description}</p>
+                <p className="text-xl sm:text-h3 font-semibold text-brand-900 mb-2.5 sm:mb-3 leading-snug">{service.description}</p>
 
-                <p className="text-body text-ink-500 mb-6 flex-grow">{service.details}</p>
+                <p className="text-sm sm:text-body text-ink-500 mb-6 flex-grow leading-relaxed">{service.details}</p>
 
                 <a
                   href={service.link}
