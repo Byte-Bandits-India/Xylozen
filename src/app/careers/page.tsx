@@ -234,7 +234,7 @@ export default function CareersPage() {
                   </div>
 
                   <div className="shrink-0 pt-4 lg:pt-0 border-t lg:border-t-0 border-slate-100">
-                    <Link href="/#contact">
+                    <Link href="/contact">
                       <Button variant="primary-cta" className="w-full sm:w-auto shadow-xs">
                         <span>Apply for Role</span>
                         <ArrowRight className="w-4 h-4 ml-1.5" />

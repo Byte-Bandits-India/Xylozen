@@ -136,7 +136,7 @@ export default function AiAutomationPage() {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4">
-                  <Link href="/#contact">
+                  <Link href="/contact">
                     <Button variant="primary-cta">
                       <span>Schedule Technical Scoping</span>
                     </Button>

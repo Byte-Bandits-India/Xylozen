@@ -18,7 +18,9 @@ import {
 import { useLenis } from 'lenis/react'
 
 export function Hero() {
-  const [isToggled, setIsToggled] = useState(true)
+  const [isWithXylozen, setIsWithXylozen] = useState(true)
+  const isWithoutToggled = !isWithXylozen
+  const isWithToggled = isWithXylozen
   const lenis = useLenis()
 
   const scrollToSection = (id: string) => {
@@ -109,36 +111,99 @@ export function Hero() {
             {/* Card Body */}
             <div className="w-[260px] bg-white rounded-2xl p-4 border border-line shadow-md shadow-brand-900/[0.03] select-none hover:shadow-xl hover:scale-[1.02] transition-all duration-300 relative z-10">
               {/* Row 1: Without Xylozen */}
-              <div className="flex items-center justify-between py-2 border-b border-line/60">
+              <div
+                className="flex items-center justify-between py-2 border-b border-line/60 cursor-pointer group rounded-lg px-2 -mx-2 hover:bg-slate-50/80 transition-colors"
+                onClick={() => setIsWithXylozen(false)}
+                role="switch"
+                aria-checked={isWithoutToggled}
+                aria-label="Toggle Without Xylozen"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    setIsWithXylozen(false)
+                  }
+                }}
+              >
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-ink-500">8%</span>
-                  <span className="text-sm font-medium text-ink-500">Without Xylozen</span>
+                  <span
+                    className={`text-sm font-bold transition-colors duration-200 ${
+                      isWithoutToggled ? 'text-slate-900' : 'text-ink-500'
+                    }`}
+                  >
+                    8%
+                  </span>
+                  <span
+                    className={`text-sm font-medium transition-colors duration-200 ${
+                      isWithoutToggled
+                        ? 'text-slate-900 font-semibold'
+                        : 'text-ink-500 group-hover:text-slate-700'
+                    }`}
+                  >
+                    Without Xylozen
+                  </span>
                 </div>
-                <div className="w-8 h-4.5 rounded-full bg-slate-200 flex items-center px-0.5">
-                  <div className="w-3.5 h-3.5 rounded-full bg-white shadow-xs" />
+                <div
+                  className={`w-8 h-4.5 rounded-full transition-colors duration-200 p-0.5 flex items-center ${
+                    isWithoutToggled ? 'bg-teal-500' : 'bg-slate-200'
+                  }`}
+                >
+                  <div
+                    className={`w-3.5 h-3.5 rounded-full bg-white shadow-xs transition-transform duration-200 ease-out ${
+                      isWithoutToggled ? 'translate-x-3.5' : 'translate-x-0'
+                    }`}
+                  />
                 </div>
               </div>
 
               {/* Row 2: With Xylozen */}
               <div
-                className="flex items-center justify-between pt-2.5 cursor-pointer group"
-                onClick={() => setIsToggled(!isToggled)}
+                className="flex items-center justify-between pt-2.5 cursor-pointer group rounded-lg px-2 -mx-2 hover:bg-slate-50/80 transition-colors"
+                onClick={() => setIsWithXylozen(true)}
+                role="switch"
+                aria-checked={isWithToggled}
+                aria-label="Toggle With Xylozen"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    setIsWithXylozen(true)
+                  }
+                }}
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-brand-500 flex items-center">
+                  <span
+                    className={`text-sm font-bold flex items-center transition-colors duration-200 ${
+                      isWithToggled ? 'text-brand-500' : 'text-ink-500'
+                    }`}
+                  >
                     99%
-                    <TrendingUp className="w-4 h-4 ml-1 text-teal-600" />
+                    <TrendingUp
+                      className={`w-4 h-4 ml-1 transition-colors duration-200 ${
+                        isWithToggled ? 'text-teal-600' : 'text-slate-400'
+                      }`}
+                    />
                   </span>
-                  <span className="text-sm font-semibold text-brand-900 group-hover:text-brand-500 transition-colors">
+                  <span
+                    className={`text-sm font-semibold transition-colors duration-200 ${
+                      isWithToggled
+                        ? 'text-brand-900'
+                        : 'text-ink-500 group-hover:text-brand-700'
+                    }`}
+                  >
                     With Xylozen
                   </span>
                 </div>
                 <div
-                  className={`w-8 h-4.5 rounded-full transition-colors flex items-center px-0.5 ${
-                    isToggled ? 'bg-teal-500 justify-end' : 'bg-slate-200 justify-start'
+                  className={`w-8 h-4.5 rounded-full transition-colors duration-200 p-0.5 flex items-center ${
+                    isWithToggled ? 'bg-teal-500' : 'bg-slate-200'
                   }`}
                 >
-                  <div className="w-3.5 h-3.5 rounded-full bg-white shadow-xs" />
+                  <div
+                    className={`w-3.5 h-3.5 rounded-full bg-white shadow-xs transition-transform duration-200 ease-out ${
+                      isWithToggled ? 'translate-x-3.5' : 'translate-x-0'
+                    }`}
+                  />
                 </div>
               </div>
             </div>
@@ -155,8 +220,7 @@ export function Hero() {
           >
             {/* Tagline pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1 mb-5 rounded-full bg-slate-100/80 border border-slate-200/60">
-              <span className="w-2 h-2 rounded-full bg-cta" />
-              <span className="text-tagline text-ink-500">
+              <span className="text-small text-ink-500">
                 Technology &bull; Innovation &bull; Solutions
               </span>
             </div>

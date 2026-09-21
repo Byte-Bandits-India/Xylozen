@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { deliverySteps } from '@/lib/services-data'
 import { ArrowUpRight, Compass } from 'lucide-react'
@@ -92,13 +93,13 @@ export function DeliveryProcess() {
               Clear strategy. Strong engineering. Transparent execution. Measurable outcomes.
             </p>
           </div>
-          <a
-            href="/#contact"
+          <Link
+            href="/contact"
             className="inline-flex items-center gap-1.5 text-small font-semibold text-brand-500 hover:text-brand-700 shrink-0"
           >
             <span>Discuss your delivery timeline</span>
             <ArrowUpRight className="w-4 h-4" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

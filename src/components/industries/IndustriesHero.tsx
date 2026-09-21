@@ -50,7 +50,7 @@ export function IndustriesHero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-4 mb-8">
-              <Link href="/#contact">
+              <Link href="/contact">
                 <Button variant="primary-cta" className="shadow-sm">
                   <span>Schedule Technical Scoping</span>
                 </Button>

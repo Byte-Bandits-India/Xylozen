@@ -44,7 +44,7 @@ const industryStories: IndustryStory[] = [
       'unified geospatial property listing search and automated broker lead distribution in under 30 seconds.',
     image: '/images/industries/real-estate.jpg',
     linkText: 'Explore architecture',
-    href: '/#contact',
+    href: '/contact',
   },
   {
     id: 'logistics',
@@ -54,7 +54,7 @@ const industryStories: IndustryStory[] = [
       'processed millions of high-frequency GPS pings with a 65% reduction in manual dispatch overhead.',
     image: '/images/industries/logistics.jpg',
     linkText: 'Explore architecture',
-    href: '/#contact',
+    href: '/contact',
   },
   {
     id: 'manufacturing',

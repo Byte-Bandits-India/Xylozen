@@ -457,7 +457,7 @@ export function OurWorkCaseStudies() {
                       ))}
                     </div>
 
-                    <Link href="/#contact" className="w-full sm:w-auto">
+                    <Link href="/contact" className="w-full sm:w-auto">
                       <button
                         type="button"
                         className="text-caption text-brand-600 hover:text-brand-800 font-semibold flex items-center gap-1.5 cursor-pointer"

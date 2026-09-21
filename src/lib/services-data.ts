@@ -264,7 +264,7 @@ export const engagementModels = [
       'Full technical ownership and architecture governance',
     ],
     ctaText: 'Assemble Your Pod',
-    ctaLink: '/#contact',
+    ctaLink: '/contact',
     featured: true,
   },
   {
@@ -281,7 +281,7 @@ export const engagementModels = [
       'Full commercial IP ownership and documentation handover',
     ],
     ctaText: 'Scope Your MVP',
-    ctaLink: '/#contact',
+    ctaLink: '/contact',
     featured: false,
   },
   {
@@ -298,7 +298,7 @@ export const engagementModels = [
       'Step-by-step refactoring and modernization roadmap',
     ],
     ctaText: 'Request an Audit',
-    ctaLink: '/#contact',
+    ctaLink: '/contact',
     featured: false,
   },
 ]

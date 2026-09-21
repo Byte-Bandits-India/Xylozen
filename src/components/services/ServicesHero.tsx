@@ -91,7 +91,7 @@ export function ServicesHero() {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-3.5 mb-8 sm:mb-9">
-              <Link href="/#contact">
+              <Link href="/contact">
                 <Button variant="primary-cta" className="flex items-center gap-2 px-6 py-3 text-btn font-semibold">
                   <span>Schedule Technical Scoping</span>
                   <ArrowRight className="w-4 h-4" />

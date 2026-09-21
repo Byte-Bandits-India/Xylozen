@@ -9,35 +9,35 @@ const ecommerceTiers: AccordionGalleryItem[] = [
     label: 'Headless Storefront',
     description:
       'Next.js Commerce with edge-side ISR caching, sub-second TTFB, predictive prefetching, and 100/100 Core Web Vitals across mobile & desktop.',
-    link: '#contact',
+    link: '/contact',
   },
   {
     image: '/images/architecture/ecommerce/ecom_checkout.jpg',
     label: 'Accelerated Checkout',
     description:
       'Multi-gateway orchestration (Stripe, Razorpay, Apple Pay), biometric authentication, 1-click checkout flows, and zero drop-off cart recovery.',
-    link: '#contact',
+    link: '/contact',
   },
   {
     image: '/images/architecture/ecommerce/ecom_catalog_search.jpg',
     label: 'Real-Time Catalog Search',
     description:
       'Faceted indexing with Algolia & Typesense, sub-10ms query times, typo-tolerant search, and personalized product ranking across 100k+ SKUs.',
-    link: '#contact',
+    link: '/contact',
   },
   {
     image: '/images/architecture/ecommerce/ecom_erp_sync.jpg',
     label: 'Omnichannel ERP & Sync',
     description:
       'Real-time inventory synchronization across physical retail POS, online storefronts, and central warehouse ERPs with transactional zero-conflict locks.',
-    link: '#contact',
+    link: '/contact',
   },
   {
     image: '/images/architecture/ecommerce/ecom_order_mesh.jpg',
     label: 'Global Order Routing',
     description:
       'Distributed multi-node warehouse dispatch, intelligent proximity shipping routing, automated fraud analysis, and live parcel webhook telemetry.',
-    link: '#contact',
+    link: '/contact',
   },
 ]
 
