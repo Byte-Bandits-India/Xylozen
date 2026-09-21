@@ -25,6 +25,40 @@ export const metadata: Metadata = {
     'Chennai',
     'India',
   ],
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/images/logo/favicon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [
+      { url: '/images/logo/favicon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  openGraph: {
+    title: 'Xylozen Technologies — Precision Operationalized',
+    description:
+      'From your first website to a fully automated business — designed, built, integrated, and maintained by one team.',
+    url: 'https://xylozen.com',
+    siteName: 'Xylozen Technologies',
+    images: [
+      {
+        url: '/images/logo/transparent.png',
+        width: 2148,
+        height: 538,
+        alt: 'Xylozen Technologies',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Xylozen Technologies — Precision Operationalized',
+    description:
+      'From your first website to a fully automated business — designed, built, integrated, and maintained by one team.',
+    images: ['/images/logo/transparent.png'],
+  },
 }
 
 export default function RootLayout({

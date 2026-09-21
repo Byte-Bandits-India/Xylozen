@@ -1,17 +1,15 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { useLenis } from 'lenis/react'
 import { usePathname, useRouter } from 'next/navigation'
 
 export interface LogoProps {
   /**
-   * 'light': On white / light backgrounds.
-   * Wordmark switches to solid navy #051C50 (the metallic gradient loses all contrast on light backgrounds).
-   *
-   * 'dark': On navy or black backgrounds.
-   * Wordmark in metallic silver (#E7EAEE), X in #265DC3.
+   * 'light': On white / light backgrounds. Uses the official 3D metallic logo (/images/logo/transparent.png).
+   * 'dark': On dark / navy / black backgrounds. Uses the solid white logo (/images/logo/white.png).
    */
   variant?: 'light' | 'dark'
 
@@ -19,6 +17,11 @@ export interface LogoProps {
    * Size presets for the logo
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
+
+  /**
+   * If true, displays only the standalone 'X' symbol (/images/logo/favicon.png)
+   */
+  iconOnly?: boolean
 
   /**
    * Whether to display the official brand tagline underneath:
@@ -44,28 +47,32 @@ export interface LogoProps {
 
 const sizeConfig = {
   sm: {
-    x: 'text-[24px]',
-    wordmark: 'text-[19px]',
+    height: 26,
+    width: 104,
+    imgClass: 'h-6 sm:h-7 w-auto',
+    iconSize: 26,
     tagline: 'text-[10px] tracking-[0.14em]',
-    gap: 'gap-0.5',
   },
   md: {
-    x: 'text-[28px] sm:text-[30px]',
-    wordmark: 'text-[22px] sm:text-[24px]',
+    height: 34,
+    width: 136,
+    imgClass: 'h-7 sm:h-8 w-auto',
+    iconSize: 34,
     tagline: 'text-[11px] tracking-[0.14em]',
-    gap: 'gap-0.5',
   },
   lg: {
-    x: 'text-[36px] sm:text-[40px]',
-    wordmark: 'text-[28px] sm:text-[32px]',
+    height: 42,
+    width: 168,
+    imgClass: 'h-9 sm:h-10 w-auto',
+    iconSize: 42,
     tagline: 'text-[12px] sm:text-[13px] tracking-[0.14em]',
-    gap: 'gap-1',
   },
   xl: {
-    x: 'text-[44px] sm:text-[48px]',
-    wordmark: 'text-[36px] sm:text-[40px]',
+    height: 54,
+    width: 216,
+    imgClass: 'h-11 sm:h-13 w-auto',
+    iconSize: 54,
     tagline: 'text-[13px] sm:text-[14px] tracking-[0.14em]',
-    gap: 'gap-1',
   },
 }
 
@@ -73,12 +80,14 @@ const sizeConfig = {
  * Official Xylozen Brand Logo Component
  *
  * Implements the brand rules from info/design.MD & info/xylozen-brand-guidelines.html:
- * - On navy/black (dark): X in #265DC3 gradient, Wordmark in metallic silver.
- * - On white (light): X in #265DC3 gradient, Wordmark in solid navy #051C50.
+ * - On navy/black (dark): Uses official white asset (/images/logo/white.png)
+ * - On white/light (light): Uses official 3D metallic asset (/images/logo/transparent.png)
+ * - Standalone Icon: Uses official 'X' mark (/images/logo/favicon.png)
  */
 export function Logo({
   variant = 'light',
   size = 'md',
+  iconOnly = false,
   showTagline = false,
   className,
   scrollToTop = false,
@@ -109,55 +118,35 @@ export function Logo({
     }
   }
 
-  const Content = (
-    <div className={cn('inline-flex flex-col', className)}>
-      <div
-        className={cn(
-          'inline-flex items-baseline font-sans select-none',
-          currentSize.gap
-        )}
-      >
-        {/* The "X" Symbol */}
-        <span
-          className={cn(
-            'font-extrabold leading-none transition-colors',
-            currentSize.x,
-            isDark
-              ? 'text-transparent bg-clip-text bg-gradient-to-br from-[#4C8BEF] via-[#265DC3] to-[#163D8A]'
-              : 'text-transparent bg-clip-text bg-gradient-to-br from-[#265DC3] via-[#1E4FA8] to-[#051C50]'
-          )}
-          style={{
-            // Ensures perfect fallback to #265DC3
-            WebkitTextFillColor: 'transparent',
-          }}
-        >
-          X
-        </span>
+  const logoSrc = iconOnly
+    ? '/images/logo/favicon.png'
+    : '/images/logo/transparent.png'
 
-        {/* The "ylozen" Wordmark */}
-        <span
-          className={cn(
-            'font-semibold tracking-[-0.03em] leading-none lowercase',
-            currentSize.wordmark,
-            isDark
-              ? 'text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#E7EAEE] to-[#B8BEC7] drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]'
-              : 'text-[#051C50]'
-          )}
-        >
-          ylozen
-        </span>
-      </div>
+  const logoWidth = iconOnly ? Math.round(currentSize.iconSize * 1.23) : currentSize.width
+  const logoHeight = iconOnly ? currentSize.iconSize : currentSize.height
+
+  const Content = (
+    <div className={cn('inline-flex flex-col items-start', className)}>
+      <Image
+        src={logoSrc}
+        alt="Xylozen Technologies"
+        width={logoWidth}
+        height={logoHeight}
+        priority
+        unoptimized
+        className={cn('object-contain select-none transition-opacity duration-200', currentSize.imgClass)}
+      />
 
       {/* Official Tagline: Technology . Innovation . Solutions */}
-      {showTagline && (
+      {showTagline && !iconOnly && (
         <p
           className={cn(
-            'font-sans font-light mt-1 select-none',
+            'font-sans font-light mt-1.5 select-none tracking-[0.14em]',
             currentSize.tagline,
             isDark ? 'text-[#E7EAEE]/80' : 'text-[#6B7480]'
           )}
         >
-          Technology . Innovation . Solutions
+          Technology &bull; Innovation &bull; Solutions
         </p>
       )}
     </div>
@@ -167,7 +156,7 @@ export function Logo({
     return (
       <button
         onClick={handleClick}
-        className="inline-flex flex-col text-left cursor-pointer transition-opacity hover:opacity-95 focus:outline-hidden"
+        className="inline-flex flex-col text-left cursor-pointer transition-opacity hover:opacity-90 focus:outline-hidden"
         aria-label="Xylozen Home"
       >
         {Content}

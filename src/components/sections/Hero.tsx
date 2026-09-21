@@ -18,9 +18,18 @@ import {
 import { useLenis } from 'lenis/react'
 
 export function Hero() {
-  const [isWithXylozen, setIsWithXylozen] = useState(true)
-  const isWithoutToggled = !isWithXylozen
-  const isWithToggled = isWithXylozen
+  const [activeSwitch, setActiveSwitch] = useState<'without' | 'with' | null>('with')
+  const isWithoutToggled = activeSwitch === 'without'
+  const isWithToggled = activeSwitch === 'with'
+
+  const toggleWithout = () => {
+    setActiveSwitch((prev) => (prev === 'without' ? null : 'without'))
+  }
+
+  const toggleWith = () => {
+    setActiveSwitch((prev) => (prev === 'with' ? null : 'with'))
+  }
+
   const lenis = useLenis()
 
   const scrollToSection = (id: string) => {
@@ -113,7 +122,7 @@ export function Hero() {
               {/* Row 1: Without Xylozen */}
               <div
                 className="flex items-center justify-between py-2 border-b border-line/60 cursor-pointer group rounded-lg px-2 -mx-2 hover:bg-slate-50/80 transition-colors"
-                onClick={() => setIsWithXylozen(false)}
+                onClick={toggleWithout}
                 role="switch"
                 aria-checked={isWithoutToggled}
                 aria-label="Toggle Without Xylozen"
@@ -121,7 +130,7 @@ export function Hero() {
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault()
-                    setIsWithXylozen(false)
+                    toggleWithout()
                   }
                 }}
               >
@@ -159,7 +168,7 @@ export function Hero() {
               {/* Row 2: With Xylozen */}
               <div
                 className="flex items-center justify-between pt-2.5 cursor-pointer group rounded-lg px-2 -mx-2 hover:bg-slate-50/80 transition-colors"
-                onClick={() => setIsWithXylozen(true)}
+                onClick={toggleWith}
                 role="switch"
                 aria-checked={isWithToggled}
                 aria-label="Toggle With Xylozen"
@@ -167,7 +176,7 @@ export function Hero() {
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault()
-                    setIsWithXylozen(true)
+                    toggleWith()
                   }
                 }}
               >
