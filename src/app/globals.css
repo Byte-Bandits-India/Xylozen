@@ -95,6 +95,15 @@
   * {
     box-sizing: border-box;
     border-color: var(--border);
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  *::-webkit-scrollbar {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+    background: transparent !important;
   }
 
   html {
@@ -102,6 +111,16 @@
     -moz-osx-font-smoothing: grayscale;
     font-family: var(--font-sans);
     font-size: 16px;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+    background: transparent !important;
   }
 
   html.lenis,
@@ -338,5 +357,20 @@
       padding-left: 4rem;
       padding-right: 4rem;
     }
+  }
+
+  /* Scrollbar Removal Utilities */
+  .scrollbar-none,
+  .no-scrollbar {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+
+  .scrollbar-none::-webkit-scrollbar,
+  .no-scrollbar::-webkit-scrollbar {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+    background: transparent !important;
   }
 }

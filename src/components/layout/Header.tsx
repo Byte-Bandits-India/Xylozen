@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
 import { Button } from '@/components/ui/Button'
@@ -9,6 +10,31 @@ import { navigationMenuData, MegaMenuData } from './nav-data'
 import { MegaMenu } from './MegaMenu'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useLenis } from 'lenis/react'
+import { usePathname, useRouter } from 'next/navigation'
+
+const mobileMenuVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const mobileItemVariants = {
+  hidden: { opacity: 0, x: 28 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: 'spring',
+      damping: 24,
+      stiffness: 260,
+    },
+  },
+}
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -19,6 +45,8 @@ export function Header() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
   const navContainerRef = useRef<HTMLDivElement>(null)
   const lenis = useLenis()
+  const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,6 +77,23 @@ export function Header() {
     }
   }, [])
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [pathname])
+
   const handleMouseEnter = (menuId: string) => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
@@ -62,36 +107,58 @@ export function Header() {
     }, 180)
   }
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (target: string) => {
     setActiveMenu(null)
     setMobileOpen(false)
-    
-    const cleanId = id.replace('#', '')
-    const element = document.getElementById(cleanId)
 
-    if (lenis) {
-      if (element) {
-        lenis.scrollTo(element, { offset: -80, duration: 1.2 })
-      } else {
-        lenis.scrollTo(0, { duration: 1.2 })
+    // Check if target is a path like /services or /services#web-software
+    if (target.startsWith('/')) {
+      const [targetPath, targetHash] = target.split('#')
+      
+      if (pathname === targetPath || (targetPath === '' && pathname === '/')) {
+        if (targetHash) {
+          const element = document.getElementById(targetHash)
+          if (element) {
+            if (lenis) {
+              lenis.scrollTo(element, { offset: -80, duration: 1.2 })
+            } else {
+              const headerOffset = 80
+              const elementPosition = element.getBoundingClientRect().top
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+              window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
+            }
+            return
+          }
+        } else {
+          if (lenis) lenis.scrollTo(0, { duration: 1.2 })
+          else window.scrollTo({ top: 0, behavior: 'smooth' })
+          return
+        }
       }
+      
+      router.push(target)
       return
     }
 
-    if (element) {
-      const headerOffset = 80
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+    const cleanId = target.replace('#', '')
+    const element = document.getElementById(cleanId)
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      })
+    if (element) {
+      if (lenis) {
+        lenis.scrollTo(element, { offset: -80, duration: 1.2 })
+      } else {
+        const headerOffset = 80
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        })
+      }
     } else {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
+      // If element not on current page, route to home with hash
+      router.push(`/#${cleanId}`)
     }
   }
 
@@ -225,34 +292,35 @@ export function Header() {
                 </div>
 
                 {/* Careers */}
-                <button
-                  onClick={() => scrollToSection('why-us')}
+                <Link
+                  href="/careers"
                   className="flex items-center gap-1.5 px-3 py-2 text-nav text-ink-900 hover:text-brand-500 hover:bg-surface/70 rounded-lg transition-colors cursor-pointer"
                 >
                   <span>Careers</span>
-                </button>
+                </Link>
 
                 {/* Contact */}
-                <button
-                  onClick={() => scrollToSection('contact')}
+                <Link
+                  href="/contact"
                   className="px-3 py-2 text-nav text-ink-900 hover:text-brand-500 hover:bg-surface/70 rounded-lg transition-colors cursor-pointer"
                 >
                   Contact
-                </button>
+                </Link>
               </nav>
             </div>
 
             {/* Right: Actions */}
             <div className="hidden lg:flex items-center gap-3.5">
-              <Button
-                variant="primary-cta"
-                size="default"
-                onClick={() => scrollToSection('contact')}
-                className="flex items-center gap-1.5 text-white"
-              >
-                <span className="text-white">Talk to us</span>
-                <ArrowRight className="w-4 h-4 opacity-90 text-white" />
-              </Button>
+              <Link href="/contact">
+                <Button
+                  variant="primary-cta"
+                  size="default"
+                  className="flex items-center gap-1.5 text-white"
+                >
+                  <span className="text-white">Talk to us</span>
+                  <ArrowRight className="w-4 h-4 opacity-90 text-white" />
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Hamburger Button */}
@@ -293,96 +361,150 @@ export function Header() {
         )}
       </AnimatePresence>
 
-      {/* Mobile Menu Drawer */}
+      {/* Full-Screen Mobile Navigation Drawer (Right to Left) */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-20 left-0 right-0 z-50 border-b border-line bg-white px-5 py-6 max-h-[85vh] overflow-y-auto shadow-xl"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 30, stiffness: 280, mass: 0.8 }}
+            className="fixed inset-0 z-[100] bg-white flex flex-col w-full h-[100dvh] overflow-hidden lg:hidden shadow-2xl"
           >
-            <div className="flex flex-col space-y-4">
-              
+            {/* Top Bar with Logo & Close Button */}
+            <div className="flex items-center justify-between h-20 px-4 sm:px-6 border-b border-line shrink-0 bg-white">
+              <Logo
+                variant="light"
+                size="md"
+                onClick={() => {
+                  setMobileOpen(false)
+                  if (lenis) lenis.scrollTo(0, { duration: 1.2 })
+                }}
+              />
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="p-2.5 rounded-lg text-ink-900 hover:bg-surface border border-line cursor-pointer transition-colors active:scale-95"
+                aria-label="Close navigation menu"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Scrollable Nav Items Area with Staggered Animations */}
+            <motion.div
+              variants={mobileMenuVariants}
+              initial="hidden"
+              animate="visible"
+              className="flex-1 overflow-y-auto px-5 sm:px-6 py-6 divide-y divide-line/60"
+            >
               {/* Accordion Categories */}
               {Object.values(navigationMenuData).map((menu) => (
-                <div key={menu.id} className="border-b border-line/60 pb-3">
+                <motion.div
+                  key={menu.id}
+                  variants={mobileItemVariants}
+                  className="py-3.5 first:pt-0"
+                >
                   <button
                     onClick={() =>
                       setMobileAccordion(mobileAccordion === menu.id ? null : menu.id)
                     }
-                    className="flex items-center justify-between w-full text-left py-2 text-h3 text-brand-900 cursor-pointer"
+                    className="flex items-center justify-between w-full text-left py-2 group cursor-pointer"
                   >
-                    <span>{menu.label}</span>
-                    <ChevronDown
+                    <span className="text-xl font-medium text-brand-900 group-hover:text-brand-500 transition-colors">
+                      {menu.label}
+                    </span>
+                    <div
                       className={cn(
-                        'w-5 h-5 transition-transform text-ink-500',
-                        mobileAccordion === menu.id && 'rotate-180 text-brand-500'
+                        'w-8 h-8 rounded-full flex items-center justify-center bg-surface transition-transform duration-200',
+                        mobileAccordion === menu.id && 'bg-brand-500/10 text-brand-500 rotate-180'
                       )}
-                    />
+                    >
+                      <ChevronDown className="w-4 h-4 text-ink-500" />
+                    </div>
                   </button>
 
-                  {mobileAccordion === menu.id && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="mt-2 space-y-2 pl-2"
-                    >
-                      {menu.items.map((item, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => scrollToSection(item.href)}
-                          className="flex items-start gap-3 p-2.5 rounded-lg text-left w-full hover:bg-surface cursor-pointer"
-                        >
-                          <div className={`w-8 h-8 rounded flex items-center justify-center shrink-0 ${item.iconBg} ${item.iconColor} mt-0.5`}>
-                            <item.icon className="w-4 h-4" />
-                          </div>
-                          <div>
-                            <div className="text-body font-semibold text-brand-900">
-                              {item.title}
+                  <AnimatePresence>
+                    {mobileAccordion === menu.id && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden mt-2 space-y-1.5 pl-1"
+                      >
+                        {menu.items.map((item, idx) => (
+                          <motion.button
+                            key={idx}
+                            initial={{ opacity: 0, x: 12 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.2, delay: idx * 0.04 }}
+                            onClick={() => scrollToSection(item.href)}
+                            className="flex items-start gap-3.5 p-3 rounded-xl text-left w-full hover:bg-surface/80 active:bg-surface transition-colors cursor-pointer"
+                          >
+                            <div
+                              className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${item.iconBg} ${item.iconColor} mt-0.5 shadow-2xs`}
+                            >
+                              <item.icon className="w-4.5 h-4.5" />
                             </div>
-                            <div className="text-small text-ink-500 leading-tight">
-                              {item.subtitle}
+                            <div className="flex-1 min-w-0">
+                              <div className="text-sm font-medium text-brand-900 truncate">
+                                {item.title}
+                              </div>
+                              <div className="text-xs text-ink-500 leading-snug line-clamp-1">
+                                {item.subtitle}
+                              </div>
                             </div>
-                          </div>
-                        </button>
-                      ))}
-                    </motion.div>
-                  )}
-                </div>
+                          </motion.button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               ))}
 
               {/* Direct Links */}
-              <div className="flex flex-col space-y-3 pt-2">
-                <button
-                  onClick={() => scrollToSection('why-us')}
-                  className="flex items-center justify-between py-2 text-h3 text-brand-900 text-left cursor-pointer"
+              <motion.div variants={mobileItemVariants} className="py-4 space-y-3.5">
+                <Link
+                  href="/careers"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-between text-xl font-medium text-brand-900 hover:text-brand-500 py-1.5 transition-colors cursor-pointer"
                 >
                   <span>Careers</span>
-                </button>
+                  <ArrowRight className="w-4.5 h-4.5 text-ink-400 -rotate-45" />
+                </Link>
 
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="py-2 text-h3 text-brand-900 text-left cursor-pointer"
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-between text-xl font-medium text-brand-900 hover:text-brand-500 py-1.5 transition-colors cursor-pointer"
                 >
-                  Contact
-                </button>
-              </div>
+                  <span>Contact</span>
+                  <ArrowRight className="w-4.5 h-4.5 text-ink-400 -rotate-45" />
+                </Link>
+              </motion.div>
+            </motion.div>
 
-              {/* Mobile CTA */}
-              <div className="pt-4 border-t border-line">
+            {/* Bottom Bar: Action CTA and Brand Tagline */}
+            <motion.div
+              variants={mobileItemVariants}
+              initial="hidden"
+              animate="visible"
+              className="border-t border-line px-5 sm:px-6 py-4.5 bg-white shrink-0 flex flex-col gap-2.5 shadow-xs"
+            >
+              <Link href="/contact" onClick={() => setMobileOpen(false)} className="w-full">
                 <Button
                   variant="primary-cta"
                   size="default"
-                  onClick={() => scrollToSection('contact')}
-                  className="w-full justify-center text-center text-white"
+                  className="w-full justify-center text-center text-white py-3.5 text-btn rounded-xl shadow-sm shadow-cta/20 flex items-center gap-2"
                 >
-                  Talk to us
+                  <span>Talk to us</span>
+                  <ArrowRight className="w-4.5 h-4.5 text-white" />
                 </Button>
+              </Link>
+              <div className="text-center text-[10px] sm:text-[11px] text-ink-500 font-mono tracking-widest pt-0.5">
+                TECHNOLOGY &bull; INNOVATION &bull; SOLUTIONS
               </div>
-
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

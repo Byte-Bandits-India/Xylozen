@@ -4,6 +4,7 @@ import React from 'react'
 import { Logo } from '@/components/ui/Logo'
 import { Mail, Linkedin, Twitter, ArrowUpRight } from 'lucide-react'
 import { useLenis } from 'lenis/react'
+import { usePathname, useRouter } from 'next/navigation'
 
 // =============================================================================
 // MAIN COMPONENT: Footer
@@ -13,34 +14,56 @@ import { useLenis } from 'lenis/react'
 
 export function Footer() {
   const lenis = useLenis()
+  const router = useRouter()
+  const pathname = usePathname()
 
-  const scrollToSection = (id: string) => {
-    const cleanId = id.replace('#', '')
-    const element = document.getElementById(cleanId)
-
-    if (lenis) {
-      if (element) {
-        lenis.scrollTo(element, { offset: -80, duration: 1.2 })
-      } else {
-        lenis.scrollTo(0, { duration: 1.2 })
+  const scrollToSection = (target: string) => {
+    if (target.startsWith('/')) {
+      const [targetPath, targetHash] = target.split('#')
+      
+      if (pathname === targetPath || (targetPath === '' && pathname === '/')) {
+        if (targetHash) {
+          const element = document.getElementById(targetHash)
+          if (element) {
+            if (lenis) {
+              lenis.scrollTo(element, { offset: -80, duration: 1.2 })
+            } else {
+              const headerOffset = 80
+              const elementPosition = element.getBoundingClientRect().top
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+              window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
+            }
+            return
+          }
+        } else {
+          if (lenis) lenis.scrollTo(0, { duration: 1.2 })
+          else window.scrollTo({ top: 0, behavior: 'smooth' })
+          return
+        }
       }
+      
+      router.push(target)
       return
     }
 
-    if (element) {
-      const headerOffset = 80
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+    const cleanId = target.replace('#', '')
+    const element = document.getElementById(cleanId)
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      })
+    if (element) {
+      if (lenis) {
+        lenis.scrollTo(element, { offset: -80, duration: 1.2 })
+      } else {
+        const headerOffset = 80
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        })
+      }
     } else {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
+      router.push(`/#${cleanId}`)
     }
   }
 
@@ -111,29 +134,22 @@ export function Footer() {
               </h3>
               <div className="flex flex-col gap-3">
                 <button
-                  onClick={() => scrollToSection('what-we-do')}
+                  onClick={() => scrollToSection('/services/web-software')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Web &amp; Software
                 </button>
                 <button
-                  onClick={() => scrollToSection('what-we-do')}
+                  onClick={() => scrollToSection('/services/ecommerce')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Ecommerce
                 </button>
                 <button
-                  onClick={() => scrollToSection('what-we-do')}
+                  onClick={() => scrollToSection('/services/ai-automation')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   AI &amp; Automation
-                </button>
-                <button
-                  onClick={() => scrollToSection('what-we-do')}
-                  className="text-small font-semibold text-brand-500 hover:text-brand-700 transition-colors text-left cursor-pointer flex items-center gap-1"
-                >
-                  <span>Explore All Services</span>
-                  <ArrowUpRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -145,31 +161,31 @@ export function Footer() {
               </h3>
               <div className="flex flex-col gap-3">
                 <button
-                  onClick={() => scrollToSection('industries')}
+                  onClick={() => scrollToSection('/industries#retail')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Retail &amp; Ecommerce
                 </button>
                 <button
-                  onClick={() => scrollToSection('industries')}
+                  onClick={() => scrollToSection('/industries#real-estate')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Real Estate
                 </button>
                 <button
-                  onClick={() => scrollToSection('industries')}
+                  onClick={() => scrollToSection('/industries#healthcare')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Healthcare
                 </button>
                 <button
-                  onClick={() => scrollToSection('industries')}
+                  onClick={() => scrollToSection('/industries#logistics')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Logistics
                 </button>
                 <button
-                  onClick={() => scrollToSection('industries')}
+                  onClick={() => scrollToSection('/industries#manufacturing')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Manufacturing
@@ -184,25 +200,37 @@ export function Footer() {
               </h3>
               <div className="flex flex-col gap-3">
                 <button
-                  onClick={() => scrollToSection('our-work')}
+                  onClick={() => scrollToSection('/our-work')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Our Work
                 </button>
                 <button
-                  onClick={() => scrollToSection('our-work')}
+                  onClick={() => scrollToSection('/our-work#case-studies')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Case Studies
                 </button>
                 <button
-                  onClick={() => scrollToSection('why-us')}
+                  onClick={() => scrollToSection('/about')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
-                  Why Xylozen
+                  About Studio
                 </button>
                 <button
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => scrollToSection('/blogs')}
+                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                >
+                  Blogs
+                </button>
+                <button
+                  onClick={() => scrollToSection('/careers')}
+                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                >
+                  Careers
+                </button>
+                <button
+                  onClick={() => scrollToSection('/contact')}
                   className="text-small font-semibold text-cta hover:text-[#D93A16] transition-colors text-left cursor-pointer flex items-center gap-1"
                 >
                   <span>Start a Project</span>

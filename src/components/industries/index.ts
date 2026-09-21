@@ -1,0 +1,7 @@
+export { IndustriesHero } from './IndustriesHero'
+export { IndustriesHeroVisual } from './IndustriesHeroVisual'
+export { IndustriesStats } from './IndustriesStats'
+export { IndustriesShowcase } from './IndustriesShowcase'
+export { IndustryWorkflows } from './IndustryWorkflows'
+export { IndustryApproach } from './IndustryApproach'
+export { industriesData, industryStats, industryFaqs } from './industries-data'

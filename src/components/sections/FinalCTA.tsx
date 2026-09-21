@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
@@ -31,18 +31,18 @@ export function FinalCTA() {
           className="flex flex-col items-center"
         >
           {/* Headline verbatim from HomePage.MD */}
-          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-display font-bold text-white mb-6 sm:mb-8 max-w-xl tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-h2 font-bold text-white mb-6 max-w-xl tracking-tight leading-tight">
             Tell us what you&apos;re trying to build
           </h2>
 
           {/* Primary Action CTA Button (Single Orange button per brand guidelines) */}
-          <a
-            href="mailto:contact@xylozen.com"
-            className="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-7 sm:px-8 py-3.5 rounded-lg bg-cta hover:bg-[#D93A16] text-white text-btn transition-colors duration-200 cursor-pointer shadow-sm shadow-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#051C50]"
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2.5 w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg bg-cta hover:bg-[#D93A16] text-white text-btn transition-colors duration-200 cursor-pointer shadow-sm shadow-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#051C50]"
           >
             <span>Start a project</span>
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

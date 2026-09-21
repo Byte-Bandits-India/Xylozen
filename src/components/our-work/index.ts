@@ -1,0 +1,6 @@
+export * from './OurWorkHero'
+export * from './OurWorkHeroVisual'
+export * from './OurWorkStats'
+export * from './OurWorkCaseStudies'
+export * from './OurWorkGuarantees'
+export * from './our-work-data'

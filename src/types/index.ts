@@ -10,6 +10,38 @@ export type ServiceCard = {
   link: string
 }
 
+export type CapabilityItem = {
+  title: string
+  description: string
+  tag: string
+}
+
+export type ServicePillarData = {
+  id: string
+  line: ServiceLine
+  badgeLabel: string
+  title: string
+  tagline: string
+  summary: string
+  capabilities: CapabilityItem[]
+  deliverables: string[]
+  techStack: string[]
+  evidence: {
+    client: string
+    industry: string
+    metric: string
+    description: string
+    link?: string
+  }
+}
+
+export type DeliveryStep = {
+  number: string
+  title: string
+  description: string
+  output: string
+}
+
 // --- Stats ---
 export type StatTile = {
   id: string

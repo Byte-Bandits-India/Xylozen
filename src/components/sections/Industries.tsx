@@ -33,7 +33,7 @@ const industriesData: IndustryItem[] = [
     badgeText: 'Listings, portals, and lead systems',
     description:
       'We develop digital solutions that simplify property management, customer engagement, internal workflows, and real estate operations.',
-    image: '/images/agents/operations.jpg',
+    image: '/images/agents/realestate.jpg',
   },
   {
     id: 'healthcare',
@@ -57,7 +57,7 @@ const industriesData: IndustryItem[] = [
     badgeText: 'Internal systems that connect the floor to the office',
     description:
       'We develop intelligent systems that help manufacturing businesses improve operational visibility, automate processes, monitor performance, and make better data-driven decisions.',
-    image: '/images/agents/scheduler.jpg',
+    image: '/images/agents/manufacturing.jpg',
   },
 ]
 
@@ -129,13 +129,13 @@ export function Industries() {
             <span className="w-2 h-2 rounded-full bg-cta" />
             Industries We Serve
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-h1 font-bold text-slate-900">
+          <h2 className="text-2xl sm:text-3xl lg:text-h2 font-bold text-brand-900 tracking-tight leading-tight mb-3">
             Built for how your industry <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-900 via-brand-700 to-brand-500">
               actually works
             </span>
           </h2>
-          <p className="text-sm sm:text-lead text-slate-600 max-w-2xl pt-2 sm:pt-3 leading-relaxed">
+          <p className="text-small sm:text-body text-ink-500 max-w-2xl leading-relaxed">
             Every industry has its own workflows, operational challenges, customer expectations, and growth opportunities. At Xylozen, we build intelligent digital products that adapt to the specific needs of each business.
           </p>
         </div>
@@ -188,10 +188,10 @@ export function Industries() {
                       transition={{ duration: 0.25 }}
                       className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-sm border border-slate-200/90 border-l-[3px] border-l-cta text-left transition-all"
                     >
-                      <h3 className="text-h3 font-bold text-slate-900 mb-1.5">
+                      <h3 className="text-xl sm:text-h3 font-bold text-brand-900 mb-1.5">
                         {industry.name}
                       </h3>
-                      <p className="text-body text-slate-600">
+                      <p className="text-small sm:text-body text-ink-500 leading-relaxed">
                         {industry.description}
                       </p>
                     </motion.div>
@@ -203,7 +203,7 @@ export function Industries() {
                   <button
                     key={industry.id}
                     onClick={() => handleSelect(index)}
-                    className="group bg-white/80 hover:bg-white border border-slate-200/90 px-4 py-2.5 rounded-full text-slate-800 text-body font-medium flex items-center gap-2.5 transition-all shadow-2xs hover:shadow-xs text-left cursor-pointer w-fit"
+                    className="group bg-white/80 hover:bg-white border border-slate-200/90 px-4 py-2.5 rounded-full text-slate-800 text-small font-medium flex items-center gap-2.5 transition-all shadow-2xs hover:shadow-xs text-left cursor-pointer w-fit"
                   >
                     <span className="w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 group-hover:border-slate-800 group-hover:text-slate-900 transition-colors shrink-0">
                       <Plus className="w-3 h-3 stroke-[2.5]" />
@@ -297,10 +297,10 @@ export function Industries() {
 
                       {/* Content Section (Strictly from WeServe.MD) */}
                       <div className="mb-3 sm:mb-4">
-                        <h4 className="text-base sm:text-h3 font-bold text-slate-900 mb-1 line-clamp-1">
+                        <h4 className="text-base sm:text-h3 font-bold text-brand-900 mb-1 line-clamp-1">
                           {item.name}
                         </h4>
-                        <p className="text-xs sm:text-body text-slate-600 line-clamp-2 leading-relaxed">
+                        <p className="text-caption sm:text-small text-ink-500 line-clamp-2 leading-relaxed">
                           {item.description}
                         </p>
                       </div>

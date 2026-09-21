@@ -40,16 +40,16 @@ export function WhyXylozen() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6 }}
-          className="mb-8 sm:mb-12"
+          className="mb-8 sm:mb-12 text-center md:text-left flex flex-col items-center md:items-start"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/80 border border-slate-300/70 text-badge text-slate-700 mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-cta" />
             Why Xylozen
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-h2 font-bold text-brand-900">Why choose Xylozen</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-h2 font-bold text-brand-900 tracking-tight leading-tight mb-3">Why Choose Xylozen</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 sm:mb-12">
           {differentiators.map((item, index) => {
             const Icon = iconMap[item.icon as keyof typeof iconMap]
             return (
@@ -59,14 +59,14 @@ export function WhyXylozen() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="flex flex-col gap-3.5 sm:gap-4"
+                className="flex flex-col items-center md:items-start text-center md:text-left gap-3.5 sm:gap-4 max-w-sm mx-auto md:max-w-none md:mx-0"
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-brand-gradient flex items-center justify-center text-white shadow-xs">
                   <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                 </div>
                 <div>
                   <h3 className="text-lg sm:text-h3 font-semibold text-brand-900 mb-1.5 sm:mb-2">{item.title}</h3>
-                  <p className="text-sm sm:text-body text-ink-500 leading-relaxed">{item.description}</p>
+                  <p className="text-small sm:text-body text-ink-500 leading-relaxed">{item.description}</p>
                 </div>
               </motion.div>
             )
@@ -78,6 +78,7 @@ export function WhyXylozen() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex justify-center md:justify-start"
         >
           <a
             href="#how-we-work"

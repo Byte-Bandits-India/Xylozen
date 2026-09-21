@@ -2,6 +2,8 @@
 
 import React from 'react'
 
+import { ServiceArchitectureLogo } from '@/components/ui/ServiceArchitectureLogo'
+
 interface MegaMenuVisualProps {
   menuId: string
 }
@@ -19,17 +21,7 @@ function renderShape(menuId: string) {
     case 'services':
       // Shape 1: Clover / Curved architectural cutout flower shape
       return (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-          className="w-36 h-36 sm:w-44 sm:h-44 transition-transform duration-300 hover:scale-105"
-          fill="none"
-        >
-          <path
-            d="M 228 0 C 172.772 0 128 44.772 128 100 L 128 0 L 0 0 L 0 28 C 0 83.228 44.772 128 100 128 L 0 128 L 0 256 L 28 256 C 83.228 256 128 211.228 128 156 L 128 256 L 256 256 L 256 228 C 256 172.772 211.228 128 156 128 L 256 128 L 256 0 Z"
-            fill="rgb(84, 84, 84)"
-          />
-        </svg>
+        <ServiceArchitectureLogo className="w-36 h-36 sm:w-44 sm:h-44 text-[rgb(84,84,84)] transition-transform duration-300 hover:scale-105" />
       )
 
     case 'our-work':

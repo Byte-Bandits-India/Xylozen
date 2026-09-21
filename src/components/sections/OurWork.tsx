@@ -2,12 +2,7 @@
 
 import React from 'react'
 import { Check } from 'lucide-react'
-
-// =============================================================================
-// MAIN COMPONENT: OurWork SECTION
-// Content EXCLUSIVELY from info/Content/OurWork.MD and info/Content/HomePage.MD
-// UI structured as requested: Simple, clean, proper sticky card stack
-// =============================================================================
+import { ServiceArchitectureLogo } from '@/components/ui/ServiceArchitectureLogo'
 
 export function OurWork() {
   return (
@@ -20,23 +15,41 @@ export function OurWork() {
         {/* ===================================================================== */}
         {/* 1. SECTION HEADER (Strictly from OurWork.MD & HomePage.MD)            */}
         {/* ===================================================================== */}
-        <div className="mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-badge text-slate-700 mb-3">
-            <span className="w-2 h-2 rounded-full bg-cta" />
-            Our Work
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8 sm:mb-10">
+          <div className="max-w-2xl">
+            {/* Header Top Row: Badge on left, Decorative SVGs on right for mobile */}
+            <div className="flex items-center justify-between gap-4 mb-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-badge text-slate-700 font-semibold">
+                <span className="w-2 h-2 rounded-full bg-cta" />
+                <span className="font-mono uppercase">Our Work</span>
+              </div>
+
+              {/* Mobile View: Two Separate Small SVGs aligned with badge in top right */}
+              <div className="md:hidden flex items-center gap-2 text-cta select-none pointer-events-none pr-1" aria-hidden="true">
+                <ServiceArchitectureLogo className="w-5 h-5 transition-transform duration-300 hover:scale-110" />
+                <ServiceArchitectureLogo className="w-7 h-7 transition-transform duration-300 hover:scale-110" />
+              </div>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl lg:text-h2 font-bold text-brand-900 tracking-tight leading-tight mb-3">Precision, in <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-900 via-brand-700 to-brand-500">production</span></h2>
+            <p className="text-base sm:text-lead font-medium text-brand-700 mb-3 max-w-2xl">
+              Real products. Complex challenges. Measurable outcomes.
+            </p>
+            <p className="text-small sm:text-body text-ink-500 max-w-2xl leading-relaxed">
+              At Xylozen, we work beyond conventional software delivery. We identify operational challenges, engineer intelligent solutions, and take ownership from concept to deployment. Our selected projects demonstrate how AI-native systems, web applications, and custom digital platforms can create measurable business value.
+            </p>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-h1 font-bold text-slate-900">
-            Precision, in <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-900 via-brand-700 to-brand-500">
-              production
-            </span>
-          </h2>
-          <p className="text-base sm:text-lead font-semibold text-slate-800 pt-2 sm:pt-3">
-            Real products. Complex challenges. Measurable outcomes.
-          </p>
-          <p className="text-sm sm:text-lead text-slate-600 max-w-2xl pt-1.5 leading-relaxed">
-            At Xylozen, we work beyond conventional software delivery. We identify operational challenges, engineer intelligent solutions, and take ownership from concept to deployment. Our selected projects demonstrate how AI-native systems, web applications, and custom digital platforms can create measurable business value.
-          </p>
+
+          {/* Desktop View: Two Separate Small SVGs to the right of the header text */}
+          <div className="hidden md:block shrink-0 md:self-center pr-2 lg:pr-6">
+            <div className="flex items-center gap-2.5 sm:gap-3.5 text-cta select-none pointer-events-none" aria-hidden="true">
+              {/* First Separate Icon (Small) */}
+              <ServiceArchitectureLogo className="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-300 hover:scale-110" />
+
+              {/* Second Separate Icon (Small/Medium) */}
+              <ServiceArchitectureLogo className="w-9 h-9 sm:w-11 sm:h-11 transition-transform duration-300 hover:scale-110" />
+            </div>
+          </div>
         </div>
 
         {/* ===================================================================== */}
@@ -57,12 +70,12 @@ export function OurWork() {
                 {/* Left Column: Project Overview */}
                 <div className="lg:col-span-5 flex flex-col justify-center">
                   {/* Title */}
-                  <h3 className="text-xl sm:text-2xl lg:text-h2 font-bold text-slate-900 mb-2 sm:mb-3">
+                  <h3 className="text-lg sm:text-xl lg:text-h3 font-bold text-brand-900 mb-2 sm:mb-3">
                     Titan &times; Tata &mdash; Remote Eye Examination Platform
                   </h3>
 
                   {/* Challenge Description */}
-                  <p className="text-sm sm:text-body text-slate-600 mb-4 sm:mb-5 max-w-md leading-relaxed">
+                  <p className="text-small sm:text-body text-ink-500 mb-4 sm:mb-5 max-w-md leading-relaxed">
                     Titan &times; Tata required a solution that could connect customers with expert optometrists without requiring an optometrist to be physically present at every location.
                   </p>
                 </div>
@@ -136,12 +149,12 @@ export function OurWork() {
                 <div className="lg:col-span-5 flex flex-col justify-center">
 
                   {/* Title */}
-                  <h3 className="text-xl sm:text-2xl lg:text-h2 font-bold text-slate-900 mb-2 sm:mb-3">
+                  <h3 className="text-lg sm:text-xl lg:text-h3 font-bold text-brand-900 mb-2 sm:mb-3">
                     HireAI &mdash; Intelligent Recruitment Platform
                   </h3>
 
                   {/* Challenge Description */}
-                  <p className="text-sm sm:text-body text-slate-600 mb-4 sm:mb-5 max-w-md leading-relaxed">
+                  <p className="text-small sm:text-body text-ink-500 mb-4 sm:mb-5 max-w-md leading-relaxed">
                     Traditional recruitment workflows often require recruiters to manually review large volumes of resumes, resulting in delays and inconsistent screening. Xylozen developed HireAI, a cloud-based recruitment platform designed to automate and improve the candidate screening process.
                   </p>
                 </div>
@@ -219,12 +232,12 @@ export function OurWork() {
                 <div className="lg:col-span-5 flex flex-col justify-center">
 
                   {/* Title */}
-                  <h3 className="text-xl sm:text-2xl lg:text-h2 font-bold text-slate-900 mb-2 sm:mb-3">
+                  <h3 className="text-lg sm:text-xl lg:text-h3 font-bold text-brand-900 mb-2 sm:mb-3">
                     AI-Powered Construction Safety Monitoring
                   </h3>
 
                   {/* Challenge Description */}
-                  <p className="text-sm sm:text-body text-slate-600 mb-4 sm:mb-5 max-w-md leading-relaxed">
+                  <p className="text-small sm:text-body text-ink-500 mb-4 sm:mb-5 max-w-md leading-relaxed">
                     Construction companies often depend on manual inspections to monitor safety compliance across active sites. This approach can be time-consuming, inconsistent, and difficult to scale across multiple locations. Xylozen engineered an AI-powered monitoring system using computer vision to identify safety violations and support centralized compliance management.
                   </p>
                 </div>

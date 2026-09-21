@@ -3,6 +3,7 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
 import { useLenis } from 'lenis/react'
+import { usePathname, useRouter } from 'next/navigation'
 
 export interface LogoProps {
   /**
@@ -86,6 +87,8 @@ export function Logo({
   const isDark = variant === 'dark'
   const currentSize = sizeConfig[size]
   const lenis = useLenis()
+  const pathname = usePathname()
+  const router = useRouter()
 
   const handleClick = (e: React.MouseEvent) => {
     if (onClick) {
@@ -94,6 +97,10 @@ export function Logo({
     }
     if (scrollToTop) {
       e.preventDefault()
+      if (pathname !== '/') {
+        router.push('/')
+        return
+      }
       if (lenis) {
         lenis.scrollTo(0, { duration: 1.2 })
       } else {
