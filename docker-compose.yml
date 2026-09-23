@@ -10,34 +10,9 @@ services:
       - NODE_ENV=production
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    expose:
-      - "3000"
     ports:
       - "127.0.0.1:3000:3000"
-    networks:
-      - xylozen-network
-
-  caddy:
-    image: caddy:2-alpine
-    container_name: xylozen-caddy
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on:
-      - xylozen-app
-    networks:
-      - xylozen-network
-
-networks:
-  xylozen-network:
-    driver: bridge
-
-volumes:
-  caddy_data:
-  caddy_config:
+    deploy:
+      resources:
+        limits:
+          memory: 512M

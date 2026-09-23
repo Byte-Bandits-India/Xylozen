@@ -46,7 +46,7 @@ deploy-push:
 	git push origin main
 
 # Server Operations (EC2)
-SERVER_IP ?= 3.24.216.177
+SERVER_IP ?= 15.135.74.113
 SERVER_USER ?= ec2-user
 SSH_KEY ?= ~/Downloads/xylozen.pem
 

@@ -47,7 +47,7 @@ jobs:
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
             type=sha,format=short
 
-      - name: Build and Push Docker Image
+      - name: Build and Push Docker Image (Cloud Runner)
         uses: docker/build-push-action@v5
         with:
           context: .
@@ -64,15 +64,12 @@ jobs:
     needs: build-and-push
 
     steps:
-      - name: Checkout Code (for copying config files)
-        uses: actions/checkout@v4
-
       - name: Downcase Image Name
         id: image-name
         run: |
           echo "IMAGE_LOWER=$(echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
 
-      - name: Deploy via SSH to EC2
+      - name: Deploy Image to EC2 via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
@@ -85,13 +82,13 @@ jobs:
             PROJECT_DIR="/home/${{ secrets.EC2_USER }}/xylozen"
             IMAGE="${{ steps.image-name.outputs.IMAGE_LOWER }}:latest"
 
-            echo "🚀 Deploying Xylozen Website to EC2 ($PROJECT_DIR)..."
+            echo "🚀 Deploying pre-built Docker image to $PROJECT_DIR..."
             mkdir -p "$PROJECT_DIR"
             cd "$PROJECT_DIR"
 
-            # Create default .env file if it doesn't exist yet
+            # Create default .env file if missing
             if [ ! -f .env ]; then
-              echo "📝 Creating initial .env file..."
+              echo "📝 Creating initial .env template..."
               cat << 'EOF' > .env
             SMTP_HOST=smtp.titan.email
             SMTP_PORT=465
@@ -104,10 +101,10 @@ jobs:
             EOF
             fi
 
-            # Authenticate with GHCR on the EC2 host
+            # Authenticate with GHCR on EC2
             echo "${{ secrets.GHCR_TOKEN || secrets.GHCR_PAT || secrets.GITHUB_TOKEN }}" | docker login ${{ env.REGISTRY }} -u "${{ github.actor }}" --password-stdin
 
-            # Update docker-compose.yml
+            # Update minimal docker-compose.yml (Only runs pre-built image, NO code or build on server)
             cat << 'EOF' > docker-compose.yml
             services:
               xylozen-app:
@@ -121,64 +118,24 @@ jobs:
                   - NODE_ENV=production
                 extra_hosts:
                   - "host.docker.internal:host-gateway"
-                expose:
-                  - "3000"
                 ports:
                   - "127.0.0.1:3000:3000"
-                networks:
-                  - xylozen-network
-
-              caddy:
-                image: caddy:2-alpine
-                container_name: xylozen-caddy
-                restart: unless-stopped
-                ports:
-                  - "80:80"
-                  - "443:443"
-                  - "443:443/udp"
-                volumes:
-                  - ./Caddyfile:/etc/caddy/Caddyfile:ro
-                  - caddy_data:/data
-                  - caddy_config:/config
-                depends_on:
-                  - xylozen-app
-                networks:
-                  - xylozen-network
-
-            networks:
-              xylozen-network:
-                driver: bridge
-
-            volumes:
-              caddy_data:
-              caddy_config:
+                deploy:
+                  resources:
+                    limits:
+                      memory: 512M
             EOF
 
             sed -i "s|IMAGE_PLACEHOLDER|$IMAGE|g" docker-compose.yml
 
-            # Update Caddyfile
-            cat << 'EOF' > Caddyfile
-            xylozentech.com, www.xylozentech.com {
-                encode gzip zstd
-
-                reverse_proxy xylozen-app:3000
-
-                header {
-                    X-Content-Type-Options nosniff
-                    X-Frame-Options DENY
-                    Referrer-Policy strict-origin-when-cross-origin
-                }
-            }
-            EOF
-
-            echo "📦 Pulling latest image ($IMAGE)..."
+            echo "📦 Pulling latest pre-built image ($IMAGE)..."
             docker compose pull xylozen-app
 
-            echo "🔄 Restarting containers..."
+            echo "🔄 Launching updated container..."
             docker compose up -d --remove-orphans
 
-            echo "🧹 Cleaning up dangling Docker images..."
+            echo "🧹 Cleaning up old images..."
             docker image prune -f
 
-            echo "✅ Deployment completed successfully!"
+            echo "✅ Successfully deployed!"
             docker compose ps

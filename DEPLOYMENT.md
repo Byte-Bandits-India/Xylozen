@@ -9,11 +9,11 @@ This guide details the complete deployment setup, GitHub Actions CI/CD automatio
 | Parameter | Value |
 | :--- | :--- |
 | **Domain** | `https://xylozentech.com/` and `https://www.xylozentech.com/` |
-| **Server Public IP** | `3.24.216.177` |
+| **Server Public IP** | `15.135.74.113` |
 | **Server User** | `ec2-user` |
 | **Server Working Directory** | `/home/ec2-user/xylozen` |
 | **Local SSH Key (Example)** | `~/Downloads/xylozen.pem` |
-| **SSH Command** | `ssh -i ~/Downloads/xylozen.pem ec2-user@3.24.216.177` |
+| **SSH Command** | `ssh -i ~/Downloads/xylozen.pem ec2-user@15.135.74.113` |
 
 ---
 
@@ -26,7 +26,7 @@ Add the following required secrets:
 
 | Secret Name | Value | Description |
 | :--- | :--- | :--- |
-| `EC2_HOST` | `3.24.216.177` | Server Public IPv4 address |
+| `EC2_HOST` | `15.135.74.113` | Server Public IPv4 address |
 | `EC2_USER` | `ec2-user` | SSH Username on EC2 |
 | `EC2_SSH_KEY` | *(Content of `xylozen.pem`)* | The complete private SSH key (including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`) |
 
