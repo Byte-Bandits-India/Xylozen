@@ -104,7 +104,7 @@ jobs:
             # Authenticate with GHCR on EC2
             echo "${{ secrets.GHCR_TOKEN || secrets.GHCR_PAT || secrets.GITHUB_TOKEN }}" | docker login ${{ env.REGISTRY }} -u "${{ github.actor }}" --password-stdin
 
-            # Update minimal docker-compose.yml (Only runs pre-built image, NO code or build on server)
+            # Update minimal docker-compose.yml (Only runs pre-built image, connected to internal network)
             cat << 'EOF' > docker-compose.yml
             services:
               xylozen-app:
@@ -116,14 +116,19 @@ jobs:
                 environment:
                   - PORT=3000
                   - NODE_ENV=production
-                extra_hosts:
-                  - "host.docker.internal:host-gateway"
-                ports:
-                  - "127.0.0.1:3000:3000"
+                expose:
+                  - "3000"
+                networks:
+                  - app
                 deploy:
                   resources:
                     limits:
                       memory: 512M
+
+            networks:
+              app:
+                name: dashboard_app
+                external: true
             EOF
 
             sed -i "s|IMAGE_PLACEHOLDER|$IMAGE|g" docker-compose.yml
