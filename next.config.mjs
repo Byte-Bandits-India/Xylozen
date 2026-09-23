@@ -11,6 +11,17 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve = config.resolve || {}
+      config.resolve.alias = config.resolve.alias || {}
+      
+      const polyfillStub = new URL('./src/lib/empty-polyfill.js', import.meta.url).pathname
+      config.resolve.alias['next/dist/build/polyfills/polyfill-module'] = polyfillStub
+      config.resolve.alias['next/dist/build/polyfills/polyfill-nomodule'] = polyfillStub
+    }
+    return config
+  },
   async redirects() {
     return [
       {
