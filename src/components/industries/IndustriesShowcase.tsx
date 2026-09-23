@@ -81,7 +81,7 @@ export function IndustriesShowcase() {
                 <button
                   key={industry.id}
                   onClick={() => handleSelect(index)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 cursor-pointer shrink-0 ${
+                  className={`min-h-[44px] px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 cursor-pointer shrink-0 ${
                     isActive
                       ? 'bg-brand-900 text-white shadow-xs'
                       : 'bg-white/90 text-slate-700 border border-slate-200 hover:bg-white'

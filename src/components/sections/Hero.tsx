@@ -129,7 +129,7 @@ export function Hero() {
                 onClick={toggleWithout}
                 role="switch"
                 aria-checked={isWithoutToggled}
-                aria-label="Toggle Without Xylozen"
+                aria-label="Without Xylozen"
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
@@ -175,7 +175,7 @@ export function Hero() {
                 onClick={toggleWith}
                 role="switch"
                 aria-checked={isWithToggled}
-                aria-label="Toggle With Xylozen"
+                aria-label="With Xylozen"
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {

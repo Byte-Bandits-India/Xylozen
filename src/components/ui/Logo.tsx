@@ -156,7 +156,7 @@ export function Logo({
       <button
         onClick={handleClick}
         className="inline-flex flex-col text-left cursor-pointer transition-opacity hover:opacity-90 focus:outline-hidden"
-        aria-label="Xylozen Home"
+        aria-label="Xylozen Technologies"
       >
         {Content}
       </button>
