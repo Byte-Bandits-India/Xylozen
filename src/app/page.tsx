@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Hero } from '@/components/sections/Hero'
@@ -8,6 +9,39 @@ import { OurWork } from '@/components/sections/OurWork'
 import { Industries } from '@/components/sections/Industries'
 import { WhyXylozen } from '@/components/sections/WhyXylozen'
 import { FinalCTA } from '@/components/sections/FinalCTA'
+
+export const metadata: Metadata = {
+  title: 'Xylozen Technologies | Precision Operationalized',
+  description:
+    'From your first website to a fully automated business, designed, built, integrated, and maintained by one team. International-standard engineering for web, commerce, and AI automation.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Xylozen Technologies | Precision Operationalized',
+    description:
+      'From your first website to a fully automated business, designed, built, integrated, and maintained by one team.',
+    url: 'https://xylozen.com',
+    siteName: 'Xylozen Technologies',
+    images: [
+      {
+        url: '/opengraph.png',
+        width: 1200,
+        height: 630,
+        alt: 'Xylozen Technologies',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Xylozen Technologies | Precision Operationalized',
+    description:
+      'From your first website to a fully automated business, designed, built, integrated, and maintained by one team.',
+    images: ['/opengraph.png'],
+  },
+}
 
 export default function HomePage() {
   return (

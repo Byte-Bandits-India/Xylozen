@@ -231,7 +231,7 @@ export function Footer() {
                 </button>
                 <button
                   onClick={() => scrollToSection('/contact')}
-                  className="text-small font-semibold text-cta hover:text-[#D93A16] transition-colors text-left cursor-pointer flex items-center gap-1"
+                  className="text-small font-semibold text-cta hover:text-[#C13010] transition-colors text-left cursor-pointer flex items-center gap-1"
                 >
                   <span>Start a Project</span>
                   <ArrowUpRight className="w-4 h-4" />

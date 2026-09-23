@@ -34,7 +34,7 @@ export function CaseStudyCard({ industry, title, challenge, impact, className, d
       <p className="text-body text-ink-500 mb-6 flex-grow">{challenge}</p>
 
       <div className="pt-4 border-t border-line">
-        <p className="text-small font-medium text-gold-400 uppercase tracking-wide mb-1">Impact</p>
+        <p className="text-small font-medium text-gold-600 uppercase tracking-wide mb-1">Impact</p>
         <p className="text-body text-ink-900">{impact}</p>
       </div>
     </motion.div>

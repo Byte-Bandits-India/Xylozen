@@ -24,7 +24,7 @@ export function OurWorkGuarantees() {
                 One Team, Three Capabilities
               </h3>
               <p className="text-small text-ink-500 leading-relaxed">
-                AI, web software, and high-velocity commerce unified under one roof—never stitched together
+                AI, web software, and high-velocity commerce unified under one roof, never stitched together
                 across disparate agency vendors or third-party freelancers.
               </p>
             </div>
@@ -39,7 +39,7 @@ export function OurWorkGuarantees() {
                 Delivery, Not Just Design
               </h3>
               <p className="text-small text-ink-500 leading-relaxed">
-                International-standard execution. We don’t deliver Figma mocks and walk away—we write strict,
+                International-standard execution. We don’t deliver Figma mocks and walk away; we write strict,
                 typed code, deploy containers, run test suites, and guarantee uptime.
               </p>
             </div>

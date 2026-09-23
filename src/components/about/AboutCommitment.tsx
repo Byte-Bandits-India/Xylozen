@@ -20,7 +20,7 @@ export function AboutCommitment() {
             </span>
           </h2>
           <p className="text-small sm:text-body text-ink-500 leading-relaxed">
-            We hold ourselves accountable to four non-negotiable standards on every project—from initial architectural discovery to production go-live and ongoing scale.
+            We hold ourselves accountable to four non-negotiable standards on every project, from initial architectural discovery to production go-live and ongoing scale.
           </p>
         </div>
 

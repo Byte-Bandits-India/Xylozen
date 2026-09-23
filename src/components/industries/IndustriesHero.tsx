@@ -45,7 +45,7 @@ export function IndustriesHero() {
             </p>
 
             <p className="text-small sm:text-body text-ink-500 max-w-2xl mb-8 leading-relaxed">
-              Our expertise in AI-native systems, web applications, Micro-SaaS platforms, workflow automation, and MVP development enables us to support organizations across multiple industries—from emerging businesses to established enterprises.
+              Our expertise in AI-native systems, web applications, Micro-SaaS platforms, workflow automation, and MVP development enables us to support organizations across multiple industries, from emerging businesses to established enterprises.
             </p>
 
             {/* CTA Buttons */}

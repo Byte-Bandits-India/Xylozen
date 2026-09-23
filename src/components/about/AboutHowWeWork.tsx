@@ -102,7 +102,7 @@ export function AboutHowWeWork() {
             A Disciplined Approach to Building High-Value Digital Products
           </h2>
           <p className="text-small sm:text-body text-ink-500 leading-relaxed">
-            At Xylozen, every engagement begins with business understanding—not a technology stack. We combine strategic discovery, product thinking, and engineering excellence to create solutions that are commercially relevant, technically resilient, and built for long-term value.
+            At Xylozen, every engagement begins with business understanding, not a technology stack. We combine strategic discovery, product thinking, and engineering excellence to create solutions that are commercially relevant, technically resilient, and built for long-term value.
           </p>
         </div>
 

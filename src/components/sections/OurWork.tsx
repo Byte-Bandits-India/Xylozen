@@ -57,7 +57,7 @@ export function OurWork() {
         {/* ===================================================================== */}
         <div className="relative w-full pt-2 sm:pt-4 pb-10">
           {/* ------------------------------------------------------------------- */}
-          {/* CARD 1: Titan × Tata — Remote Eye Examination Platform              */}
+          {/* CARD 1: Titan × Tata: Remote Eye Examination Platform               */}
           {/* ------------------------------------------------------------------- */}
           <div
             className="relative lg:sticky lg:top-[124px] mb-8 sm:mb-12 lg:mb-[150px] transition-all duration-300"
@@ -71,7 +71,7 @@ export function OurWork() {
                 <div className="lg:col-span-5 flex flex-col justify-center">
                   {/* Title */}
                   <h3 className="text-lg sm:text-xl lg:text-h3 font-bold text-brand-900 mb-2 sm:mb-3">
-                    Titan &times; Tata &mdash; Remote Eye Examination Platform
+                    Titan &times; Tata: Remote Eye Examination Platform
                   </h3>
 
                   {/* Challenge Description */}
@@ -135,7 +135,7 @@ export function OurWork() {
           </div>
 
           {/* ------------------------------------------------------------------- */}
-          {/* CARD 2: HireAI — Intelligent Recruitment Platform                   */}
+          {/* CARD 2: HireAI: Intelligent Recruitment Platform                    */}
           {/* ------------------------------------------------------------------- */}
           <div
             className="relative lg:sticky lg:top-[166px] mb-8 sm:mb-12 lg:mb-[150px] transition-all duration-300"
@@ -150,7 +150,7 @@ export function OurWork() {
 
                   {/* Title */}
                   <h3 className="text-lg sm:text-xl lg:text-h3 font-bold text-brand-900 mb-2 sm:mb-3">
-                    HireAI &mdash; Intelligent Recruitment Platform
+                    HireAI: Intelligent Recruitment Platform
                   </h3>
 
                   {/* Challenge Description */}

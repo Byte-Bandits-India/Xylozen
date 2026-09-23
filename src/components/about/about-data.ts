@@ -71,7 +71,7 @@ export const aboutWhyPillars: WhyPillar[] = [
     tagline: 'Foundational, Not an Afterthought',
     badgeText: 'INTELLIGENT ARCHITECTURE',
     summary:
-      'We treat AI as a foundational capability—it is not a feature added at the end. Our solutions are designed to use intelligent automation, data, and connected systems from the ground up.',
+      'We treat AI as a foundational capability; it is not a feature added at the end. Our solutions are designed to use intelligent automation, data, and connected systems from the ground up.',
     anchor: 'why-xylozen',
     image: '/images/agents/engineer.jpg',
     keyTakeaways: [
@@ -336,7 +336,7 @@ export const aboutCommitments: CommitmentItem[] = [
     title: 'Strong Engineering',
     tagline: 'Modern, Scalable Systems',
     description:
-      'We use typed, modular, and resilient technologies—from Next.js and Python microservices to vector datastores and edge inference brokers.',
+      'We use typed, modular, and resilient technologies, from Next.js and Python microservices to vector datastores and edge inference brokers.',
     icon: Code2,
   },
   {

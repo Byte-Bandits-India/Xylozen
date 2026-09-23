@@ -82,7 +82,7 @@ export function WhyXylozen() {
         >
           <a
             href="#how-we-work"
-            className="inline-flex items-center gap-2 text-small sm:text-btn font-semibold text-brand-700 hover:text-[#D93A16] transition-colors hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-small sm:text-btn font-semibold text-brand-700 hover:text-[#C13010] transition-colors hover:gap-3 transition-all"
           >
             Learn How We Work
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />

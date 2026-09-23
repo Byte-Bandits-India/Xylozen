@@ -12,19 +12,48 @@ const inter = Inter({
   weight: ['300', '400', '500', '600', '700'],
 })
 
+import {
+  getOrganizationSchema,
+  getLocalBusinessSchema,
+  getWebSiteSchema,
+} from '@/lib/seo-schema'
+
 export const metadata: Metadata = {
-  title: 'Xylozen Technologies — Precision Operationalized',
+  metadataBase: new URL('https://xylozen.com'),
+  title: {
+    default: 'Xylozen Technologies | Precision Operationalized',
+    template: '%s | Xylozen Technologies',
+  },
   description:
-    'From your first website to a fully automated business — designed, built, integrated, and maintained by one team. International-standard engineering for web, commerce, and AI automation.',
+    'From your first website to a fully automated business, designed, built, integrated, and maintained by one team. International-standard engineering for web, commerce, and AI automation.',
   keywords: [
     'web development',
     'software engineering',
     'ecommerce',
     'AI automation',
     'business software',
+    'Agentic AI',
+    'custom software',
     'Chennai',
     'India',
   ],
+  authors: [{ name: 'Xylozen Technologies', url: 'https://xylozen.com' }],
+  creator: 'Xylozen Technologies',
+  publisher: 'Xylozen Technologies',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -32,20 +61,20 @@ export const metadata: Metadata = {
     ],
     shortcut: '/favicon.ico',
     apple: [
-      { url: '/images/logo/favicon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/opengraph.png', sizes: '180x180', type: 'image/png' },
     ],
   },
   openGraph: {
-    title: 'Xylozen Technologies — Precision Operationalized',
+    title: 'Xylozen Technologies | Precision Operationalized',
     description:
-      'From your first website to a fully automated business — designed, built, integrated, and maintained by one team.',
+      'From your first website to a fully automated business, designed, built, integrated, and maintained by one team.',
     url: 'https://xylozen.com',
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/images/logo/transparent.png',
-        width: 2148,
-        height: 538,
+        url: '/opengraph.png',
+        width: 1200,
+        height: 630,
         alt: 'Xylozen Technologies',
       },
     ],
@@ -54,10 +83,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Xylozen Technologies — Precision Operationalized',
+    title: 'Xylozen Technologies | Precision Operationalized',
     description:
-      'From your first website to a fully automated business — designed, built, integrated, and maintained by one team.',
-    images: ['/images/logo/transparent.png'],
+      'From your first website to a fully automated business, designed, built, integrated, and maintained by one team.',
+    images: ['/opengraph.png'],
   },
 }
 
@@ -66,9 +95,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const organizationSchema = getOrganizationSchema()
+  const localBusinessSchema = getLocalBusinessSchema()
+  const websiteSchema = getWebSiteSchema()
+
   return (
     <html lang="en" className={cn(inter.variable, "font-sans")}>
       <body className="font-sans antialiased text-ink-900 bg-white selection:bg-brand-500/15 selection:text-brand-900">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <SmoothScroll>
           {children}
         </SmoothScroll>

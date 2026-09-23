@@ -19,7 +19,7 @@ const services: ExtendedServiceCard[] = [
     title: 'Web & Software',
     tagline: 'Enterprise Web & Cloud Platforms',
     description: 'Software that runs your business the way an enterprise runs theirs.',
-    details: 'From company websites to internal systems and dashboards — built to hold up under real use.',
+    details: 'From company websites to internal systems and dashboards, built to hold up under real use.',
     link: '/services/web-software',
   },
   {
@@ -28,7 +28,7 @@ const services: ExtendedServiceCard[] = [
     badge: 'Pillar 02',
     title: 'Ecommerce',
     tagline: 'High-Conversion Checkout & Headless',
-    description: 'Live, selling, and getting paid — without you learning to code.',
+    description: 'Live, selling, and getting paid without you learning to code.',
     details: 'Stores built on the platform that fits you, from fast-launch to fully custom.',
     link: '/services/ecommerce',
   },
@@ -39,7 +39,7 @@ const services: ExtendedServiceCard[] = [
     title: 'AI & Automation',
     tagline: 'Autonomous Agents & Vision Pipelines',
     description: 'A digital team that works while you sleep.',
-    details: "Agents that don't just answer — they complete the work.",
+    details: "Agents that don't just answer, they complete the work.",
     link: '/services/ai-automation',
   },
 ]
@@ -117,7 +117,7 @@ export function WhatWeDo() {
                     >
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-caption font-mono uppercase tracking-wider text-ink-500 font-semibold bg-surface px-2.5 py-1 rounded-full border border-line">
+                    <span className="text-caption font-mono uppercase tracking-wider text-ink-900 font-semibold bg-surface px-2.5 py-1 rounded-full border border-line">
                       {service.badge}
                     </span>
                   </div>

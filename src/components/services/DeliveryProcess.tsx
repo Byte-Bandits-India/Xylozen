@@ -28,7 +28,7 @@ export function DeliveryProcess() {
           </h2>
 
           <p className="text-base sm:text-lead text-ink-500 leading-relaxed">
-            Every engagement begins with business understanding—not a technology stack. We combine
+            Every engagement begins with business understanding, not a technology stack. We combine
             strategic discovery, product thinking, and engineering excellence to create solutions that
             are commercially relevant and technically resilient.
           </p>

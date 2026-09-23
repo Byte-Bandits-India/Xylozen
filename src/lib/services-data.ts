@@ -6,9 +6,9 @@ export const servicePillars: ServicePillarData[] = [
     line: 'web-software',
     badgeLabel: 'Web & Software',
     title: 'Software that runs your business the way an enterprise runs theirs.',
-    tagline: 'From company websites to internal systems and dashboards — built to hold up under real use.',
+    tagline: 'From company websites to internal systems and dashboards, built to hold up under real use.',
     summary:
-      'We engineer resilient, production-ready web platforms, internal management systems, and custom software architectures. No generic templates or stitched dependencies—every codebase is purpose-built for operational scale, high concurrency, and long-term maintainability.',
+      'We engineer resilient, production-ready web platforms, internal management systems, and custom software architectures. No generic templates or stitched dependencies; every codebase is purpose-built for operational scale, high concurrency, and long-term maintainability.',
     capabilities: [
       {
         title: 'Custom Web Applications & Portals',
@@ -68,7 +68,7 @@ export const servicePillars: ServicePillarData[] = [
     id: 'ecommerce',
     line: 'ecommerce',
     badgeLabel: 'Ecommerce',
-    title: 'Live, selling, and getting paid — without you learning to code.',
+    title: 'Live, selling, and getting paid without you learning to code.',
     tagline: 'Stores built on the platform that fits you, from fast-launch to fully custom.',
     summary:
       'We build high-converting ecommerce platforms engineered for speed, frictionless checkout, and unbroken operation during high-volume traffic surges. From headless architectures to custom commerce engines, we eliminate drop-off and streamline catalog and order operations.',
@@ -131,7 +131,7 @@ export const servicePillars: ServicePillarData[] = [
     line: 'ai-automation',
     badgeLabel: 'Agentic AI & Automation',
     title: 'A digital team that works while you sleep.',
-    tagline: "Agents that don't just answer — they complete the work.",
+    tagline: "Agents that don't just answer, they complete the work.",
     summary:
       'We treat AI as a foundational operational capability, not an afterthought. We engineer autonomous agentic workflows, computer vision systems, and intelligent data pipelines that execute tasks end-to-end within your actual business systems.',
     capabilities: [

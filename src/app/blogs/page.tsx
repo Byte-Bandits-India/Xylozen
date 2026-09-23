@@ -8,15 +8,51 @@ import { Footer } from '@/components/layout/Footer'
 import { FinalCTA } from '@/components/sections/FinalCTA'
 import { blogPosts } from '@/lib/blogs-data'
 
+import { JsonLd } from '@/components/seo/JsonLd'
+import { getBreadcrumbSchema } from '@/lib/seo-schema'
+
 export const metadata: Metadata = {
-  title: 'Blogs & Engineering Perspectives — Xylozen',
+  title: 'Blogs & Engineering Perspectives | Xylozen',
   description:
-    'Engineering Intelligence. Creating Business Value. From workflow to product. From idea to revenue.',
+    'Engineering Intelligence. Creating Business Value. In-depth technical perspectives on AI-native architectures, high-concurrency systems, and scalable commerce.',
+  alternates: {
+    canonical: '/blogs',
+  },
+  openGraph: {
+    title: 'Blogs & Engineering Perspectives | Xylozen',
+    description:
+      'In-depth technical perspectives on AI-native architectures, high-concurrency systems, and scalable commerce.',
+    url: 'https://xylozen.com/blogs',
+    siteName: 'Xylozen Technologies',
+    images: [
+      {
+        url: '/opengraph.png',
+        width: 1200,
+        height: 630,
+        alt: 'Xylozen Engineering Perspectives',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blogs & Engineering Perspectives | Xylozen',
+    description:
+      'In-depth technical perspectives on AI-native architectures, high-concurrency systems, and scalable commerce.',
+    images: ['/opengraph.png'],
+  },
 }
 
 export default function BlogsPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Blogs', url: '/blogs' },
+  ])
+
   return (
     <>
+      <JsonLd schema={breadcrumbSchema} />
       <Header />
       <main className="min-h-screen pt-32 sm:pt-36 lg:pt-40 bg-white">
         {/* ===================================================================== */}

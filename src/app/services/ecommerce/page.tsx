@@ -13,10 +13,44 @@ import { ServiceSubpageFAQs, FAQItem } from '@/components/services/ServiceSubpag
 
 import { ServiceDeliverablesStack, DeliverableStackTier } from '@/components/services/ServiceDeliverablesStack'
 
+import { JsonLd } from '@/components/seo/JsonLd'
+import {
+  getBreadcrumbSchema,
+  getServiceSchema,
+  getFAQSchema,
+} from '@/lib/seo-schema'
+
 export const metadata: Metadata = {
-  title: 'Ecommerce Engineering & Checkout Systems — Xylozen Technologies',
+  title: 'Ecommerce Engineering & Checkout Systems | Xylozen Technologies',
   description:
-    'Live, selling, and getting paid — without you learning to code. Stores built on the platform that fits you, from fast-launch headless Shopify to fully custom high-volume checkout engines.',
+    'Live, selling, and getting paid without you learning to code. Stores built on the platform that fits you, from fast-launch headless Shopify to fully custom high-volume checkout engines.',
+  alternates: {
+    canonical: '/services/ecommerce',
+  },
+  openGraph: {
+    title: 'Ecommerce Engineering & Checkout Systems | Xylozen Technologies',
+    description:
+      'High-converting ecommerce platforms engineered for speed, frictionless checkout, and unbroken operation during high-volume traffic surges.',
+    url: 'https://xylozen.com/services/ecommerce',
+    siteName: 'Xylozen Technologies',
+    images: [
+      {
+        url: '/images/architecture/ecommerce/ecom_checkout.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Ecommerce Checkout Architecture',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ecommerce Engineering & Checkout Systems | Xylozen Technologies',
+    description:
+      'High-converting ecommerce platforms engineered for speed, frictionless checkout, and unbroken operation during high-volume traffic surges.',
+    images: ['/images/architecture/ecommerce/ecom_checkout.jpg'],
+  },
 }
 
 const ecommerceFaqs: FAQItem[] = [
@@ -38,7 +72,7 @@ const ecommerceFaqs: FAQItem[] = [
   {
     question: 'Which payment gateways and localized checkout options are supported?',
     answer:
-      'We support global and domestic payment rails including Stripe, Razorpay, UPI, Apple Pay, Google Pay, Cash on Delivery (COD) verification workflows, and tiered B2B credit terms—all engineered with strict PCI-DSS Level 1 security standards.',
+      'We support global and domestic payment rails including Stripe, Razorpay, UPI, Apple Pay, Google Pay, Cash on Delivery (COD) verification workflows, and tiered B2B credit terms, all engineered with strict PCI-DSS Level 1 security standards.',
   },
 ]
 
@@ -96,8 +130,28 @@ const ecommerceDeliverableTiers: DeliverableStackTier[] = [
 export default function EcommercePage() {
   const data = servicePillars.find((p) => p.id === 'ecommerce')!
 
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/#what-we-do' },
+    { name: 'Ecommerce', url: '/services/ecommerce' },
+  ]
+
+  const serviceSchema = getServiceSchema({
+    name: 'Ecommerce Engineering & Headless Checkout Systems',
+    description: data.summary,
+    serviceType: 'EcommerceDevelopment',
+    url: '/services/ecommerce',
+    deliverables: data.deliverables,
+  })
+
+  const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs)
+  const faqSchema = getFAQSchema(ecommerceFaqs)
+
   return (
     <>
+      <JsonLd schema={serviceSchema} />
+      <JsonLd schema={breadcrumbSchema} />
+      <JsonLd schema={faqSchema} />
       <Header />
       <main className="min-h-screen pt-32 sm:pt-36 lg:pt-40">
         {/* Breadcrumb & Sub-Hero */}

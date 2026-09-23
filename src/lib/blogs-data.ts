@@ -24,7 +24,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: 'titan-tata-remote-examination',
-    title: 'Titan × Tata — Remote Eye Examination Platform',
+    title: 'Titan × Tata: Remote Eye Examination Platform',
     slug: 'titan-tata-remote-examination-platform',
     category: 'Healthcare & Retail',
     industry: 'Healthcare and Retail Technology',
@@ -49,7 +49,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 'hireai-recruitment-platform',
-    title: 'HireAI — Intelligent Recruitment Platform',
+    title: 'HireAI: Intelligent Recruitment Platform',
     slug: 'hireai-intelligent-recruitment-platform',
     category: 'AI & Automation',
     industry: 'Recruitment and Human Resources',

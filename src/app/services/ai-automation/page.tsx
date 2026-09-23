@@ -13,10 +13,44 @@ import { ServiceSubpageFAQs, FAQItem } from '@/components/services/ServiceSubpag
 
 import { ServiceDeliverablesStack, DeliverableStackTier } from '@/components/services/ServiceDeliverablesStack'
 
+import { JsonLd } from '@/components/seo/JsonLd'
+import {
+  getBreadcrumbSchema,
+  getServiceSchema,
+  getFAQSchema,
+} from '@/lib/seo-schema'
+
 export const metadata: Metadata = {
-  title: 'Agentic AI & Workflow Automation — Xylozen Technologies',
+  title: 'Agentic AI & Workflow Automation | Xylozen Technologies',
   description:
-    "A digital team that works while you sleep. Agents that don't just answer — they complete the work. Autonomous agentic systems, document NLP, and computer vision built in Chennai.",
+    "A digital team that works while you sleep. Agents that don't just answer, they complete the work. Autonomous agentic systems, document NLP, and computer vision built in Chennai.",
+  alternates: {
+    canonical: '/services/ai-automation',
+  },
+  openGraph: {
+    title: 'Agentic AI & Workflow Automation | Xylozen Technologies',
+    description:
+      'Autonomous agentic workflows, computer vision systems, and intelligent document NLP that execute tasks end-to-end within your business systems.',
+    url: 'https://xylozen.com/services/ai-automation',
+    siteName: 'Xylozen Technologies',
+    images: [
+      {
+        url: '/images/architecture/ai/ai_agent_orchestrator.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'AI Agent Orchestration Architecture',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Agentic AI & Workflow Automation | Xylozen Technologies',
+    description:
+      'Autonomous agentic workflows, computer vision systems, and intelligent document NLP that execute tasks end-to-end within your business systems.',
+    images: ['/images/architecture/ai/ai_agent_orchestrator.jpg'],
+  },
 }
 
 const aiAutomationFaqs: FAQItem[] = [
@@ -33,7 +67,7 @@ const aiAutomationFaqs: FAQItem[] = [
   {
     question: 'How do autonomous agentic workflows differ from basic AI chatbots?',
     answer:
-      'Basic chatbots merely generate conversational text. Autonomous agents possess goal-directed execution loops, persistent memory, and API tool integration—enabling them to parse incoming attachments, validate schemas, cross-reference ERP databases, execute multi-step reconciliation, and trigger operational webhooks without human intervention.',
+      'Basic chatbots merely generate conversational text. Autonomous agents possess goal-directed execution loops, persistent memory, and API tool integration, enabling them to parse incoming attachments, validate schemas, cross-reference ERP databases, execute multi-step reconciliation, and trigger operational webhooks without human intervention.',
   },
   {
     question: 'Can AI systems be deployed completely on-premise or in private clouds?',
@@ -96,8 +130,28 @@ const aiAutomationDeliverableTiers: DeliverableStackTier[] = [
 export default function AiAutomationPage() {
   const data = servicePillars.find((p) => p.id === 'ai-automation')!
 
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/#what-we-do' },
+    { name: 'Agentic AI & Automation', url: '/services/ai-automation' },
+  ]
+
+  const serviceSchema = getServiceSchema({
+    name: 'Agentic AI & Workflow Automation',
+    description: data.summary,
+    serviceType: 'ArtificialIntelligenceDevelopment',
+    url: '/services/ai-automation',
+    deliverables: data.deliverables,
+  })
+
+  const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs)
+  const faqSchema = getFAQSchema(aiAutomationFaqs)
+
   return (
     <>
+      <JsonLd schema={serviceSchema} />
+      <JsonLd schema={breadcrumbSchema} />
+      <JsonLd schema={faqSchema} />
       <Header />
       <main className="min-h-screen pt-32 sm:pt-36 lg:pt-40">
         {/* Breadcrumb & Sub-Hero */}

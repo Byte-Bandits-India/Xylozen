@@ -12,10 +12,44 @@ import { ServicesStats } from '@/components/services/ServicesStats'
 import { ServiceSubpageFAQs, FAQItem } from '@/components/services/ServiceSubpageFAQs'
 import { ServiceDeliverablesStack, DeliverableStackTier } from '@/components/services/ServiceDeliverablesStack'
 
+import { JsonLd } from '@/components/seo/JsonLd'
+import {
+  getBreadcrumbSchema,
+  getServiceSchema,
+  getFAQSchema,
+} from '@/lib/seo-schema'
+
 export const metadata: Metadata = {
-  title: 'Web & Software Engineering — Xylozen Technologies',
+  title: 'Web & Software Engineering | Xylozen Technologies',
   description:
     'Software that runs your business the way an enterprise runs theirs. Custom web applications, internal systems, and scalable API infrastructure built in Chennai for global scale.',
+  alternates: {
+    canonical: '/services/web-software',
+  },
+  openGraph: {
+    title: 'Web & Software Engineering | Xylozen Technologies',
+    description:
+      'Custom web applications, internal systems, and scalable cloud architectures purpose-built for operational scale and high concurrency.',
+    url: 'https://xylozen.com/services/web-software',
+    siteName: 'Xylozen Technologies',
+    images: [
+      {
+        url: '/images/architecture/microservices_mesh.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Web & Software Engineering Architecture',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Web & Software Engineering | Xylozen Technologies',
+    description:
+      'Custom web applications, internal systems, and scalable cloud architectures purpose-built for operational scale and high concurrency.',
+    images: ['/images/architecture/microservices_mesh.jpg'],
+  },
 }
 
 const webSoftwareFaqs: FAQItem[] = [
@@ -95,8 +129,28 @@ const webSoftwareDeliverableTiers: DeliverableStackTier[] = [
 export default function WebSoftwarePage() {
   const data = servicePillars.find((p) => p.id === 'web-software')!
 
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/#what-we-do' },
+    { name: 'Web & Software', url: '/services/web-software' },
+  ]
+
+  const serviceSchema = getServiceSchema({
+    name: 'Web & Custom Software Engineering',
+    description: data.summary,
+    serviceType: 'SoftwareEngineering',
+    url: '/services/web-software',
+    deliverables: data.deliverables,
+  })
+
+  const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs)
+  const faqSchema = getFAQSchema(webSoftwareFaqs)
+
   return (
     <>
+      <JsonLd schema={serviceSchema} />
+      <JsonLd schema={breadcrumbSchema} />
+      <JsonLd schema={faqSchema} />
       <Header />
       <main className="min-h-screen pt-32 sm:pt-36 lg:pt-40">
         {/* Breadcrumb & Sub-Hero */}

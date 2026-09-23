@@ -10,7 +10,7 @@ export function IndustryApproach() {
       number: '01',
       title: 'Context-First Engineering',
       description:
-        'We first understand the industry, workflow, and business objective—then design technology around the way the organization actually operates day-to-day.',
+        'We first understand the industry, workflow, and business objective, then design technology around the way the organization actually operates day-to-day.',
     },
     {
       icon: Cpu,
@@ -44,7 +44,7 @@ export function IndustryApproach() {
             </span>
           </h2>
           <p className="text-small sm:text-body text-ink-500 leading-relaxed">
-            Our approach is not based on forcing every business into the same software model. We first understand the industry, workflow, and business objective—then design technology around the way the organization actually operates.
+            Our approach is not based on forcing every business into the same software model. We first understand the industry, workflow, and business objective, then design technology around the way the organization actually operates.
           </p>
         </div>
 

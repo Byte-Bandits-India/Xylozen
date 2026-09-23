@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 export interface ScrollExpandProps {
@@ -82,11 +83,12 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
         playsInline
       />
     ) : (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        className="absolute inset-0 w-full h-full object-cover origin-center select-none"
+      <Image
+        className="object-cover origin-center select-none"
         src={resolvedSrc}
         alt={alt || 'Xylozen Engineering Pod in Production'}
+        fill
+        sizes="90vw"
         draggable={false}
       />
     );

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 
 export interface AccordionGalleryItem {
@@ -149,12 +150,12 @@ export function AccordionGallery({
           >
             {/* Background Image */}
             <div className="absolute inset-0 w-full h-full overflow-hidden bg-slate-900">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={item.image}
-                alt={item.label || `Gallery image ${index + 1}`}
-                loading="lazy"
-                className={`w-full h-full object-cover transition-transform duration-700 ease-out ${
+                alt={item.label || item.description || `Gallery panel showing ${item.image.split('/').pop()?.split('.')[0] || 'architectural diagram'}`}
+                fill
+                sizes="(max-width: 768px) 100vw, 800px"
+                className={`object-cover transition-transform duration-700 ease-out ${
                   parallax
                     ? isExpanded
                       ? 'scale-105 group-hover:scale-110'

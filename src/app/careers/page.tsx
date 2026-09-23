@@ -7,10 +7,40 @@ import { Footer } from '@/components/layout/Footer'
 import { FinalCTA } from '@/components/sections/FinalCTA'
 import { Button } from '@/components/ui/Button'
 
+import { JsonLd } from '@/components/seo/JsonLd'
+import { getBreadcrumbSchema } from '@/lib/seo-schema'
+
 export const metadata: Metadata = {
-  title: 'Careers — Xylozen Technologies',
+  title: 'Careers | Xylozen Technologies',
   description:
     'Engineering Intelligence. Creating Business Value. Join our AI-native product engineering studio in Chennai.',
+  alternates: {
+    canonical: '/careers',
+  },
+  openGraph: {
+    title: 'Careers | Xylozen Technologies',
+    description:
+      'Join our AI-native product studio in Chennai. Explore open engineering roles in Web, Ecommerce, and Autonomous AI systems.',
+    url: 'https://xylozen.com/careers',
+    siteName: 'Xylozen Technologies',
+    images: [
+      {
+        url: '/images/agents/operations.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Careers at Xylozen',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Careers | Xylozen Technologies',
+    description:
+      'Join our AI-native product studio in Chennai. Explore open engineering roles in Web, Ecommerce, and Autonomous AI systems.',
+    images: ['/images/agents/operations.jpg'],
+  },
 }
 
 const coreDisciplines = [
@@ -18,19 +48,19 @@ const coreDisciplines = [
     tag: 'Discipline 01',
     title: 'Web & Software',
     lead: 'Software that runs your business the way an enterprise runs theirs.',
-    desc: 'From company websites to internal systems and dashboards — built to hold up under real use.',
+    desc: 'From company websites to internal systems and dashboards, built to hold up under real use.',
   },
   {
     tag: 'Discipline 02',
     title: 'Ecommerce',
-    lead: 'Live, selling, and getting paid — without you learning to code.',
+    lead: 'Live, selling, and getting paid without you learning to code.',
     desc: 'Stores built on the platform that fits you, from fast-launch to fully custom.',
   },
   {
     tag: 'Discipline 03',
     title: 'AI & Automation',
     lead: 'A digital team that works while you sleep.',
-    desc: 'Agents that don’t just answer — they complete the work.',
+    desc: 'Agents that don’t just answer, they complete the work.',
   },
 ]
 
@@ -80,8 +110,14 @@ const openRoles = [
 ]
 
 export default function CareersPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Careers', url: '/careers' },
+  ])
+
   return (
     <>
+      <JsonLd schema={breadcrumbSchema} />
       <Header />
       <main className="min-h-screen pt-32 sm:pt-36 lg:pt-40 bg-white">
         {/* ===================================================================== */}

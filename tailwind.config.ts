@@ -58,21 +58,23 @@ const config: Config = {
         teal: {
           400: '#00C2CB',
           600: '#00A3AD',
+          700: '#006670',
         },
         gold: {
           400: '#F5A524',
+          600: '#9C6508',
         },
         violet: {
           500: '#7A5AF8',
         },
         // Action
         action: {
-          500: '#FF5A2C',
-          700: '#D93A16',
+          500: '#D93A16',
+          700: '#C13010',
         },
         cta: {
-          DEFAULT: '#FF5A2C',
-          hover: '#D93A16',
+          DEFAULT: '#D93A16',
+          hover: '#C13010',
         },
         // Neutrals
         ink: {

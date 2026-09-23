@@ -9,6 +9,9 @@ import { Footer } from '@/components/layout/Footer'
 import { FinalCTA } from '@/components/sections/FinalCTA'
 import { blogPosts } from '@/lib/blogs-data'
 
+import { JsonLd } from '@/components/seo/JsonLd'
+import { getBreadcrumbSchema, getArticleSchema } from '@/lib/seo-schema'
+
 interface BlogSlugPageProps {
   params: Promise<{ slug: string }>
 }
@@ -25,13 +28,44 @@ export async function generateMetadata({ params }: BlogSlugPageProps): Promise<M
 
   if (!post) {
     return {
-      title: 'Article Not Found — Xylozen',
+      title: 'Article Not Found | Xylozen',
+      robots: { index: false, follow: false },
     }
   }
 
+  const postUrl = `https://xylozen.com/blogs/${slug}`
+  const imageUrl = post.image.startsWith('http') ? post.image : `https://xylozen.com${post.image}`
+
   return {
-    title: `${post.title} — Xylozen Blogs`,
+    title: `${post.title} | Xylozen Blogs`,
     description: post.summary,
+    alternates: {
+      canonical: `/blogs/${slug}`,
+    },
+    openGraph: {
+      title: `${post.title} | Xylozen Blogs`,
+      description: post.summary,
+      url: postUrl,
+      siteName: 'Xylozen Technologies',
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author || 'Xylozen Engineering'],
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      locale: 'en_US',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${post.title} | Xylozen Blogs`,
+      description: post.summary,
+      images: [imageUrl],
+    },
   }
 }
 
@@ -45,8 +79,25 @@ export default async function BlogDetailPage({ params }: BlogSlugPageProps) {
 
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug)
 
+  const articleSchema = getArticleSchema({
+    title: post.title,
+    description: post.summary,
+    slug: post.slug,
+    datePublished: post.date,
+    author: post.author,
+    image: post.image,
+  })
+
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Blogs', url: '/blogs' },
+    { name: post.title, url: `/blogs/${post.slug}` },
+  ])
+
   return (
     <>
+      <JsonLd schema={articleSchema} />
+      <JsonLd schema={breadcrumbSchema} />
       <Header />
       <main className="min-h-screen pt-28 sm:pt-36 lg:pt-40 bg-white">
         {/* ===================================================================== */}

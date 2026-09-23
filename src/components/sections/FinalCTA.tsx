@@ -38,7 +38,7 @@ export function FinalCTA() {
           {/* Primary Action CTA Button (Single Orange button per brand guidelines) */}
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2.5 w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg bg-cta hover:bg-[#D93A16] text-white text-btn transition-colors duration-200 cursor-pointer shadow-sm shadow-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#051C50]"
+            className="inline-flex items-center justify-center gap-2.5 w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg bg-cta hover:bg-[#C13010] text-white text-btn transition-colors duration-200 cursor-pointer shadow-sm shadow-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#051C50]"
           >
             <span>Start a project</span>
             <ArrowRight className="w-5 h-5" />

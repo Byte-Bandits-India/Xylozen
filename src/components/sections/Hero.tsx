@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
   ShieldCheck,
@@ -241,7 +242,7 @@ export function Hero() {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lead text-ink-500 max-w-[54ch] mx-auto mb-6 sm:mb-8 px-1">
-              From your first website to a fully automated business — designed, built, integrated,
+              From your first website to a fully automated business, designed, built, integrated,
               and maintained by one in-house team.
             </p>
 
@@ -249,7 +250,7 @@ export function Hero() {
             <div className="flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-3.5 w-auto mx-auto">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="group w-auto px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg bg-cta hover:bg-[#D93A16] text-white text-btn shadow-sm shadow-cta/20 hover:shadow-md transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+                className="group w-auto px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg bg-cta hover:bg-[#C13010] text-white text-btn shadow-sm shadow-cta/20 hover:shadow-md transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
               >
                 <span>Talk to us</span>
                 <ArrowRight className="w-4.5 h-4.5 opacity-90 transition-transform duration-200 group-hover:translate-x-1" />
@@ -689,84 +690,84 @@ export function Hero() {
 
 function UserAvatar1() {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src="/images/avatars/customer-1.jpg"
-      alt="User Profile"
-      className="w-full h-full object-cover object-center"
-      loading="lazy"
+      alt="Customer testimonial avatar"
+      fill
+      sizes="32px"
+      className="object-cover object-center"
     />
   )
 }
 
 function UserAvatar2() {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src="/images/avatars/customer-2.jpg"
-      alt="User Profile"
-      className="w-full h-full object-cover object-center"
-      loading="lazy"
+      alt="Customer testimonial avatar"
+      fill
+      sizes="32px"
+      className="object-cover object-center"
     />
   )
 }
 
 function UserAvatar3() {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src="/images/avatars/customer-3.jpg"
-      alt="User Profile"
-      className="w-full h-full object-cover object-center"
-      loading="lazy"
+      alt="Customer testimonial avatar"
+      fill
+      sizes="32px"
+      className="object-cover object-center"
     />
   )
 }
 
 function UserAvatar4() {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src="/images/avatars/customer-4.jpg"
-      alt="User Profile"
-      className="w-full h-full object-cover object-center"
-      loading="lazy"
+      alt="Customer testimonial avatar"
+      fill
+      sizes="32px"
+      className="object-cover object-center"
     />
   )
 }
 
 function PodAvatar1() {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src="/images/avatars/pod-architect.jpg"
-      alt="Architect"
-      className="w-full h-full object-cover object-center"
-      loading="lazy"
+      alt="Dedicated pod architect team member"
+      fill
+      sizes="32px"
+      className="object-cover object-center"
     />
   )
 }
 
 function PodAvatar2() {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src="/images/avatars/pod-fullstack.jpg"
-      alt="Full-Stack Engineer"
-      className="w-full h-full object-cover object-center"
-      loading="lazy"
+      alt="Dedicated pod full-stack engineer"
+      fill
+      sizes="32px"
+      className="object-cover object-center"
     />
   )
 }
 
 function PodAvatar3() {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src="/images/avatars/pod-delivery.jpg"
-      alt="Delivery Specialist"
-      className="w-full h-full object-cover object-center"
-      loading="lazy"
+      alt="Dedicated pod delivery specialist"
+      fill
+      sizes="32px"
+      className="object-cover object-center"
     />
   )
 }

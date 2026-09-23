@@ -63,7 +63,7 @@ export function ServicesHero() {
             {/* Lead Narrative */}
             <p className="text-base sm:text-lead text-ink-500 max-w-xl mb-7 leading-relaxed">
               We build intelligent digital products, enterprise web systems, and autonomous AI agents
-              adapted around your actual business operations. No templates or disposable prototypes—every
+              adapted around your actual business operations. No templates or disposable prototypes; every
               system is architected for concurrency and long-term commercial value.
             </p>
 
