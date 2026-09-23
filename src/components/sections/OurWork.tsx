@@ -75,7 +75,7 @@ export function OurWork() {
                   </h3>
 
                   {/* Challenge Description */}
-                  <p className="text-base sm:text-body text-slate-700 mb-4 sm:mb-5 max-w-md leading-relaxed">
+                  <p className="text-base sm:text-body text-slate-800 mb-4 sm:mb-5 max-w-md leading-relaxed">
                     Titan &times; Tata required a solution that could connect customers with expert optometrists without requiring an optometrist to be physically present at every location.
                   </p>
                 </div>
@@ -90,18 +90,18 @@ export function OurWork() {
                           <div className="text-base sm:text-h3 font-bold text-slate-900">
                             Titan &times; Tata
                           </div>
-                          <div className="text-xs sm:text-small text-slate-500 mt-0.5">
+                          <div className="text-xs sm:text-small text-slate-600 mt-0.5">
                             Remote examination and assisted sales platform
                           </div>
                         </div>
-                        <span className="hidden sm:inline-flex px-2.5 py-1 rounded-md bg-slate-100 text-xs font-semibold text-slate-600">
+                        <span className="hidden sm:inline-flex px-2.5 py-1 rounded-md bg-slate-100 text-xs font-semibold text-slate-700">
                           Production
                         </span>
                       </div>
 
                       {/* Capabilities List */}
                       <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-2.5">
-                        <div className="text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                        <div className="text-xs font-semibold text-slate-800 uppercase tracking-wider">
                           The platform enabled:
                         </div>
                         <div className="rounded-xl border border-slate-200/80 divide-y divide-slate-100 text-xs sm:text-body overflow-hidden">
@@ -154,7 +154,7 @@ export function OurWork() {
                   </h3>
 
                   {/* Challenge Description */}
-                  <p className="text-base sm:text-body text-slate-700 mb-4 sm:mb-5 max-w-md leading-relaxed">
+                  <p className="text-base sm:text-body text-slate-800 mb-4 sm:mb-5 max-w-md leading-relaxed">
                     Traditional recruitment workflows often require recruiters to manually review large volumes of resumes, resulting in delays and inconsistent screening. Xylozen developed HireAI, a cloud-based recruitment platform designed to automate and improve the candidate screening process.
                   </p>
                 </div>
@@ -169,18 +169,18 @@ export function OurWork() {
                           <div className="text-base sm:text-h3 font-bold text-slate-900">
                             HireAI
                           </div>
-                          <div className="text-xs sm:text-small text-slate-500 mt-0.5">
+                          <div className="text-xs sm:text-small text-slate-600 mt-0.5">
                             AI-powered recruitment Micro-SaaS
                           </div>
                         </div>
-                        <span className="hidden sm:inline-flex px-2.5 py-1 rounded-md bg-slate-100 text-xs font-semibold text-slate-600">
+                        <span className="hidden sm:inline-flex px-2.5 py-1 rounded-md bg-slate-100 text-xs font-semibold text-slate-700">
                           Micro-SaaS
                         </span>
                       </div>
 
                       {/* Capabilities List */}
                       <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-2.5">
-                        <div className="text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                        <div className="text-xs font-semibold text-slate-800 uppercase tracking-wider">
                           The platform included:
                         </div>
                         <div className="rounded-xl border border-slate-200/80 divide-y divide-slate-100 text-xs sm:text-body overflow-hidden">
@@ -237,7 +237,7 @@ export function OurWork() {
                   </h3>
 
                   {/* Challenge Description */}
-                  <p className="text-base sm:text-body text-slate-700 mb-4 sm:mb-5 max-w-md leading-relaxed">
+                  <p className="text-base sm:text-body text-slate-800 mb-4 sm:mb-5 max-w-md leading-relaxed">
                     Construction companies often depend on manual inspections to monitor safety compliance across active sites. This approach can be time-consuming, inconsistent, and difficult to scale across multiple locations. Xylozen engineered an AI-powered monitoring system using computer vision to identify safety violations and support centralized compliance management.
                   </p>
                 </div>
@@ -252,11 +252,11 @@ export function OurWork() {
                           <div className="text-base sm:text-h3 font-bold text-slate-900">
                             VisionGuard
                           </div>
-                          <div className="text-xs sm:text-small text-slate-500 mt-0.5">
+                          <div className="text-xs sm:text-small text-slate-600 mt-0.5">
                             Computer vision-based safety monitoring system
                           </div>
                         </div>
-                        <span className="hidden sm:inline-flex px-2.5 py-1 rounded-md bg-slate-100 text-xs font-semibold text-slate-600">
+                        <span className="hidden sm:inline-flex px-2.5 py-1 rounded-md bg-slate-100 text-xs font-semibold text-slate-700">
                           CV Platform
                         </span>
                       </div>

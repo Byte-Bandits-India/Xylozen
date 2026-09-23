@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { IndustriesHeroVisual } from './IndustriesHeroVisual'
 
@@ -13,12 +12,7 @@ export function IndustriesHero() {
       <div className="container-section">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Breadcrumb, Badges, Heading, Narrative, Actions */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-7 xl:col-span-7"
-          >
+          <div className="lg:col-span-7 xl:col-span-7">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-caption text-ink-500 mb-6">
               <Link href="/" className="hover:text-brand-500 transition-colors">
@@ -56,7 +50,7 @@ export function IndustriesHero() {
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Interactive Sector Visual with Images (OurWorkHeroVisual UI format) */}
           <div className="lg:col-span-5 xl:col-span-5 flex items-center justify-center">

@@ -267,18 +267,19 @@ export function Industries() {
                       initial={false}
                       animate={{
                         x: isCenter ? 0 : isRight ? '58%' : '-58%',
-                        scale: isCenter ? 1 : 0.85,
-                        opacity: isCenter ? 1 : 0.28,
+                        scale: isCenter ? 1 : 0.88,
+                        opacity: 1,
                         zIndex: isCenter ? 20 : 10,
                       }}
                       transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+                      aria-hidden={!isCenter}
                       onClick={() => {
                         if (isRight) handleNext()
                         if (isLeft) handlePrev()
                       }}
                       className={`absolute w-[82vw] max-w-[285px] sm:w-[320px] md:w-[340px] bg-white rounded-2xl sm:rounded-[28px] p-4 sm:p-5 shadow-[0_12px_32px_rgba(0,0,0,0.06)] border border-slate-200/90 flex flex-col justify-between ${
                         !isCenter
-                          ? 'cursor-pointer hover:opacity-50 transition-opacity'
+                          ? 'cursor-pointer hover:border-slate-300 transition-colors'
                           : ''
                       }`}
                     >
@@ -303,22 +304,23 @@ export function Industries() {
 
                       {/* Content Section (Strictly from WeServe.MD) */}
                       <div className="mb-3 sm:mb-4">
-                        <h4 className="text-lg sm:text-xl font-bold text-brand-900 mb-1.5 line-clamp-1">
+                        <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 line-clamp-1">
                           {item.name}
                         </h4>
-                        <p className="text-sm sm:text-base text-slate-700 line-clamp-2 leading-relaxed">
+                        <p className="text-sm sm:text-base text-slate-800 line-clamp-2 leading-relaxed">
                           {item.description}
                         </p>
                       </div>
 
                       {/* Bottom Action Row */}
                       <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                        <span className="text-sm font-medium text-slate-600 truncate max-w-[140px]">
+                        <span className="text-sm font-semibold text-slate-800 truncate max-w-[140px]">
                           {item.name}
                         </span>
 
                         <button
                           onClick={scrollToContact}
+                          tabIndex={isCenter ? 0 : -1}
                           aria-label={`Explore ${item.name} solutions`}
                           className="min-h-[44px] min-w-[44px] px-4 py-2 rounded-full border border-slate-900 text-slate-900 hover:bg-cta hover:border-cta hover:text-white text-sm font-semibold transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
                         >

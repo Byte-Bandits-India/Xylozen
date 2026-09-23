@@ -37,12 +37,7 @@ export function ServicesHero() {
           {/* ================================================================= */}
           {/* LEFT COLUMN: Grand, Commanding Headline & Value Narrative         */}
           {/* ================================================================= */}
-          <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center"
-          >
+          <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center">
             {/* Top Status Eyebrow Pill */}
             <div className="flex items-center gap-2.5 mb-5">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-line text-badge text-ink-900">
@@ -98,7 +93,7 @@ export function ServicesHero() {
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* ================================================================= */}
           {/* RIGHT COLUMN: Taller, Grand Single-Card Architecture Visual       */}

@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { AboutHeroVisual } from './AboutHeroVisual'
@@ -27,70 +26,40 @@ export function AboutHero() {
           {/* ================================================================= */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             {/* Breadcrumb Bar */}
-            <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="flex items-center gap-2 text-caption text-ink-500 mb-6"
-            >
+            <div className="flex items-center gap-2 text-caption text-ink-500 mb-6">
               <Link href="/" className="hover:text-brand-500 transition-colors">
                 Home
               </Link>
               <span>/</span>
               <span className="text-brand-900 font-semibold">About Us</span>
-            </motion.div>
+            </div>
 
             {/* Pill Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-badge text-slate-700 mb-4"
-            >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-badge text-slate-700 mb-4">
               <span className="w-2 h-2 rounded-full bg-cta animate-pulse" />
               <span className="font-mono uppercase font-semibold">AI-NATIVE PRODUCT STUDIO</span>
-            </motion.div>
+            </div>
 
             {/* Main Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-2xl sm:text-3xl lg:text-h2 font-bold text-brand-900 tracking-tight mb-4 max-w-2xl leading-tight"
-            >
+            <h1 className="text-2xl sm:text-3xl lg:text-h2 font-bold text-brand-900 tracking-tight mb-4 max-w-2xl leading-tight">
               Engineering Intelligence.{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-900 via-brand-700 to-brand-500">
                 Creating Business Value.
               </span>
-            </motion.h1>
+            </h1>
 
             {/* Lead Narrative (Motto) */}
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="text-base sm:text-lead font-medium text-brand-700 mb-3 max-w-2xl leading-relaxed"
-            >
+            <p className="text-base sm:text-lead font-medium text-brand-700 mb-3 max-w-2xl leading-relaxed">
               From workflow to product. From idea to revenue.
-            </motion.p>
+            </p>
 
             {/* Body Narrative */}
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-small sm:text-body text-slate-600 max-w-2xl mb-7 leading-relaxed"
-            >
+            <p className="text-small sm:text-body text-slate-600 max-w-2xl mb-7 leading-relaxed">
               Xylozen is an AI-native product engineering studio headquartered in Chennai. We help startups, growing businesses, and established organizations turn complex ideas and operational challenges into intelligent, scalable digital products.
-            </motion.p>
+            </p>
 
             {/* Dual CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-4 mb-8 w-full sm:w-auto"
-            >
+            <div className="flex flex-wrap items-center gap-4 mb-8 w-full sm:w-auto">
               <Button
                 type="button"
                 onClick={() => scrollTo('how-we-work')}
@@ -100,7 +69,7 @@ export function AboutHero() {
                 <span>Explore 8-Stage Delivery</span>
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </motion.div>
+            </div>
           </div>
 
           {/* ================================================================= */}

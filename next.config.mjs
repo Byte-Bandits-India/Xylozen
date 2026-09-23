@@ -3,6 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
   poweredByHeader: false,
+  compress: true,
+  swcMinify: true,
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'lenis'],
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
   },

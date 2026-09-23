@@ -1,14 +1,16 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
 import { Hero } from '@/components/sections/Hero'
-import { ScrollExpand } from '@/components/ScrollExpand'
 import scrollExpandImg from '@/assets/home/scrollExpand.webp'
-import { WhatWeDo } from '@/components/sections/WhatWeDo'
-import { OurWork } from '@/components/sections/OurWork'
-import { Industries } from '@/components/sections/Industries'
-import { WhyXylozen } from '@/components/sections/WhyXylozen'
-import { FinalCTA } from '@/components/sections/FinalCTA'
+
+const ScrollExpand = dynamic(() => import('@/components/ScrollExpand').then((mod) => mod.ScrollExpand))
+const WhatWeDo = dynamic(() => import('@/components/sections/WhatWeDo').then((mod) => mod.WhatWeDo))
+const OurWork = dynamic(() => import('@/components/sections/OurWork').then((mod) => mod.OurWork))
+const Industries = dynamic(() => import('@/components/sections/Industries').then((mod) => mod.Industries))
+const WhyXylozen = dynamic(() => import('@/components/sections/WhyXylozen').then((mod) => mod.WhyXylozen))
+const FinalCTA = dynamic(() => import('@/components/sections/FinalCTA').then((mod) => mod.FinalCTA))
+const Footer = dynamic(() => import('@/components/layout/Footer').then((mod) => mod.Footer))
 
 export const metadata: Metadata = {
   title: 'Xylozen Technologies | Precision Operationalized',

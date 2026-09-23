@@ -231,12 +231,7 @@ export function Hero() {
           {/* ===================================================================== */}
           {/* CENTER: Main Headline + Subtitle + Pill Buttons (bg-brand-gradient)  */}
           {/* ===================================================================== */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="col-span-1 lg:col-span-6 text-center mx-auto max-w-2xl px-2"
-          >
+          <div className="col-span-1 lg:col-span-6 text-center mx-auto max-w-2xl px-2">
             {/* Tagline pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1 mb-5 rounded-full bg-slate-100/80 border border-slate-200/60">
               <span className="text-small text-ink-500">
@@ -272,7 +267,7 @@ export function Hero() {
                 See our work
               </button>
             </div>
-          </motion.div>
+          </div>
 
           {/* ===================================================================== */}
           {/* TOP-RIGHT: Zero-Defect Security Card + Clean Grey Connectors          */}
