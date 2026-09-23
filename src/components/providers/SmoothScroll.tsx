@@ -16,7 +16,7 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
         duration: 1.2,
         smoothWheel: true,
         wheelMultiplier: 1,
-        touchMultiplier: 1.2,
+        syncTouch: false,
       }}
     >
       {children}

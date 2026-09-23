@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import {
   ShieldCheck,
   Zap,
@@ -104,12 +103,7 @@ export function Hero() {
           {/* ===================================================================== */}
           {/* TOP-LEFT: Without vs With Xylozen Card + Clean Grey Connectors        */}
           {/* ===================================================================== */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="hidden lg:flex lg:col-span-3 justify-start relative"
-          >
+          <div className="hidden lg:flex lg:col-span-3 justify-start relative">
             {/* Clean Grey Architectural Bus: Runs down, taps into card, continues toward workflow */}
             <div className="absolute -left-6 -top-10 w-10 h-[210px] pointer-events-none">
               <svg className="w-full h-full overflow-visible" viewBox="0 0 40 210">
@@ -226,7 +220,7 @@ export function Hero() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* ===================================================================== */}
           {/* CENTER: Main Headline + Subtitle + Pill Buttons (bg-brand-gradient)  */}
@@ -272,12 +266,7 @@ export function Hero() {
           {/* ===================================================================== */}
           {/* TOP-RIGHT: Zero-Defect Security Card + Clean Grey Connectors          */}
           {/* ===================================================================== */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="hidden lg:flex lg:col-span-3 justify-end relative"
-          >
+          <div className="hidden lg:flex lg:col-span-3 justify-end relative">
             {/* Clean Grey Architectural Bus: Runs down, taps into security card, continues toward Pod */}
             <div className="absolute -right-6 -top-10 w-10 h-[210px] pointer-events-none">
               <svg className="w-full h-full overflow-visible" viewBox="0 0 40 210">
@@ -317,19 +306,14 @@ export function Hero() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
         </div>
 
         {/* ----------------------------------------------------------------------- */}
         {/* BOTTOM TIER: Connected Architecture Workflow (Seamless Flow Pipeline)   */}
         {/* ----------------------------------------------------------------------- */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
-          className="relative max-w-5xl mx-auto"
-        >
+        <div className="relative max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 items-center">
             
             {/* =================================================================== */}
@@ -681,7 +665,7 @@ export function Hero() {
             </div>
 
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>

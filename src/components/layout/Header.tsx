@@ -6,11 +6,13 @@ import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
+import dynamic from 'next/dynamic'
 import { navigationMenuData, MegaMenuData } from './nav-data'
-import { MegaMenu } from './MegaMenu'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useLenis } from 'lenis/react'
 import { usePathname, useRouter } from 'next/navigation'
+
+const MegaMenu = dynamic(() => import('./MegaMenu').then((mod) => mod.MegaMenu), { ssr: false })
 
 const mobileMenuVariants = {
   hidden: { opacity: 0 },
