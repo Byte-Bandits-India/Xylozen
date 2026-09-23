@@ -1,0 +1,184 @@
+name: Build & Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push:
+    name: Build & Push Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry (GHCR)
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Downcase Image Name
+        id: image-name
+        run: |
+          echo "IMAGE_LOWER=$(echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ steps.image-name.outputs.IMAGE_LOWER }}
+          tags: |
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
+            type=sha,format=short
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    name: Deploy to EC2 Server
+    runs-on: ubuntu-latest
+    needs: build-and-push
+
+    steps:
+      - name: Checkout Code (for copying config files)
+        uses: actions/checkout@v4
+
+      - name: Downcase Image Name
+        id: image-name
+        run: |
+          echo "IMAGE_LOWER=$(echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy via SSH to EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: ${{ secrets.EC2_PORT || 22 }}
+          script: |
+            set -e
+
+            PROJECT_DIR="/home/${{ secrets.EC2_USER }}/xylozen"
+            IMAGE="${{ steps.image-name.outputs.IMAGE_LOWER }}:latest"
+
+            echo "🚀 Deploying Xylozen Website to EC2 ($PROJECT_DIR)..."
+            mkdir -p "$PROJECT_DIR"
+            cd "$PROJECT_DIR"
+
+            # Create default .env file if it doesn't exist yet
+            if [ ! -f .env ]; then
+              echo "📝 Creating initial .env file..."
+              cat << 'EOF' > .env
+            SMTP_HOST=smtp.titan.email
+            SMTP_PORT=465
+            SMTP_SECURE=true
+            SMTP_USER=info@thebytebandits.com
+            SMTP_PASS=YourTitanPasswordHere
+            SMTP_FROM=support@thebytebandits.com
+            OWNER_EMAIL=support@thebytebandits.com
+            BACKEND_API_URL=http://localhost:4000/api
+            EOF
+            fi
+
+            # Authenticate with GHCR on the EC2 host
+            echo "${{ secrets.GHCR_TOKEN || secrets.GHCR_PAT || secrets.GITHUB_TOKEN }}" | docker login ${{ env.REGISTRY }} -u "${{ github.actor }}" --password-stdin
+
+            # Update docker-compose.yml
+            cat << 'EOF' > docker-compose.yml
+            services:
+              xylozen-app:
+                image: IMAGE_PLACEHOLDER
+                container_name: xylozen-app
+                restart: unless-stopped
+                env_file:
+                  - .env
+                environment:
+                  - PORT=3000
+                  - NODE_ENV=production
+                extra_hosts:
+                  - "host.docker.internal:host-gateway"
+                expose:
+                  - "3000"
+                ports:
+                  - "127.0.0.1:3000:3000"
+                networks:
+                  - xylozen-network
+
+              caddy:
+                image: caddy:2-alpine
+                container_name: xylozen-caddy
+                restart: unless-stopped
+                ports:
+                  - "80:80"
+                  - "443:443"
+                  - "443:443/udp"
+                volumes:
+                  - ./Caddyfile:/etc/caddy/Caddyfile:ro
+                  - caddy_data:/data
+                  - caddy_config:/config
+                depends_on:
+                  - xylozen-app
+                networks:
+                  - xylozen-network
+
+            networks:
+              xylozen-network:
+                driver: bridge
+
+            volumes:
+              caddy_data:
+              caddy_config:
+            EOF
+
+            sed -i "s|IMAGE_PLACEHOLDER|$IMAGE|g" docker-compose.yml
+
+            # Update Caddyfile
+            cat << 'EOF' > Caddyfile
+            xylozentech.com, www.xylozentech.com {
+                encode gzip zstd
+
+                reverse_proxy xylozen-app:3000
+
+                header {
+                    X-Content-Type-Options nosniff
+                    X-Frame-Options DENY
+                    Referrer-Policy strict-origin-when-cross-origin
+                }
+            }
+            EOF
+
+            echo "📦 Pulling latest image ($IMAGE)..."
+            docker compose pull xylozen-app
+
+            echo "🔄 Restarting containers..."
+            docker compose up -d --remove-orphans
+
+            echo "🧹 Cleaning up dangling Docker images..."
+            docker image prune -f
+
+            echo "✅ Deployment completed successfully!"
+            docker compose ps

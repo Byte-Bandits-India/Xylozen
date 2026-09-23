@@ -1,0 +1,13 @@
+xylozentech.com, www.xylozentech.com {
+    encode gzip zstd
+
+    # Proxy all traffic to the Next.js standalone application
+    reverse_proxy xylozen-app:3000
+
+    # Optional: custom security headers
+    header {
+        X-Content-Type-Options nosniff
+        X-Frame-Options DENY
+        Referrer-Policy strict-origin-when-cross-origin
+    }
+}
