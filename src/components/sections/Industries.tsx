@@ -273,6 +273,8 @@ export function Industries() {
                       }}
                       transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
                       aria-hidden={!isCenter}
+                      inert={!isCenter ? ('' as unknown as boolean) : undefined}
+                      style={{ backgroundColor: '#ffffff' }}
                       onClick={() => {
                         if (isRight) handleNext()
                         if (isLeft) handlePrev()
@@ -304,9 +306,9 @@ export function Industries() {
 
                       {/* Content Section (Strictly from WeServe.MD) */}
                       <div className="mb-3 sm:mb-4">
-                        <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 line-clamp-1">
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1.5 line-clamp-1">
                           {item.name}
-                        </h4>
+                        </h3>
                         <p className="text-sm sm:text-base text-slate-800 line-clamp-2 leading-relaxed">
                           {item.description}
                         </p>

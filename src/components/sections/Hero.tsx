@@ -698,6 +698,7 @@ function UserAvatar1() {
       src={customer1}
       alt="Customer testimonial avatar"
       fill
+      priority
       sizes="32px"
       className="object-cover object-center"
     />
@@ -710,6 +711,7 @@ function UserAvatar2() {
       src={customer2}
       alt="Customer testimonial avatar"
       fill
+      priority
       sizes="32px"
       className="object-cover object-center"
     />
@@ -722,6 +724,7 @@ function UserAvatar3() {
       src={customer3}
       alt="Customer testimonial avatar"
       fill
+      priority
       sizes="32px"
       className="object-cover object-center"
     />
@@ -734,6 +737,7 @@ function UserAvatar4() {
       src={customer4}
       alt="Customer testimonial avatar"
       fill
+      priority
       sizes="32px"
       className="object-cover object-center"
     />
@@ -746,6 +750,7 @@ function PodAvatar1() {
       src={podArchitect}
       alt="Dedicated pod architect team member"
       fill
+      priority
       sizes="32px"
       className="object-cover object-center rounded-full"
     />
@@ -758,6 +763,7 @@ function PodAvatar2() {
       src={podFullstack}
       alt="Dedicated pod full-stack engineer"
       fill
+      priority
       sizes="32px"
       className="object-cover object-center rounded-full"
     />
@@ -770,6 +776,7 @@ function PodAvatar3() {
       src={podDelivery}
       alt="Dedicated pod delivery specialist"
       fill
+      priority
       sizes="32px"
       className="object-cover object-center rounded-full"
     />
