@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, Compass, Rocket, ShieldCheck } from 'lucide-react'
+import { contactHero } from '@/assets/images'
 
 interface ConsultationPillar {
   id: string
@@ -93,7 +94,7 @@ export function ContactHeroVisual() {
         className="relative rounded-[2.25rem] overflow-hidden border border-line shadow-2xl shadow-brand-900/10 bg-surface aspect-[4/4.6]"
       >
         <Image
-          src="/images/contact-hero.jpg"
+          src={contactHero}
           alt="Xylozen Senior Engineering Architect in Chennai Technology Studio"
           fill
           priority

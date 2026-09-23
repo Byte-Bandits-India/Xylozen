@@ -8,8 +8,8 @@ import { usePathname, useRouter } from 'next/navigation'
 
 export interface LogoProps {
   /**
-   * 'light': On white / light backgrounds. Uses the official 3D metallic logo (/images/logo/transparent.png).
-   * 'dark': On dark / navy / black backgrounds. Uses the solid white logo (/images/logo/white.png).
+   * 'light': On white / light backgrounds. Uses the official 3D metallic logo (/images/logo/transparent.webp).
+   * 'dark': On dark / navy / black backgrounds. Uses the solid white logo (/images/logo/white.webp).
    */
   variant?: 'light' | 'dark'
 
@@ -19,7 +19,7 @@ export interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl'
 
   /**
-   * If true, displays only the standalone 'X' symbol (/images/logo/favicon.png)
+   * If true, displays only the standalone 'X' symbol (/images/logo/favicon.webp)
    */
   iconOnly?: boolean
 
@@ -81,8 +81,8 @@ const sizeConfig = {
  *
  * Implements the brand rules from info/design.MD & info/xylozen-brand-guidelines.html:
  * - On navy/black (dark): Uses official white asset (/images/logo/white.png)
- * - On white/light (light): Uses official 3D metallic asset (/images/logo/transparent.png)
- * - Standalone Icon: Uses official 'X' mark (/images/logo/favicon.png)
+ * - On white/light (light): Uses official 3D metallic asset (/images/logo/transparent.webp)
+ * - Standalone Icon: Uses official 'X' mark (/images/logo/favicon.webp)
  */
 export function Logo({
   variant = 'light',
@@ -119,8 +119,8 @@ export function Logo({
   }
 
   const logoSrc = iconOnly
-    ? '/images/logo/favicon.png'
-    : '/images/logo/transparent.png'
+    ? '/images/logo/favicon.webp'
+    : '/images/logo/transparent.webp'
 
   const logoWidth = iconOnly ? Math.round(currentSize.iconSize * 1.23) : currentSize.width
   const logoHeight = iconOnly ? currentSize.iconSize : currentSize.height
@@ -133,7 +133,6 @@ export function Logo({
         width={logoWidth}
         height={logoHeight}
         priority
-        unoptimized
         className={cn('object-contain select-none transition-opacity duration-200', currentSize.imgClass)}
       />
 

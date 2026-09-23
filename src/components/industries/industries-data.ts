@@ -1,5 +1,13 @@
 import { Store, Building2, Stethoscope, Truck, Factory, LucideIcon } from 'lucide-react'
 import { FAQItem } from '@/components/services/ServiceSubpageFAQs'
+import { StaticImageData } from 'next/image'
+import {
+  agentScheduler,
+  agentRealestate,
+  agentEngineer,
+  agentOperations,
+  agentManufacturing,
+} from '@/assets/images'
 
 export interface IndustryData {
   id: string
@@ -10,7 +18,7 @@ export interface IndustryData {
   summary: string
   description: string
   icon: LucideIcon
-  image: string
+  image: string | StaticImageData
   accentColor: string
   operationalChallenge: string
   xylozenSolution: string
@@ -39,7 +47,7 @@ export const industriesData: IndustryData[] = [
     description:
       'From headless storefronts and automated catalog ingestion to frictionless one-click checkouts and multi-warehouse inventory reconciliation, we engineer commerce architectures that handle high-concurrency peak traffic without dropoffs.',
     icon: Store,
-    image: '/images/agents/scheduler.jpg',
+    image: agentScheduler,
     accentColor: 'from-brand-500 to-indigo-600',
     operationalChallenge:
       'Fragmented ERP stock records, slow checkout abandonment, and inability to handle sudden traffic surges during flash sales and product drops.',
@@ -81,7 +89,7 @@ export const industriesData: IndustryData[] = [
     description:
       'Custom listing portals, high-performance property filtering engines, automated lead routing, and lease management workflows that bridge agents, brokers, buyers, and tenants into a single synchronized interface.',
     icon: Building2,
-    image: '/images/agents/realestate.jpg',
+    image: agentRealestate,
     accentColor: 'from-blue-600 to-cyan-600',
     operationalChallenge:
       'Unorganized multi-broker listing updates, slow inquiries handling, manual property onboarding, and zero transparency in tenant lease lifecycle workflows.',
@@ -123,7 +131,7 @@ export const industriesData: IndustryData[] = [
     description:
       'Enterprise telehealth infrastructure, connected optical & medical diagnostic telemetry, HIPAA/GDPR-compliant electronic record synchronizers, and clinical appointment hubs engineered with zero compromises on security.',
     icon: Stethoscope,
-    image: '/images/agents/engineer.jpg',
+    image: agentEngineer,
     accentColor: 'from-teal-500 to-emerald-600',
     operationalChallenge:
       'Siloed medical records, fragmented remote consultations, strict regulatory compliance constraints, and unreliable device connectivity across regional clinic branches.',
@@ -165,7 +173,7 @@ export const industriesData: IndustryData[] = [
     description:
       'High-throughput GPS telemetry ingestion pipelines, predictive route dispatch engines, dock scheduling consoles, and automated customs/manifest documentation tools built for mission-critical supply networks.',
     icon: Truck,
-    image: '/images/agents/operations.jpg',
+    image: agentOperations,
     accentColor: 'from-amber-500 to-orange-600',
     operationalChallenge:
       'Blind freight transit gaps, manual driver dispatching, error-prone paper manifests, and lack of real-time SLA breach notifications.',
@@ -207,7 +215,7 @@ export const industriesData: IndustryData[] = [
     description:
       'Shop-floor PLC and sensor data ingestion, edge computer vision for PPE & defect detection, Overall Equipment Effectiveness (OEE) dashboards, and enterprise ERP bridges connecting assembly lines to leadership.',
     icon: Factory,
-    image: '/images/agents/manufacturing.jpg',
+    image: agentManufacturing,
     accentColor: 'from-violet-600 to-indigo-700',
     operationalChallenge:
       'Disconnected machine floors with dark data, delayed safety incident awareness, manual shift log reporting, and lagging maintenance downtime.',

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/images/agents/engineer.jpg',
+        url: '/opengraph.webp',
         width: 1200,
         height: 630,
         alt: 'About Xylozen Product Studio',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: 'About Us & Delivery Framework | Xylozen Technologies',
     description:
       'Discover our AI-native product studio, core engineering pillars, and 8-stage disciplined delivery process from Chennai to global enterprises.',
-    images: ['/images/agents/engineer.jpg'],
+    images: ['/opengraph.webp'],
   },
 }
 

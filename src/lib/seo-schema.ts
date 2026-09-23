@@ -15,10 +15,10 @@ export function getOrganizationSchema() {
     url: BASE_URL,
     logo: {
       '@type': 'ImageObject',
-      url: `${BASE_URL}/images/logo/transparent.png`,
+      url: `${BASE_URL}/images/logo/transparent.webp`,
       caption: 'Xylozen Technologies Logo',
     },
-    image: `${BASE_URL}/images/logo/transparent.png`,
+    image: `${BASE_URL}/images/logo/transparent.webp`,
     description:
       'Engineering Intelligence. Creating Business Value. Precision operationalized with enterprise web development, high-velocity commerce, and autonomous AI systems.',
     email: 'hello@xylozen.com',
@@ -51,7 +51,7 @@ export function getLocalBusinessSchema() {
     '@id': `${BASE_URL}/#localbusiness`,
     name: 'Xylozen Technologies',
     url: BASE_URL,
-    image: `${BASE_URL}/images/logo/transparent.png`,
+    image: `${BASE_URL}/images/logo/transparent.webp`,
     priceRange: '$$$$',
     address: {
       '@type': 'PostalAddress',
@@ -206,7 +206,7 @@ export function getArticleSchema({
       ? image.startsWith('http')
         ? image
         : `${BASE_URL}${image}`
-      : `${BASE_URL}/images/logo/transparent.png`,
+      : `${BASE_URL}/images/logo/transparent.webp`,
   }
 }
 

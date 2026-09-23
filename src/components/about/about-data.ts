@@ -9,6 +9,22 @@ import {
   Workflow,
   Sparkles,
 } from 'lucide-react'
+import { StaticImageData } from 'next/image'
+import {
+  agentEngineer,
+  agentScheduler,
+  agentOperations,
+  agentRealestate,
+  agentManufacturing,
+  industryRetail,
+  industryHealthcare,
+  industryRealEstate,
+  industryLogistics,
+  industryManufacturing,
+  archEdgeNetwork,
+  archDatabaseCluster,
+  archAppCore,
+} from '@/assets/images'
 
 export interface WhyPillar {
   id: string
@@ -18,7 +34,7 @@ export interface WhyPillar {
   badgeText: string
   summary: string
   anchor: string
-  image: string
+  image: string | StaticImageData
   keyTakeaways: string[]
   icon: typeof Cpu
 }
@@ -32,7 +48,7 @@ export interface DeliveryStage {
   description: string
   deliverables: string[]
   outcome: string
-  image: string
+  image: string | StaticImageData
 }
 
 export interface AboutStatItem {
@@ -73,7 +89,7 @@ export const aboutWhyPillars: WhyPillar[] = [
     summary:
       'We treat AI as a foundational capability; it is not a feature added at the end. Our solutions are designed to use intelligent automation, data, and connected systems from the ground up.',
     anchor: 'why-xylozen',
-    image: '/images/agents/engineer.jpg',
+    image: agentEngineer,
     keyTakeaways: [
       'Agentic reasoning engines & LLM pipelines built directly into data models',
       'Continuous telemetry ingestion & real-time automated decision flows',
@@ -90,7 +106,7 @@ export const aboutWhyPillars: WhyPillar[] = [
     summary:
       'Every product begins with a clear understanding of the problem, the users, the workflow, and the expected business impact. We build software to solve business constraints, not to pad tech stacks.',
     anchor: 'why-xylozen',
-    image: '/images/agents/scheduler.jpg',
+    image: agentScheduler,
     keyTakeaways: [
       'Clear definition of operational friction before selecting frameworks',
       'Target KPIs established upfront: velocity, accuracy, and operational throughput',
@@ -107,7 +123,7 @@ export const aboutWhyPillars: WhyPillar[] = [
     summary:
       'We support the complete journey, including discovery, strategy, design, engineering, deployment, integration, and continuous improvement. You partner with product architects, not ticket handlers.',
     anchor: 'why-xylozen',
-    image: '/images/agents/operations.jpg',
+    image: agentOperations,
     keyTakeaways: [
       'Discovery, systems architecture, and UX wireframing conducted under one roof',
       'Full-stack engineering: cloud infrastructure, backend microservices, and client apps',
@@ -124,7 +140,7 @@ export const aboutWhyPillars: WhyPillar[] = [
     summary:
       'We do not force every organization into the same technology model. We create solutions aligned with your industry, operations, goals, and growth stage.',
     anchor: 'why-xylozen',
-    image: '/images/agents/realestate.jpg',
+    image: agentRealestate,
     keyTakeaways: [
       'Custom database schemas and business logic tailored to your exact domain',
       'Flexible deployment topology: on-premise edge, private cloud, or serverless',
@@ -141,7 +157,7 @@ export const aboutWhyPillars: WhyPillar[] = [
     summary:
       'Our relationship does not end at launch. We remain involved through optimization, maintenance, scaling, and future product development as your organization grows.',
     anchor: 'why-xylozen',
-    image: '/images/agents/manufacturing.jpg',
+    image: agentManufacturing,
     keyTakeaways: [
       'SLA-backed production monitoring, security patching, and capacity planning',
       'Quarterly architectural reviews to integrate emerging AI and infrastructure updates',
@@ -169,7 +185,7 @@ export const aboutDeliveryStages: DeliveryStage[] = [
       'Technical constraint & compliance audit',
     ],
     outcome: 'Deep operational context and clear business objectives.',
-    image: '/images/industries/retail.jpg',
+    image: industryRetail,
   },
   {
     id: 'stage-2',
@@ -185,7 +201,7 @@ export const aboutDeliveryStages: DeliveryStage[] = [
       'MVP scope boundary & milestone roadmap',
     ],
     outcome: 'Clear product vision with locked success criteria.',
-    image: '/images/industries/healthcare.jpg',
+    image: industryHealthcare,
   },
   {
     id: 'stage-3',
@@ -201,7 +217,7 @@ export const aboutDeliveryStages: DeliveryStage[] = [
       'Third-party API & hardware integration specs',
     ],
     outcome: 'Resilient architectural foundation engineered for scale.',
-    image: '/images/industries/real-estate.jpg',
+    image: industryRealEstate,
   },
   {
     id: 'stage-4',
@@ -217,7 +233,7 @@ export const aboutDeliveryStages: DeliveryStage[] = [
       'Component design system & responsive guidelines',
     ],
     outcome: 'Intuitive, frictionless workflows built for real users.',
-    image: '/images/industries/logistics.jpg',
+    image: industryLogistics,
   },
   {
     id: 'stage-5',
@@ -233,7 +249,7 @@ export const aboutDeliveryStages: DeliveryStage[] = [
       'Automated unit & integration test suites',
     ],
     outcome: 'Production-grade software built with extreme engineering rigor.',
-    image: '/images/industries/manufacturing.jpg',
+    image: industryManufacturing,
   },
   {
     id: 'stage-6',
@@ -249,7 +265,7 @@ export const aboutDeliveryStages: DeliveryStage[] = [
       'Load testing & latency telemetry verification',
     ],
     outcome: 'Zero critical flaws and verified production readiness.',
-    image: '/images/architecture/edge_network.jpg',
+    image: archEdgeNetwork,
   },
   {
     id: 'stage-7',
@@ -265,7 +281,7 @@ export const aboutDeliveryStages: DeliveryStage[] = [
       'Comprehensive operator runbooks & admin training',
     ],
     outcome: 'Flawless production go-live with complete team confidence.',
-    image: '/images/architecture/database_cluster.jpg',
+    image: archDatabaseCluster,
   },
   {
     id: 'stage-8',
@@ -281,7 +297,7 @@ export const aboutDeliveryStages: DeliveryStage[] = [
       'Infrastructure scaling & AI model fine-tuning',
     ],
     outcome: 'Continuous business value and sustained competitive advantage.',
-    image: '/images/architecture/app_core.jpg',
+    image: archAppCore,
   },
 ]
 

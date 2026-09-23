@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/images/architecture/microservices_mesh.jpg',
+        url: '/opengraph.webp',
         width: 1200,
         height: 630,
         alt: 'Web & Software Engineering Architecture',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: 'Web & Software Engineering | Xylozen Technologies',
     description:
       'Custom web applications, internal systems, and scalable cloud architectures purpose-built for operational scale and high concurrency.',
-    images: ['/images/architecture/microservices_mesh.jpg'],
+    images: ['/opengraph.webp'],
   },
 }
 

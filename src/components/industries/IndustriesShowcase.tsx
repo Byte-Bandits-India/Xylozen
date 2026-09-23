@@ -219,13 +219,12 @@ export function IndustriesShowcase() {
                           width={340}
                           height={340}
                           className="w-full h-full object-cover object-top"
-                          priority={isCenter}
                         />
 
                         {/* Frosted Glassmorphism Badge Overlay */}
-                        <div className="absolute bottom-2.5 sm:bottom-3 inset-x-2.5 sm:inset-x-3 bg-white/90 backdrop-blur-md border border-white/70 shadow-sm rounded-full px-3 py-1 sm:px-3.5 sm:py-1.5 flex items-center gap-2 z-10">
-                          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-brand-500 shrink-0" />
-                          <span className="text-xs sm:text-small font-semibold text-slate-800 truncate">
+                        <div className="absolute bottom-2.5 sm:bottom-3 inset-x-2.5 sm:inset-x-3 bg-white/95 backdrop-blur-md border border-white/70 shadow-sm rounded-full px-3 py-1.5 sm:px-3.5 sm:py-2 flex items-center gap-2 z-10">
+                          <span className="w-2 h-2 rounded-full bg-brand-500 shrink-0" />
+                          <span className="text-xs sm:text-sm font-semibold text-slate-900 truncate">
                             {item.badgeText}
                           </span>
                         </div>
@@ -233,26 +232,27 @@ export function IndustriesShowcase() {
 
                       {/* Content Section */}
                       <div className="mb-3 sm:mb-4">
-                        <h4 className="text-base sm:text-h3 font-bold text-slate-900 mb-1 line-clamp-1">
+                        <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 line-clamp-1">
                           {item.name}
                         </h4>
-                        <p className="text-xs sm:text-body text-slate-600 line-clamp-2 leading-relaxed">
+                        <p className="text-sm sm:text-base text-slate-700 line-clamp-2 leading-relaxed">
                           {item.summary}
                         </p>
                       </div>
 
                       {/* Bottom Action Row */}
-                      <div className="pt-2.5 sm:pt-3 border-t border-slate-100 flex items-center justify-between">
-                        <span className="text-xs sm:text-small text-slate-500 font-medium truncate max-w-[140px]">
+                      <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                        <span className="text-sm font-medium text-slate-600 truncate max-w-[140px]">
                           {item.name}
                         </span>
 
                         <button
                           onClick={() => scrollToAnchor(item.anchor)}
-                          className="px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full border border-slate-900 text-slate-900 hover:bg-cta hover:border-cta hover:text-white text-xs sm:text-small font-semibold transition-all duration-200 hover:scale-105 active:scale-95 flex items-center gap-1.5 cursor-pointer shadow-2xs"
+                          aria-label={`Deep dive into ${item.name}`}
+                          className="min-h-[44px] min-w-[44px] px-4 py-2 rounded-full border border-slate-900 text-slate-900 hover:bg-cta hover:border-cta hover:text-white text-sm font-semibold transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
                         >
                           <span>Deep Dive</span>
-                          <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          <ArrowRight className="w-4 h-4" />
                         </button>
                       </div>
                     </motion.div>
@@ -261,18 +261,22 @@ export function IndustriesShowcase() {
               </div>
 
               {/* Carousel Pagination Dots */}
-              <div className="flex items-center gap-2 mt-3 sm:mt-4">
+              <div className="flex items-center gap-1 sm:gap-1.5 mt-4">
                 {industriesData.map((_, dotIndex) => (
                   <button
                     key={dotIndex}
                     onClick={() => setActiveIndex(dotIndex)}
-                    aria-label={`Industry ${dotIndex + 1}`}
-                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                      dotIndex === activeIndex
-                        ? 'w-6 bg-cta'
-                        : 'w-2 bg-slate-300 hover:bg-slate-400'
-                    }`}
-                  />
+                    aria-label={`Go to slide ${dotIndex + 1} of ${industriesData.length}`}
+                    className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 cursor-pointer group rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+                  >
+                    <span
+                      className={`h-2.5 rounded-full transition-all duration-300 ${
+                        dotIndex === activeIndex
+                          ? 'w-7 bg-cta'
+                          : 'w-2.5 bg-slate-300 group-hover:bg-slate-400'
+                      }`}
+                    />
+                  </button>
                 ))}
               </div>
             </div>

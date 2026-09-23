@@ -16,11 +16,11 @@ const buttonVariants = cva(
         default: 'bg-brand-900 text-white hover:bg-brand-800 shadow-xs',
       },
       size: {
-        default: 'px-6 py-2.5 text-btn rounded-button',
-        sm: 'h-8 px-3 text-xs rounded-md',
-        lg: 'px-8 py-3.5 text-lead font-semibold rounded-button',
-        icon: 'h-9 w-9 p-0',
-        'icon-xs': 'h-6 w-6 p-0',
+        default: 'min-h-[44px] px-6 py-2.5 text-btn rounded-button',
+        sm: 'min-h-[40px] px-3.5 text-sm rounded-md',
+        lg: 'min-h-[48px] px-8 py-3.5 text-lead font-semibold rounded-button',
+        icon: 'min-h-[44px] min-w-[44px] p-2 rounded-lg',
+        'icon-xs': 'min-h-[36px] min-w-[36px] p-1.5 rounded-md',
       },
     },
     defaultVariants: {

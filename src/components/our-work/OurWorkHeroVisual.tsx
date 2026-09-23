@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, Eye, Users, HardHat } from 'lucide-react'
+import { ourWorkHero } from '@/assets/images'
 
 interface ProjectHighlight {
   id: string
@@ -81,7 +82,7 @@ export function OurWorkHeroVisual() {
         className="relative rounded-[2.25rem] overflow-hidden border border-slate-200/80 shadow-2xl shadow-slate-900/8 bg-slate-100 aspect-[4/4.6]"
       >
         <Image
-          src="/images/our-work-hero.jpg"
+          src={ourWorkHero}
           alt="Xylozen Engineering Lead architecting production enterprise systems"
           fill
           priority

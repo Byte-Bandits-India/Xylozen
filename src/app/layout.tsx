@@ -57,11 +57,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/images/logo/favicon.png', type: 'image/png' },
+      { url: '/opengraph.webp', type: 'image/webp' },
     ],
     shortcut: '/favicon.ico',
     apple: [
-      { url: '/opengraph.png', sizes: '180x180', type: 'image/png' },
+      { url: '/opengraph.webp', sizes: '180x180', type: 'image/webp' },
     ],
   },
   openGraph: {
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/opengraph.png',
+        url: '/opengraph.webp',
         width: 1200,
         height: 630,
         alt: 'Xylozen Technologies',
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     title: 'Xylozen Technologies | Precision Operationalized',
     description:
       'From your first website to a fully automated business, designed, built, integrated, and maintained by one team.',
-    images: ['/opengraph.png'],
+    images: ['/opengraph.webp'],
   },
 }
 

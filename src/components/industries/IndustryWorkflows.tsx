@@ -1,16 +1,23 @@
 'use client'
 
 import React, { useRef, useState, useEffect } from 'react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import {
+  industryRetail,
+  industryHealthcare,
+  industryRealEstate,
+  industryLogistics,
+  industryManufacturing,
+} from '@/assets/images'
 
 interface IndustryStory {
   id: string
   anchor: string
   clientName: string
   outcome: string
-  image: string
+  image: string | StaticImageData
   linkText: string
   href: string
 }
@@ -22,7 +29,7 @@ const industryStories: IndustryStory[] = [
     clientName: 'Titan Eyeplus',
     outcome:
       'scaled assisted digital examinations across 900+ retail stores with real-time POS and inventory synchronization.',
-    image: '/images/industries/retail.jpg',
+    image: industryRetail,
     linkText: 'Read case study',
     href: '/our-work#titan-tata',
   },
@@ -32,7 +39,7 @@ const industryStories: IndustryStory[] = [
     clientName: 'Titan × Tata',
     outcome:
       'engineered secure telehealth consultation platforms with WebSockets diagnostic telemetry and 100% HIPAA compliance.',
-    image: '/images/industries/healthcare.jpg',
+    image: industryHealthcare,
     linkText: 'Read case study',
     href: '/our-work#titan-tata',
   },
@@ -42,7 +49,7 @@ const industryStories: IndustryStory[] = [
     clientName: 'PropEdge Portals',
     outcome:
       'unified geospatial property listing search and automated broker lead distribution in under 30 seconds.',
-    image: '/images/industries/real-estate.jpg',
+    image: industryRealEstate,
     linkText: 'Explore architecture',
     href: '/contact',
   },
@@ -52,7 +59,7 @@ const industryStories: IndustryStory[] = [
     clientName: 'LogiSync',
     outcome:
       'processed millions of high-frequency GPS pings with a 65% reduction in manual dispatch overhead.',
-    image: '/images/industries/logistics.jpg',
+    image: industryLogistics,
     linkText: 'Explore architecture',
     href: '/contact',
   },
@@ -62,7 +69,7 @@ const industryStories: IndustryStory[] = [
     clientName: 'VisionGuard',
     outcome:
       'deployed edge CCTV computer vision with sub-50ms PPE compliance alerting 24/7 across active industrial floors.',
-    image: '/images/industries/manufacturing.jpg',
+    image: industryManufacturing,
     linkText: 'Read case study',
     href: '/our-work#vision-safety',
   },

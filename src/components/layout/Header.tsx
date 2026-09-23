@@ -170,7 +170,7 @@ export function Header() {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-200',
+          'fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-200',
           isScrolled || activeMenu !== null || mobileOpen
             ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-line'
             : 'bg-white/85 backdrop-blur-sm border-b border-line/40'
@@ -326,7 +326,7 @@ export function Header() {
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-lg text-ink-900 hover:bg-surface border border-line cursor-pointer"
+              className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 rounded-lg text-ink-900 hover:bg-surface border border-line cursor-pointer"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileOpen}
             >

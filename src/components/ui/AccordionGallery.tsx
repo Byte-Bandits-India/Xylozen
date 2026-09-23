@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 
 export interface AccordionGalleryItem {
-  image: string
+  image: string | StaticImageData
   label?: string
   link?: string
   description?: string
@@ -152,7 +152,7 @@ export function AccordionGallery({
             <div className="absolute inset-0 w-full h-full overflow-hidden bg-slate-900">
               <Image
                 src={item.image}
-                alt={item.label || item.description || `Gallery panel showing ${item.image.split('/').pop()?.split('.')[0] || 'architectural diagram'}`}
+                alt={item.label || item.description || 'Architectural workflow visualization'}
                 fill
                 sizes="(max-width: 768px) 100vw, 800px"
                 className={`object-cover transition-transform duration-700 ease-out ${

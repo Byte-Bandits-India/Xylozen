@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/images/architecture/ecommerce/ecom_checkout.jpg',
+        url: '/opengraph.webp',
         width: 1200,
         height: 630,
         alt: 'Ecommerce Checkout Architecture',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: 'Ecommerce Engineering & Checkout Systems | Xylozen Technologies',
     description:
       'High-converting ecommerce platforms engineered for speed, frictionless checkout, and unbroken operation during high-volume traffic surges.',
-    images: ['/images/architecture/ecommerce/ecom_checkout.jpg'],
+    images: ['/opengraph.webp'],
   },
 }
 

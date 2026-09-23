@@ -2,38 +2,45 @@
 
 import React from 'react'
 import AccordionGallery, { AccordionGalleryItem } from '@/components/ui/AccordionGallery'
+import {
+  archEcomStorefront,
+  archEcomCheckout,
+  archEcomCatalogSearch,
+  archEcomErpSync,
+  archEcomOrderMesh,
+} from '@/assets/images'
 
 const ecommerceTiers: AccordionGalleryItem[] = [
   {
-    image: '/images/architecture/ecommerce/ecom_storefront.jpg',
+    image: archEcomStorefront,
     label: 'Headless Storefront',
     description:
       'Next.js Commerce with edge-side ISR caching, sub-second TTFB, predictive prefetching, and 100/100 Core Web Vitals across mobile & desktop.',
     link: '/contact',
   },
   {
-    image: '/images/architecture/ecommerce/ecom_checkout.jpg',
+    image: archEcomCheckout,
     label: 'Accelerated Checkout',
     description:
       'Multi-gateway orchestration (Stripe, Razorpay, Apple Pay), biometric authentication, 1-click checkout flows, and zero drop-off cart recovery.',
     link: '/contact',
   },
   {
-    image: '/images/architecture/ecommerce/ecom_catalog_search.jpg',
+    image: archEcomCatalogSearch,
     label: 'Real-Time Catalog Search',
     description:
       'Faceted indexing with Algolia & Typesense, sub-10ms query times, typo-tolerant search, and personalized product ranking across 100k+ SKUs.',
     link: '/contact',
   },
   {
-    image: '/images/architecture/ecommerce/ecom_erp_sync.jpg',
+    image: archEcomErpSync,
     label: 'Omnichannel ERP & Sync',
     description:
       'Real-time inventory synchronization across physical retail POS, online storefronts, and central warehouse ERPs with transactional zero-conflict locks.',
     link: '/contact',
   },
   {
-    image: '/images/architecture/ecommerce/ecom_order_mesh.jpg',
+    image: archEcomOrderMesh,
     label: 'Global Order Routing',
     description:
       'Distributed multi-node warehouse dispatch, intelligent proximity shipping routing, automated fraud analysis, and live parcel webhook telemetry.',

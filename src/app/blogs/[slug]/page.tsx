@@ -34,7 +34,8 @@ export async function generateMetadata({ params }: BlogSlugPageProps): Promise<M
   }
 
   const postUrl = `https://xylozen.com/blogs/${slug}`
-  const imageUrl = post.image.startsWith('http') ? post.image : `https://xylozen.com${post.image}`
+  const rawImage = typeof post.image === 'string' ? post.image : post.image.src
+  const imageUrl = rawImage.startsWith('http') ? rawImage : `https://xylozen.com${rawImage.startsWith('/') ? '' : '/'}${rawImage}`
 
   return {
     title: `${post.title} | Xylozen Blogs`,
@@ -85,7 +86,7 @@ export default async function BlogDetailPage({ params }: BlogSlugPageProps) {
     slug: post.slug,
     datePublished: post.date,
     author: post.author,
-    image: post.image,
+    image: typeof post.image === 'string' ? post.image : post.image.src,
   })
 
   const breadcrumbSchema = getBreadcrumbSchema([

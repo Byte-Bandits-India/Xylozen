@@ -1,9 +1,16 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, ArrowRight, Store, Building2, Stethoscope, Truck, Factory } from 'lucide-react'
+import {
+  agentScheduler,
+  agentRealestate,
+  agentEngineer,
+  agentOperations,
+  agentManufacturing,
+} from '@/assets/images'
 
 interface SectorHighlight {
   id: string
@@ -17,7 +24,7 @@ interface SectorHighlight {
   description: string
   metricLabel: string
   targetId: string
-  image: string
+  image: string | StaticImageData
 }
 
 const sectorHighlights: SectorHighlight[] = [
@@ -33,7 +40,7 @@ const sectorHighlights: SectorHighlight[] = [
     description: 'Headless storefronts & sub-second inventory sync across warehouses & physical POS.',
     metricLabel: '40% Faster Checkout',
     targetId: 'retail',
-    image: '/images/agents/scheduler.jpg',
+    image: agentScheduler,
   },
   {
     id: 'real-estate',
@@ -47,7 +54,7 @@ const sectorHighlights: SectorHighlight[] = [
     description: 'Geospatial listing search, automated broker lead distribution & lease management.',
     metricLabel: '70% Faster Routing',
     targetId: 'real-estate',
-    image: '/images/agents/realestate.jpg',
+    image: agentRealestate,
   },
   {
     id: 'healthcare',
@@ -61,7 +68,7 @@ const sectorHighlights: SectorHighlight[] = [
     description: 'WebSockets hardware diagnostics & HIPAA-compliant teleconsultation portals.',
     metricLabel: '100% Stream Encrypted',
     targetId: 'healthcare',
-    image: '/images/agents/engineer.jpg',
+    image: agentEngineer,
   },
   {
     id: 'logistics',
@@ -75,7 +82,7 @@ const sectorHighlights: SectorHighlight[] = [
     description: 'High-frequency GPS track ingestion, automated route assignment & digital manifests.',
     metricLabel: '65% Dispatch Saved',
     targetId: 'logistics',
-    image: '/images/agents/operations.jpg',
+    image: agentOperations,
   },
   {
     id: 'manufacturing',
@@ -89,7 +96,7 @@ const sectorHighlights: SectorHighlight[] = [
     description: 'Edge CCTV safety compliance, machine telemetry brokers & real-time OEE dashboards.',
     metricLabel: '24/7 Floor Monitoring',
     targetId: 'manufacturing',
-    image: '/images/agents/manufacturing.jpg',
+    image: agentManufacturing,
   },
 ]
 

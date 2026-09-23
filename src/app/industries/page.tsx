@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/images/industries/retail.jpg',
+        url: '/opengraph.webp',
         width: 1200,
         height: 630,
         alt: 'Industries Served by Xylozen',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: 'Industries We Serve | Xylozen Technologies',
     description:
       'Domain-adapted engineering for Retail, Healthcare, Logistics, Real Estate, and Manufacturing.',
-    images: ['/images/industries/retail.jpg'],
+    images: ['/opengraph.webp'],
   },
 }
 

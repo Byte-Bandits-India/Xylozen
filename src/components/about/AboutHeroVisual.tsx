@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, ArrowRight, Cpu, Sparkles, Workflow, Layers, Rocket } from 'lucide-react'
+import { agentEngineer } from '@/assets/images'
 
 interface StudioCapability {
   id: string
@@ -115,7 +116,7 @@ export function AboutHeroVisual() {
         className="relative rounded-[2.25rem] overflow-hidden border border-line shadow-2xl shadow-brand-900/10 bg-surface aspect-[4/4.6]"
       >
         <Image
-          src="/images/agents/engineer.jpg"
+          src={agentEngineer}
           alt="Xylozen Engineering Lead"
           fill
           priority

@@ -3,7 +3,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Hero } from '@/components/sections/Hero'
 import { ScrollExpand } from '@/components/ScrollExpand'
-import scrollExpandImg from '@/assets/home/scrollExpand.jpg'
+import scrollExpandImg from '@/assets/home/scrollExpand.webp'
 import { WhatWeDo } from '@/components/sections/WhatWeDo'
 import { OurWork } from '@/components/sections/OurWork'
 import { Industries } from '@/components/sections/Industries'
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/opengraph.png',
+        url: '/opengraph.webp',
         width: 1200,
         height: 630,
         alt: 'Xylozen Technologies',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: 'Xylozen Technologies | Precision Operationalized',
     description:
       'From your first website to a fully automated business, designed, built, integrated, and maintained by one team.',
-    images: ['/opengraph.png'],
+    images: ['/opengraph.webp'],
   },
 }
 

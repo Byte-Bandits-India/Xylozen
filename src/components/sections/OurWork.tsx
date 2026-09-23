@@ -75,7 +75,7 @@ export function OurWork() {
                   </h3>
 
                   {/* Challenge Description */}
-                  <p className="text-small sm:text-body text-ink-500 mb-4 sm:mb-5 max-w-md leading-relaxed">
+                  <p className="text-base sm:text-body text-slate-700 mb-4 sm:mb-5 max-w-md leading-relaxed">
                     Titan &times; Tata required a solution that could connect customers with expert optometrists without requiring an optometrist to be physically present at every location.
                   </p>
                 </div>
@@ -154,7 +154,7 @@ export function OurWork() {
                   </h3>
 
                   {/* Challenge Description */}
-                  <p className="text-small sm:text-body text-ink-500 mb-4 sm:mb-5 max-w-md leading-relaxed">
+                  <p className="text-base sm:text-body text-slate-700 mb-4 sm:mb-5 max-w-md leading-relaxed">
                     Traditional recruitment workflows often require recruiters to manually review large volumes of resumes, resulting in delays and inconsistent screening. Xylozen developed HireAI, a cloud-based recruitment platform designed to automate and improve the candidate screening process.
                   </p>
                 </div>
@@ -237,7 +237,7 @@ export function OurWork() {
                   </h3>
 
                   {/* Challenge Description */}
-                  <p className="text-small sm:text-body text-ink-500 mb-4 sm:mb-5 max-w-md leading-relaxed">
+                  <p className="text-base sm:text-body text-slate-700 mb-4 sm:mb-5 max-w-md leading-relaxed">
                     Construction companies often depend on manual inspections to monitor safety compliance across active sites. This approach can be time-consuming, inconsistent, and difficult to scale across multiple locations. Xylozen engineered an AI-powered monitoring system using computer vision to identify safety violations and support centralized compliance management.
                   </p>
                 </div>

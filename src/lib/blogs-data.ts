@@ -1,3 +1,10 @@
+import { StaticImageData } from 'next/image'
+import {
+  industryHealthcare,
+  industryRetail,
+  industryManufacturing,
+} from '@/assets/images'
+
 export interface BlogSection {
   title: string
   content?: string
@@ -14,7 +21,7 @@ export interface BlogPost {
   readTime: string
   author: string
   summary: string
-  image: string
+  image: string | StaticImageData
   challenge: string
   solutionBullets: string[]
   deliveryNote?: string
@@ -33,7 +40,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Xylozen Engineering',
     summary:
       'Connecting customers with optometrists across locations through live video consultations, remote examination device access, and real-time diagnostic capture.',
-    image: '/images/industries/healthcare.jpg',
+    image: industryHealthcare,
     challenge:
       'Titan × Tata required a solution that could connect customers with expert optometrists without requiring an optometrist to be physically present at every location.',
     solutionBullets: [
@@ -58,7 +65,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Xylozen Engineering',
     summary:
       'A cloud-based recruitment Micro-SaaS automating resume parsing, NLP skill extraction, and candidate ranking to reduce screening time from days to minutes.',
-    image: '/images/industries/retail.jpg',
+    image: industryRetail,
     challenge:
       'Traditional recruitment workflows often require recruiters to manually review large volumes of resumes, resulting in delays and inconsistent screening.',
     solutionBullets: [
@@ -83,7 +90,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Xylozen Engineering',
     summary:
       'An AI-powered computer vision system detecting PPE and helmet compliance in real-time, providing centralized alerts and audit trails across active construction sites.',
-    image: '/images/industries/manufacturing.jpg',
+    image: industryManufacturing,
     challenge:
       'Construction companies often depend on manual inspections to monitor safety compliance across active sites. This approach can be time-consuming, inconsistent, and difficult to scale across multiple locations.',
     solutionBullets: [

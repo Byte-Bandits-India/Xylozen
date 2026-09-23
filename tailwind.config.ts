@@ -79,7 +79,7 @@ const config: Config = {
         // Neutrals
         ink: {
           900: '#1F2733',
-          500: '#6B7480',
+          500: '#475467',
         },
         line: '#E2E6ED',
         surface: '#F3F3F3',
@@ -124,10 +124,10 @@ const config: Config = {
         lead: ['1.1875rem', { lineHeight: '1.65', fontWeight: '400' }],
         body: ['1.0625rem', { lineHeight: '1.65', fontWeight: '400' }],
         small: ['0.9375rem', { lineHeight: '1.55', fontWeight: '400' }],
-        caption: ['0.8125rem', { lineHeight: '1.50', letterSpacing: '0.04em', fontWeight: '500' }],
-        tagline: ['0.75rem', { lineHeight: '1.40', letterSpacing: '0.14em', fontWeight: '400' }],
+        caption: ['0.875rem', { lineHeight: '1.50', letterSpacing: '0.02em', fontWeight: '500' }],
+        tagline: ['0.8125rem', { lineHeight: '1.40', letterSpacing: '0.08em', fontWeight: '500' }],
         btn: ['1.0625rem', { lineHeight: '1.20', fontWeight: '600' }],
-        badge: ['0.5000rem', { lineHeight: '1.35', letterSpacing: '0.08em', fontWeight: '600' }],
+        badge: ['0.75rem', { lineHeight: '1.40', letterSpacing: '0.05em', fontWeight: '600' }],
         nav: ['0.9375rem', { lineHeight: '1.50', fontWeight: '500' }],
       },
       maxWidth: {

@@ -17,6 +17,15 @@ import {
   TrendingUp,
 } from 'lucide-react'
 import { useLenis } from 'lenis/react'
+import {
+  customer1,
+  customer2,
+  customer3,
+  customer4,
+  podArchitect,
+  podFullstack,
+  podDelivery,
+} from '@/assets/images'
 
 export function Hero() {
   const [activeSwitch, setActiveSwitch] = useState<'without' | 'with' | null>('with')
@@ -691,7 +700,7 @@ export function Hero() {
 function UserAvatar1() {
   return (
     <Image
-      src="/images/avatars/customer-1.jpg"
+      src={customer1}
       alt="Customer testimonial avatar"
       fill
       sizes="32px"
@@ -703,7 +712,7 @@ function UserAvatar1() {
 function UserAvatar2() {
   return (
     <Image
-      src="/images/avatars/customer-2.jpg"
+      src={customer2}
       alt="Customer testimonial avatar"
       fill
       sizes="32px"
@@ -715,7 +724,7 @@ function UserAvatar2() {
 function UserAvatar3() {
   return (
     <Image
-      src="/images/avatars/customer-3.jpg"
+      src={customer3}
       alt="Customer testimonial avatar"
       fill
       sizes="32px"
@@ -727,7 +736,7 @@ function UserAvatar3() {
 function UserAvatar4() {
   return (
     <Image
-      src="/images/avatars/customer-4.jpg"
+      src={customer4}
       alt="Customer testimonial avatar"
       fill
       sizes="32px"
@@ -739,11 +748,11 @@ function UserAvatar4() {
 function PodAvatar1() {
   return (
     <Image
-      src="/images/avatars/pod-architect.jpg"
+      src={podArchitect}
       alt="Dedicated pod architect team member"
       fill
       sizes="32px"
-      className="object-cover object-center"
+      className="object-cover object-center rounded-full"
     />
   )
 }
@@ -751,11 +760,11 @@ function PodAvatar1() {
 function PodAvatar2() {
   return (
     <Image
-      src="/images/avatars/pod-fullstack.jpg"
+      src={podFullstack}
       alt="Dedicated pod full-stack engineer"
       fill
       sizes="32px"
-      className="object-cover object-center"
+      className="object-cover object-center rounded-full"
     />
   )
 }
@@ -763,11 +772,11 @@ function PodAvatar2() {
 function PodAvatar3() {
   return (
     <Image
-      src="/images/avatars/pod-delivery.jpg"
+      src={podDelivery}
       alt="Dedicated pod delivery specialist"
       fill
       sizes="32px"
-      className="object-cover object-center"
+      className="object-cover object-center rounded-full"
     />
   )
 }
