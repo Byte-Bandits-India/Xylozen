@@ -1,10 +1,11 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { Logo } from '@/components/ui/Logo'
 import { Mail, Linkedin, Twitter, ArrowUpRight } from 'lucide-react'
 import { useLenis } from 'lenis/react'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 // =============================================================================
 // MAIN COMPONENT: Footer
@@ -14,62 +15,29 @@ import { usePathname, useRouter } from 'next/navigation'
 
 export function Footer() {
   const lenis = useLenis()
-  const router = useRouter()
   const pathname = usePathname()
 
-  const scrollToSection = (target: string) => {
-    if (target.startsWith('/')) {
-      const [targetPath, targetHash] = target.split('#')
-      
-      if (pathname === targetPath || (targetPath === '' && pathname === '/')) {
-        if (targetHash) {
-          const element = document.getElementById(targetHash)
-          if (element) {
-            if (lenis) {
-              lenis.scrollTo(element, { offset: -80, duration: 1.2 })
-            } else {
-              const headerOffset = 80
-              const elementPosition = element.getBoundingClientRect().top
-              const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-              window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
-            }
-            return
-          }
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#') || href.startsWith('#')) {
+      const cleanId = href.replace('/#', '').replace('#', '')
+      const element = document.getElementById(cleanId)
+      if (element && pathname === '/') {
+        e.preventDefault()
+        if (lenis) {
+          lenis.scrollTo(element, { offset: -80, duration: 1.2 })
         } else {
-          if (lenis) lenis.scrollTo(0, { duration: 1.2 })
-          else window.scrollTo({ top: 0, behavior: 'smooth' })
-          return
+          const headerOffset = 80
+          const elementPosition = element.getBoundingClientRect().top
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
         }
       }
-      
-      router.push(target)
-      return
-    }
-
-    const cleanId = target.replace('#', '')
-    const element = document.getElementById(cleanId)
-
-    if (element) {
-      if (lenis) {
-        lenis.scrollTo(element, { offset: -80, duration: 1.2 })
-      } else {
-        const headerOffset = 80
-        const elementPosition = element.getBoundingClientRect().top
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
-        })
-      }
-    } else {
-      router.push(`/#${cleanId}`)
     }
   }
 
   return (
     <footer className="bg-white border-t border-slate-200/90 py-12 sm:py-16 text-slate-900 selection:bg-brand-500 selection:text-white">
-      <div className="container-section w-full">
+      <div className="px-6 w-full">
         {/* Main Grid: 4 Clean Columns with Perfect Alignment */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* ================================================================= */}
@@ -133,24 +101,27 @@ export function Footer() {
                 Services
               </h3>
               <div className="flex flex-col gap-3">
-                <button
-                  onClick={() => scrollToSection('/services/web-software')}
+                <Link
+                  href="/services/web-software"
+                  prefetch={true}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Web &amp; Software
-                </button>
-                <button
-                  onClick={() => scrollToSection('/services/ecommerce')}
+                </Link>
+                <Link
+                  href="/services/ecommerce"
+                  prefetch={true}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Ecommerce
-                </button>
-                <button
-                  onClick={() => scrollToSection('/services/ai-automation')}
+                </Link>
+                <Link
+                  href="/services/ai-automation"
+                  prefetch={true}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   AI &amp; Automation
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -160,82 +131,106 @@ export function Footer() {
                 Industries
               </h3>
               <div className="flex flex-col gap-3">
-                <button
-                  onClick={() => scrollToSection('/industries#retail')}
+                <Link
+                  href="/industries#retail"
+                  prefetch={true}
+                  onClick={(e) => handleAnchorClick(e, '/industries#retail')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Retail &amp; Ecommerce
-                </button>
-                <button
-                  onClick={() => scrollToSection('/industries#real-estate')}
+                </Link>
+                <Link
+                  href="/industries#real-estate"
+                  prefetch={true}
+                  onClick={(e) => handleAnchorClick(e, '/industries#real-estate')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Real Estate
-                </button>
-                <button
-                  onClick={() => scrollToSection('/industries#healthcare')}
+                </Link>
+                <Link
+                  href="/industries#healthcare"
+                  prefetch={true}
+                  onClick={(e) => handleAnchorClick(e, '/industries#healthcare')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Healthcare
-                </button>
-                <button
-                  onClick={() => scrollToSection('/industries#logistics')}
+                </Link>
+                <Link
+                  href="/industries#logistics"
+                  prefetch={true}
+                  onClick={(e) => handleAnchorClick(e, '/industries#logistics')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Logistics
-                </button>
-                <button
-                  onClick={() => scrollToSection('/industries#manufacturing')}
+                </Link>
+                <Link
+                  href="/industries#manufacturing"
+                  prefetch={true}
+                  onClick={(e) => handleAnchorClick(e, '/industries#manufacturing')}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Manufacturing
-                </button>
+                </Link>
               </div>
             </div>
 
-            {/* Column 4: Studio & Work */}
+            {/* Column 4: Resources & Studio */}
             <div className="flex flex-col items-start">
               <h3 className="text-sm uppercase font-semibold tracking-wider text-slate-900 mb-4">
-                Studio &amp; Work
+                Resources &amp; Studio
               </h3>
               <div className="flex flex-col gap-3">
-                <button
-                  onClick={() => scrollToSection('/our-work')}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
-                >
-                  Our Work
-                </button>
-                <button
-                  onClick={() => scrollToSection('/our-work#case-studies')}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
-                >
-                  Case Studies
-                </button>
-                <button
-                  onClick={() => scrollToSection('/about')}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
-                >
-                  About Studio
-                </button>
-                <button
-                  onClick={() => scrollToSection('/blogs')}
+                <Link
+                  href="/blogs"
+                  prefetch={true}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Blogs
-                </button>
-                <button
-                  onClick={() => scrollToSection('/careers')}
+                </Link>
+                <Link
+                  href="/our-work"
+                  prefetch={true}
+                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                >
+                  Case Studies
+                </Link>
+                <Link
+                  href="/pricing"
+                  prefetch={true}
+                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                >
+                  Pricing Models
+                </Link>
+                <Link
+                  href="/our-work#how-we-work"
+                  prefetch={true}
+                  onClick={(e) => handleAnchorClick(e, '/our-work#how-we-work')}
+                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                >
+                  How We Work
+                </Link>
+                <Link
+                  href="/about"
+                  prefetch={true}
+                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                >
+                  About Us
+                </Link>
+                <Link
+                  href="/careers"
+                  prefetch={true}
                   className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
                 >
                   Careers
-                </button>
-                <button
-                  onClick={() => scrollToSection('/contact')}
+                </Link>
+                <Link
+                  href="/contact"
+                  prefetch={true}
                   className="text-small font-semibold text-cta hover:text-[#C13010] transition-colors text-left cursor-pointer flex items-center gap-1"
                 >
                   <span>Start a Project</span>
                   <ArrowUpRight className="w-4 h-4" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>

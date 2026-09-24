@@ -9,10 +9,8 @@ import {
   Truck,
   Factory,
   Layers,
-  Users,
   Compass,
   BookOpen,
-  TrendingUp,
   LucideIcon,
 } from 'lucide-react'
 
@@ -31,10 +29,10 @@ export interface MegaMenuData {
   eyebrow: string
   eyebrowIcon: LucideIcon
   items: SubMenuItem[]
-  viewAllText: string
-  viewAllHref: string
-  visualHeadline: string
-  visualSub: string
+  viewAllText?: string
+  viewAllHref?: string
+  visualHeadline?: string
+  visualSub?: string
 }
 
 export const navigationMenuData: Record<string, MegaMenuData> = {
@@ -69,36 +67,15 @@ export const navigationMenuData: Record<string, MegaMenuData> = {
         iconColor: 'text-violet-500',
       },
     ],
-    viewAllText: 'Explore Web & Software',
-    viewAllHref: '/services/web-software',
+    viewAllText: 'Explore all services & architecture',
+    viewAllHref: '/services',
     visualHeadline: 'AI-Native Architecture',
     visualSub: 'Intelligent systems engineered for operational scale',
   },
 
-  'our-work': {
-    id: 'our-work',
-    label: 'Our Work',
-    eyebrow: 'PORTFOLIO & EVIDENCE',
-    eyebrowIcon: TrendingUp,
-    items: [
-      {
-        title: 'Case Studies',
-        subtitle: 'Measurable outcomes & architectural ROI',
-        href: '/our-work',
-        icon: FileText,
-        iconBg: 'bg-teal-400/15',
-        iconColor: 'text-teal-600',
-      },
-    ],
-    viewAllText: 'View all project metrics',
-    viewAllHref: '/our-work',
-    visualHeadline: 'Precision in Production',
-    visualSub: 'Titan × Tata, HireAI & Vision Safety Systems',
-  },
-
   industries: {
     id: 'industries',
-    label: 'Industries',
+    label: 'Industries we Serve',
     eyebrow: 'SECTOR SOLUTIONS',
     eyebrowIcon: Store,
     items: [
@@ -149,48 +126,44 @@ export const navigationMenuData: Record<string, MegaMenuData> = {
     visualSub: 'Engineered for how your business actually operates',
   },
 
-  about: {
-    id: 'about',
-    label: 'About',
-    eyebrow: 'STUDIO OVERVIEW',
-    eyebrowIcon: Compass,
+  resources: {
+    id: 'resources',
+    label: 'Resources',
+    eyebrow: 'RESOURCES & INSIGHTS',
+    eyebrowIcon: BookOpen,
     items: [
       {
-        title: 'Why Xylozen',
-        subtitle: 'AI-native studio differentiators',
-        href: '/about#why-xylozen',
-        icon: Layers,
-        iconBg: 'bg-brand-500/10',
-        iconColor: 'text-brand-500',
-      },
-      {
-        title: 'How We Work',
-        subtitle: '8-stage disciplined delivery process',
-        href: '/about#how-we-work',
-        icon: Compass,
-        iconBg: 'bg-teal-400/15',
-        iconColor: 'text-teal-600',
-      },
-      {
         title: 'Blogs',
-        subtitle: 'Architecture & technical perspectives',
+        subtitle: 'Architecture, engineering & technical perspectives',
         href: '/blogs',
         icon: BookOpen,
         iconBg: 'bg-violet-500/10',
         iconColor: 'text-violet-500',
       },
       {
-        title: 'Careers',
-        subtitle: 'Join our AI-native engineering studio',
-        href: '/careers',
-        icon: Users,
-        iconBg: 'bg-gold-400/15',
-        iconColor: 'text-gold-600',
+        title: 'Case Studies',
+        subtitle: 'Production outcomes, technical ROI & client proof',
+        href: '/our-work',
+        icon: FileText,
+        iconBg: 'bg-teal-400/15',
+        iconColor: 'text-teal-600',
+      },
+      {
+        title: 'Pricing Models',
+        subtitle: 'Sprint-based pods & fixed-scope MVP tiers',
+        href: '/pricing',
+        icon: Layers,
+        iconBg: 'bg-brand-500/10',
+        iconColor: 'text-brand-500',
+      },
+      {
+        title: 'How We Work',
+        subtitle: '8-stage disciplined product delivery lifecycle',
+        href: '/our-work#how-we-work',
+        icon: Compass,
+        iconBg: 'bg-amber-50',
+        iconColor: 'text-amber-600',
       },
     ],
-    viewAllText: 'Explore studio & delivery philosophy',
-    viewAllHref: '/about',
-    visualHeadline: 'Chennai to Global',
-    visualSub: 'International delivery rigor with 100% in-house team',
   },
 }

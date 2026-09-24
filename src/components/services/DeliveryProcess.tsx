@@ -1,10 +1,9 @@
 'use client'
 
 import React from 'react'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { deliverySteps } from '@/lib/services-data'
-import { ArrowUpRight, Compass } from 'lucide-react'
+import { Compass } from 'lucide-react'
 
 export function DeliveryProcess() {
   return (
@@ -76,31 +75,6 @@ export function DeliveryProcess() {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom Commitment Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-12 p-6 sm:p-8 rounded-card bg-surface border border-line flex flex-col sm:flex-row items-center justify-between gap-4"
-        >
-          <div>
-            <span className="text-caption font-mono uppercase tracking-wider text-brand-500 font-semibold block mb-1">
-              Our Commitment
-            </span>
-            <p className="text-base sm:text-h3 font-semibold text-brand-900">
-              Clear strategy. Strong engineering. Transparent execution. Measurable outcomes.
-            </p>
-          </div>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-1.5 text-small font-semibold text-brand-500 hover:text-brand-700 shrink-0"
-          >
-            <span>Discuss your delivery timeline</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </Link>
-        </motion.div>
       </div>
     </section>
   )

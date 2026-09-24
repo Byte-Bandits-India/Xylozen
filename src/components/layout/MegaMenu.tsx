@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { MegaMenuData } from './nav-data'
 import { MegaMenuVisual } from './MegaMenuVisual'
@@ -32,9 +33,11 @@ export function MegaMenu({ data, onItemClick }: MegaMenuProps) {
               {data.items.map((item, index) => {
                 const ItemIcon = item.icon
                 return (
-                  <button
+                  <Link
                     key={index}
+                    href={item.href}
                     onClick={() => onItemClick(item.href)}
+                    prefetch={true}
                     className="flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-left transition-all duration-150 bg-transparent hover:bg-surface border border-transparent hover:border-line/70 group cursor-pointer"
                   >
                     <div className={`w-10 h-10 shrink-0 rounded-lg flex items-center justify-center ${item.iconBg} ${item.iconColor} transition-transform group-hover:scale-105`}>
@@ -53,25 +56,29 @@ export function MegaMenu({ data, onItemClick }: MegaMenuProps) {
                     </div>
 
                     <ArrowRight className="w-4 h-4 text-ink-500/40 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-150 shrink-0" />
-                  </button>
+                  </Link>
                 )
               })}
             </div>
           </div>
 
-          {/* Bottom Footer: Quick Action & Delivery Tag */}
-          <div className="pt-4 mt-5 border-t border-line/60 flex items-center justify-between">
-            <button
-              onClick={() => onItemClick(data.viewAllHref)}
-              className="inline-flex items-center gap-1.5 text-small font-semibold text-brand-500 hover:text-brand-700 transition-colors group cursor-pointer"
-            >
-              <span>{data.viewAllText}</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </button>
-            <span className="text-caption text-ink-500/70">
-              Chennai &bull; Worldwide Delivery
-            </span>
-          </div>
+          {/* Bottom Footer: Quick Action & Delivery Tag (shown only when specified) */}
+          {data.viewAllText && data.viewAllHref && (
+            <div className="pt-4 mt-5 border-t border-line/60 flex items-center justify-between">
+              <Link
+                href={data.viewAllHref}
+                onClick={() => onItemClick(data.viewAllHref!)}
+                prefetch={true}
+                className="inline-flex items-center gap-1.5 text-small font-semibold text-brand-500 hover:text-brand-700 transition-colors group cursor-pointer"
+              >
+                <span>{data.viewAllText}</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <span className="text-caption text-ink-500/70">
+                Chennai &bull; Worldwide Delivery
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Right Column: Geometric SVG Shape Showcase (Strictly shapes, no text or other data) */}

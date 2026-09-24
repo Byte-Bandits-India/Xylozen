@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { OurWorkHeroVisual } from './OurWorkHeroVisual'
 
@@ -52,8 +53,9 @@ export function OurWorkHero() {
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4">
               <Link href="/contact">
-                <Button variant="primary-cta">
-                  <span>Schedule Technical Scoping</span>
+                <Button variant="primary-cta" className="gap-2 text-white font-medium">
+                  <span className="text-white font-medium">Schedule Technical Scoping</span>
+                  <ArrowRight className="w-4 h-4 text-white" />
                 </Button>
               </Link>
             </div>

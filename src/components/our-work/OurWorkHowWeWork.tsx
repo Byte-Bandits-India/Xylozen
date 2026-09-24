@@ -1,81 +1,11 @@
 'use client'
 
 import React, { useRef, useState, useEffect } from 'react'
-import Image, { StaticImageData } from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import {
-  industryRetail,
-  industryHealthcare,
-  industryRealEstate,
-  industryLogistics,
-  industryManufacturing,
-} from '@/assets/images'
+import { aboutDeliveryStages } from '@/components/about/about-data'
 
-interface IndustryStory {
-  id: string
-  anchor: string
-  clientName: string
-  outcome: string
-  image: string | StaticImageData
-  linkText: string
-  href: string
-}
-
-const industryStories: IndustryStory[] = [
-  {
-    id: 'retail',
-    anchor: 'retail',
-    clientName: 'Titan Eyeplus',
-    outcome:
-      'scaled assisted digital examinations across 900+ retail stores with real-time POS and inventory synchronization.',
-    image: industryRetail,
-    linkText: 'Read case study',
-    href: '/our-work#titan-tata',
-  },
-  {
-    id: 'healthcare',
-    anchor: 'healthcare',
-    clientName: 'Titan × Tata',
-    outcome:
-      'engineered secure telehealth consultation platforms with WebSockets diagnostic telemetry and 100% HIPAA compliance.',
-    image: industryHealthcare,
-    linkText: 'Read case study',
-    href: '/our-work#titan-tata',
-  },
-  {
-    id: 'real-estate',
-    anchor: 'real-estate',
-    clientName: 'PropEdge Portals',
-    outcome:
-      'unified geospatial property listing search and automated broker lead distribution in under 30 seconds.',
-    image: industryRealEstate,
-    linkText: 'Explore architecture',
-    href: '/contact',
-  },
-  {
-    id: 'logistics',
-    anchor: 'logistics',
-    clientName: 'LogiSync',
-    outcome:
-      'processed millions of high-frequency GPS pings with a 65% reduction in manual dispatch overhead.',
-    image: industryLogistics,
-    linkText: 'Explore architecture',
-    href: '/contact',
-  },
-  {
-    id: 'manufacturing',
-    anchor: 'manufacturing',
-    clientName: 'VisionGuard',
-    outcome:
-      'deployed edge CCTV computer vision with sub-50ms PPE compliance alerting 24/7 across active industrial floors.',
-    image: industryManufacturing,
-    linkText: 'Read case study',
-    href: '/our-work#vision-safety',
-  },
-]
-
-export function IndustryWorkflows() {
+export function OurWorkHowWeWork() {
   const sliderRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
@@ -115,26 +45,19 @@ export function IndustryWorkflows() {
     const containerRect = container.getBoundingClientRect()
     const currentScroll = container.scrollLeft
 
-    // Calculate exact scrollLeft offsets for each card inside the container
-    const cardPositions = cards.map((card) => {
-      const cardRect = card.getBoundingClientRect()
+    const cardPositions = cards.map((card) => { const cardRect = card.getBoundingClientRect()
       return cardRect.left - containerRect.left + currentScroll
     })
 
     let targetLeft: number
 
     if (direction === 'right') {
-      // Find the first card located after current scroll position (with 15px threshold)
       const nextPos = cardPositions.find((pos) => pos > currentScroll + 15)
       targetLeft = nextPos !== undefined ? nextPos : container.scrollWidth - container.clientWidth
     } else {
-      // Find the card located before current scroll position (with 15px threshold)
       const prevPositions = cardPositions.filter((pos) => pos < currentScroll - 15)
       targetLeft = prevPositions.length > 0 ? prevPositions[prevPositions.length - 1] : 0
     }
-
-    // Temporarily release CSS scroll-snap so the browser's smooth scroll interpolator
-    // isn't interrupted or snapped prematurely by the CSS snap engine
     container.style.scrollSnapType = 'none'
 
     container.scrollTo({
@@ -160,23 +83,23 @@ export function IndustryWorkflows() {
   }
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-line select-none overflow-hidden">
+    <section id="how-we-work" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-line select-none overflow-hidden">
       <div className="container-section">
         {/* Section Header with Proper Typography Tokens from globals.css */}
         <div className="mb-8 sm:mb-12 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-badge text-slate-700 mb-3 font-medium">
             <span className="w-2 h-2 rounded-full bg-cta" />
-            <span>PROVEN DEPLOYMENTS &amp; CASE STUDIES</span>
+            <span>DISCIPLINED DELIVERY FRAMEWORK</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-h2 font-medium text-brand-900 tracking-tight leading-tight mb-3">
-            How bold brands get even bolder
+            A Disciplined Approach to Building High-Value Digital Products
           </h2>
-          <p className="text-small sm:text-body text-ink-500 leading-relaxed">
-            Real-world deployments across retail, healthcare, logistics, and manufacturing. Explore how custom engineering drives measurable speed, operational efficiency, and scale.
+          <p className="text-small sm:text-body text-ink-500 leading-relaxed font-normal">
+            At Xylozen, every engagement begins with business understanding, not a technology stack. We combine strategic discovery, product thinking, and engineering excellence to create solutions that are commercially relevant, technically resilient, and built for long-term value.
           </p>
         </div>
 
-        {/* Horizontal Editorial Card Carousel: Wrapped inside container on left, full width on right */}
+        {/* Horizontal Scroll Card Carousel: Wrapped in container on left, full width on right */}
         <div
           ref={sliderRef}
           style={{
@@ -185,38 +108,38 @@ export function IndustryWorkflows() {
           }}
           className="flex gap-6 sm:gap-8 overflow-x-auto scroll-smooth scrollbar-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory pb-4 pr-8 sm:pr-12 lg:pr-16"
         >
-          {industryStories.map((story) => (
+          {aboutDeliveryStages.map((stage) => (
             <div
-              key={story.id}
-              id={story.anchor}
-              className="w-[82vw] sm:w-[480px] md:w-[540px] lg:w-[580px] shrink-0 snap-start scroll-mt-32 flex flex-col"
+              key={stage.id}
+              id={stage.id}
+              className="w-[85vw] sm:w-[500px] md:w-[560px] lg:w-[600px] shrink-0 snap-start scroll-mt-32 flex flex-col"
             >
               {/* Media Card Container */}
-              <Link href={story.href} className="group block">
+              <div className="group block">
                 <div className="relative aspect-[16/10] w-full rounded-[24px] sm:rounded-[28px] overflow-hidden bg-slate-100 border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-300">
                   <Image
-                    src={story.image}
-                    alt={`${story.clientName} production outcome`}
+                    src={stage.image}
+                    alt={`${stage.title} delivery step`}
                     fill
-                    sizes="(max-width: 768px) 85vw, (max-width: 1200px) 540px, 580px"
+                    sizes="(max-width: 768px) 85vw, (max-width: 1200px) 560px, 600px"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
                 </div>
-              </Link>
+              </div>
 
-              {/* Editorial Caption & Link Below Image */}
+              {/* Simple Editorial Caption Below Image */}
               <div className="mt-4 sm:mt-5 text-left">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="text-caption font-mono text-brand-600 font-medium">{stage.step}</span>
+                  <span className="text-caption text-slate-400">&bull;</span>
+                  <span className="text-caption text-slate-500 font-medium">{stage.phase}</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-medium text-slate-900 mb-2">
+                  {stage.title}
+                </h3>
                 <p className="text-small sm:text-body text-slate-600 font-normal leading-relaxed">
-                  <strong className="text-slate-900 font-medium">{story.clientName}</strong>{' '}
-                  {story.outcome}
+                  {stage.description}
                 </p>
-
-                <Link
-                  href={story.href}
-                  className="inline-block mt-2.5 text-small font-medium text-slate-900 underline underline-offset-4 decoration-slate-400 hover:decoration-slate-900 hover:text-brand-600 transition-colors"
-                >
-                  {story.linkText}
-                </Link>
               </div>
             </div>
           ))}
@@ -229,7 +152,7 @@ export function IndustryWorkflows() {
             type="button"
             onClick={() => handleScroll('left')}
             disabled={!canScrollLeft}
-            aria-label="Previous story"
+            aria-label="Previous step"
             className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95 ${
               canScrollLeft
                 ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300'
@@ -244,7 +167,7 @@ export function IndustryWorkflows() {
             type="button"
             onClick={() => handleScroll('right')}
             disabled={!canScrollRight}
-            aria-label="Next story"
+            aria-label="Next step"
             className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95 shadow-sm ${
               canScrollRight
                 ? 'bg-brand-900 hover:bg-cta text-white hover:scale-105'

@@ -158,9 +158,9 @@ export default function CareersPage() {
             {/* Direct Action Link */}
             <div>
               <a href="#roles">
-                <Button variant="primary-cta">
-                  <span>View Open Positions</span>
-                  <ArrowRight className="w-4 h-4 ml-1.5" />
+                <Button variant="primary-cta" className="gap-2 text-white font-medium">
+                  <span className="text-white font-medium">View Open Positions</span>
+                  <ArrowRight className="w-4 h-4 text-white" />
                 </Button>
               </a>
             </div>
@@ -271,9 +271,9 @@ export default function CareersPage() {
 
                   <div className="shrink-0 pt-4 lg:pt-0 border-t lg:border-t-0 border-slate-100">
                     <Link href="/contact">
-                      <Button variant="primary-cta" className="w-full sm:w-auto shadow-xs">
-                        <span>Apply for Role</span>
-                        <ArrowRight className="w-4 h-4 ml-1.5" />
+                      <Button variant="primary-cta" className="w-full sm:w-auto shadow-xs gap-2 text-white font-medium">
+                        <span className="text-white font-medium">Apply for Role</span>
+                        <ArrowRight className="w-4 h-4 text-white" />
                       </Button>
                     </Link>
                   </div>

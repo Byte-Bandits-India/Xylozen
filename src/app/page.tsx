@@ -6,7 +6,7 @@ import scrollExpandImg from '@/assets/home/scrollExpand.webp'
 
 const ScrollExpand = dynamic(() => import('@/components/ScrollExpand').then((mod) => mod.ScrollExpand))
 const WhatWeDo = dynamic(() => import('@/components/sections/WhatWeDo').then((mod) => mod.WhatWeDo))
-const OurWork = dynamic(() => import('@/components/sections/OurWork').then((mod) => mod.OurWork))
+const HowWeWork = dynamic(() => import('@/components/our-work/OurWorkHowWeWork').then((mod) => mod.OurWorkHowWeWork))
 const Industries = dynamic(() => import('@/components/sections/Industries').then((mod) => mod.Industries))
 const WhyXylozen = dynamic(() => import('@/components/sections/WhyXylozen').then((mod) => mod.WhyXylozen))
 const FinalCTA = dynamic(() => import('@/components/sections/FinalCTA').then((mod) => mod.FinalCTA))
@@ -69,7 +69,7 @@ export default function HomePage() {
           </div>
         </ScrollExpand>
         <WhatWeDo />
-        <OurWork />
+        <HowWeWork />
         <Industries />
         <WhyXylozen />
         <FinalCTA />

@@ -24,6 +24,7 @@ function renderShape(menuId: string) {
         <ServiceArchitectureLogo className="w-36 h-36 sm:w-44 sm:h-44 text-[rgb(84,84,84)] transition-transform duration-300 hover:scale-105" />
       )
 
+    case 'resources':
     case 'our-work':
       // Shape 2: Angular faceted / diagonal ribbon notch shape
       return (

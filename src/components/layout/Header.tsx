@@ -178,7 +178,7 @@ export function Header() {
             : 'bg-white/85 backdrop-blur-sm border-b border-line/40'
         )}
       >
-        <div className="container-section" ref={navContainerRef}>
+        <div className="px-6" ref={navContainerRef}>
           <div className="flex items-center justify-between h-20">
             
             {/* Left: Logo & Desktop Navigation */}
@@ -215,32 +215,6 @@ export function Header() {
                   </button>
                 </div>
 
-                {/* Our Work */}
-                <div
-                  className="relative"
-                  onMouseEnter={() => handleMouseEnter('our-work')}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <button
-                    onClick={() => setActiveMenu(activeMenu === 'our-work' ? null : 'our-work')}
-                    className={cn(
-                      'flex items-center gap-1.5 px-3 py-2 text-nav rounded-lg transition-colors cursor-pointer',
-                      activeMenu === 'our-work'
-                        ? 'text-brand-500 bg-surface'
-                        : 'text-ink-900 hover:text-brand-500 hover:bg-surface/70'
-                    )}
-                    aria-expanded={activeMenu === 'our-work'}
-                  >
-                    <span>Our Work</span>
-                    <ChevronDown
-                      className={cn(
-                        'w-4 h-4 transition-transform duration-200 opacity-60',
-                        activeMenu === 'our-work' && 'rotate-180 text-brand-500 opacity-100'
-                      )}
-                    />
-                  </button>
-                </div>
-
                 {/* Industries */}
                 <div
                   className="relative"
@@ -257,7 +231,7 @@ export function Header() {
                     )}
                     aria-expanded={activeMenu === 'industries'}
                   >
-                    <span>Industries</span>
+                    <span>Industries we Serve</span>
                     <ChevronDown
                       className={cn(
                         'w-4 h-4 transition-transform duration-200 opacity-60',
@@ -267,31 +241,39 @@ export function Header() {
                   </button>
                 </div>
 
-                {/* About */}
+                {/* Resources */}
                 <div
                   className="relative"
-                  onMouseEnter={() => handleMouseEnter('about')}
+                  onMouseEnter={() => handleMouseEnter('resources')}
                   onMouseLeave={handleMouseLeave}
                 >
                   <button
-                    onClick={() => setActiveMenu(activeMenu === 'about' ? null : 'about')}
+                    onClick={() => setActiveMenu(activeMenu === 'resources' ? null : 'resources')}
                     className={cn(
                       'flex items-center gap-1.5 px-3 py-2 text-nav rounded-lg transition-colors cursor-pointer',
-                      activeMenu === 'about'
+                      activeMenu === 'resources'
                         ? 'text-brand-500 bg-surface'
                         : 'text-ink-900 hover:text-brand-500 hover:bg-surface/70'
                     )}
-                    aria-expanded={activeMenu === 'about'}
+                    aria-expanded={activeMenu === 'resources'}
                   >
-                    <span>About</span>
+                    <span>Resources</span>
                     <ChevronDown
                       className={cn(
                         'w-4 h-4 transition-transform duration-200 opacity-60',
-                        activeMenu === 'about' && 'rotate-180 text-brand-500 opacity-100'
+                        activeMenu === 'resources' && 'rotate-180 text-brand-500 opacity-100'
                       )}
                     />
                   </button>
                 </div>
+
+                {/* About */}
+                <Link
+                  href="/about"
+                  className="flex items-center gap-1.5 px-3 py-2 text-nav text-ink-900 hover:text-brand-500 hover:bg-surface/70 rounded-lg transition-colors cursor-pointer"
+                >
+                  <span>About</span>
+                </Link>
 
                 {/* Careers */}
                 <Link
@@ -299,14 +281,6 @@ export function Header() {
                   className="flex items-center gap-1.5 px-3 py-2 text-nav text-ink-900 hover:text-brand-500 hover:bg-surface/70 rounded-lg transition-colors cursor-pointer"
                 >
                   <span>Careers</span>
-                </Link>
-
-                {/* Contact */}
-                <Link
-                  href="/contact"
-                  className="px-3 py-2 text-nav text-ink-900 hover:text-brand-500 hover:bg-surface/70 rounded-lg transition-colors cursor-pointer"
-                >
-                  Contact
                 </Link>
               </nav>
             </div>
@@ -435,11 +409,10 @@ export function Header() {
                         className="overflow-hidden mt-2 space-y-1.5 pl-1"
                       >
                         {menu.items.map((item, idx) => (
-                          <motion.button
+                          <Link
                             key={idx}
-                            initial={{ opacity: 0, x: 12 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.2, delay: idx * 0.04 }}
+                            href={item.href}
+                            prefetch={true}
                             onClick={() => scrollToSection(item.href)}
                             className="flex items-start gap-3.5 p-3 rounded-xl text-left w-full hover:bg-surface/80 active:bg-surface transition-colors cursor-pointer"
                           >
@@ -456,7 +429,7 @@ export function Header() {
                                 {item.subtitle}
                               </div>
                             </div>
-                          </motion.button>
+                          </Link>
                         ))}
                       </motion.div>
                     )}
@@ -466,6 +439,15 @@ export function Header() {
 
               {/* Direct Links */}
               <motion.div variants={mobileItemVariants} className="py-4 space-y-3.5">
+                <Link
+                  href="/about"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-between text-xl font-medium text-brand-900 hover:text-brand-500 py-1.5 transition-colors cursor-pointer"
+                >
+                  <span>About</span>
+                  <ArrowRight className="w-4.5 h-4.5 text-ink-400 -rotate-45" />
+                </Link>
+
                 <Link
                   href="/careers"
                   onClick={() => setMobileOpen(false)}

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Check, ArrowRight, Sparkles } from 'lucide-react'
+import { Check, ArrowRight } from 'lucide-react'
 import { engagementModels } from '@/lib/services-data'
 import { Button } from '@/components/ui/Button'
 import Link from 'next/link'
@@ -21,14 +21,14 @@ export function EngagementModels() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-line text-badge text-ink-900 mb-3">
             <span className="w-2 h-2 rounded-full bg-cta" />
-            <span>STRUCTURED ENGAGEMENT</span>
+            <span className="font-mono uppercase font-medium">STRUCTURED ENGAGEMENT</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-h2 font-bold text-brand-900 tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl lg:text-h2 font-medium text-brand-900 tracking-tight mb-3">
             Predictable partnership models built for engineering velocity
           </h2>
 
-          <p className="text-base sm:text-lead text-ink-500 leading-relaxed">
+          <p className="text-base sm:text-lead text-ink-500 leading-relaxed font-normal">
             Whether you need a full-spectrum engineering pod or a rapid fixed-scope sprint, we tailor
             the engagement to your capital priorities and delivery timeline.
           </p>
@@ -45,7 +45,7 @@ export function EngagementModels() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className={`rounded-card p-6 sm:p-8 flex flex-col justify-between transition-all ${
                 model.featured
-                  ? 'bg-white border-2 border-brand-500 relative'
+                  ? 'bg-white border-2 border-brand-500 relative shadow-sm'
                   : 'bg-white border border-line hover:border-brand-500/60'
               }`}
             >
@@ -54,33 +54,28 @@ export function EngagementModels() {
                   <span className="text-caption font-mono uppercase tracking-wider text-brand-700 bg-brand-500/10 px-3 py-1 rounded-full font-medium">
                     {model.badge}
                   </span>
-                  {model.featured && (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider text-cta bg-cta/10 px-2.5 py-0.5 rounded-full">
-                      <Sparkles className="w-3 h-3" /> Most Popular
-                    </span>
-                  )}
                 </div>
 
-                <h3 className="text-xl sm:text-h3 font-bold text-brand-900 mb-2">
+                <h3 className="text-h3 font-medium text-brand-900 mb-2">
                   {model.title}
                 </h3>
 
-                <p className="text-small font-semibold text-brand-700 mb-3 leading-snug">
+                <p className="text-small font-medium text-brand-700 mb-3 leading-snug">
                   {model.headline}
                 </p>
 
-                <p className="text-small text-ink-500 mb-6 leading-relaxed">
+                <p className="text-small text-ink-500 mb-6 leading-relaxed font-normal">
                   {model.description}
                 </p>
 
                 {/* Highlights */}
                 <div className="pt-6 border-t border-line mb-8">
-                  <span className="text-caption font-mono uppercase tracking-wider text-ink-500 block mb-3 font-semibold">
+                  <span className="text-caption font-mono uppercase tracking-wider text-ink-500 block mb-3 font-medium">
                     What is Included:
                   </span>
                   <ul className="space-y-3">
                     {model.highlights.map((h, hIdx) => (
-                      <li key={hIdx} className="flex items-start gap-2.5 text-small text-ink-900">
+                      <li key={hIdx} className="flex items-start gap-2.5 text-small text-ink-900 font-normal">
                         <Check className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
                         <span className="leading-snug">{h}</span>
                       </li>
@@ -89,14 +84,14 @@ export function EngagementModels() {
                 </div>
               </div>
 
-              {/* Action */}
+              {/* Action - White Text Button Variant with Medium Font Weight */}
               <Link href={model.ctaLink} className="w-full">
                 <Button
-                  variant={model.featured ? 'primary-brand' : 'ghost'}
-                  className="w-full justify-center flex items-center gap-2"
+                  variant={model.featured ? 'primary-cta' : 'primary-brand'}
+                  className="w-full justify-center flex items-center gap-2 text-white font-medium"
                 >
-                  <span>{model.ctaText}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span className="text-white font-medium">{model.ctaText}</span>
+                  <ArrowRight className="w-4 h-4 text-white" />
                 </Button>
               </Link>
             </motion.div>

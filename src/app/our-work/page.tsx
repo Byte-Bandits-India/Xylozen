@@ -3,10 +3,11 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { FinalCTA } from '@/components/sections/FinalCTA'
 import { ServiceSubpageFAQs } from '@/components/services/ServiceSubpageFAQs'
+import { OurWork } from '@/components/sections/OurWork'
 import {
   OurWorkHero,
   OurWorkStats,
-  OurWorkCaseStudies,
+  OurWorkHowWeWork,
   OurWorkGuarantees,
   ourWorkFaqs,
 } from '@/components/our-work'
@@ -69,8 +70,11 @@ export default function OurWorkPage() {
         {/* Telemetry Strip with CountUp Key Metrics */}
         <OurWorkStats />
 
-        {/* Flagship Case Studies Deep Dive */}
-        <OurWorkCaseStudies />
+        {/* Flagship Case Studies Sticky Stack */}
+        <OurWork />
+
+        {/* 8-Stage Disciplined Delivery Framework */}
+        <OurWorkHowWeWork />
 
         {/* Delivery Guarantees & Principles */}
         <OurWorkGuarantees />

@@ -22,15 +22,7 @@ const nextConfig = {
     }
     return config
   },
-  async redirects() {
-    return [
-      {
-        source: '/services',
-        destination: '/services/web-software',
-        permanent: true,
-      },
-    ]
-  },
+
   async headers() {
     return [
       {

@@ -2,14 +2,14 @@
 
 import React from 'react'
 import CountUp from '@/components/CountUp'
-import { industryStats } from './industries-data'
+import { pricingStats } from './pricing-data'
 
-export function IndustriesStats() {
+export function PricingStats() {
   return (
     <section className="bg-surface/40 border-b border-line py-8 sm:py-10">
       <div className="container-section">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {industryStats.map((stat, idx) => (
+          {pricingStats.map((stat, idx) => (
             <div key={idx} className="border-l-2 border-brand-500 pl-4 sm:pl-5">
               <div className="text-2xl sm:text-3xl lg:text-4xl font-medium font-mono text-brand-900 tracking-tight flex items-baseline gap-0.5">
                 {stat.prefix}

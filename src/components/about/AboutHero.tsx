@@ -64,10 +64,10 @@ export function AboutHero() {
                 type="button"
                 onClick={() => scrollTo('how-we-work')}
                 variant="primary-cta"
-                className="shadow-sm"
+                className="shadow-sm text-white font-medium"
               >
-                <span>Explore 8-Stage Delivery</span>
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <span className="text-white font-medium">Explore 8-Stage Delivery</span>
+                <ArrowRight className="w-4 h-4 ml-2 text-white" />
               </Button>
             </div>
           </div>

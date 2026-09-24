@@ -2,11 +2,12 @@ import React from 'react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Clock, Calendar } from 'lucide-react'
+import { ArrowRight, Clock, Calendar, Sparkles, CheckCircle2 } from 'lucide-react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { FinalCTA } from '@/components/sections/FinalCTA'
 import { blogPosts } from '@/lib/blogs-data'
+import { Button } from '@/components/ui/Button'
 
 import { JsonLd } from '@/components/seo/JsonLd'
 import { getBreadcrumbSchema } from '@/lib/seo-schema'
@@ -14,14 +15,14 @@ import { getBreadcrumbSchema } from '@/lib/seo-schema'
 export const metadata: Metadata = {
   title: 'Blogs & Engineering Perspectives | Xylozen',
   description:
-    'Engineering Intelligence. Creating Business Value. In-depth technical perspectives on AI-native architectures, high-concurrency systems, and scalable commerce.',
+    'AI in Business: How Companies Are Using AI to Automate, Scale and Work Smarter. In-depth technical perspectives on AI-native architectures, workflow automation, and agentic systems.',
   alternates: {
     canonical: '/blogs',
   },
   openGraph: {
     title: 'Blogs & Engineering Perspectives | Xylozen',
     description:
-      'In-depth technical perspectives on AI-native architectures, high-concurrency systems, and scalable commerce.',
+      'In-depth technical perspectives on AI-native architectures, workflow automation, and agentic systems.',
     url: 'https://xylozen.com/blogs',
     siteName: 'Xylozen Technologies',
     images: [
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Blogs & Engineering Perspectives | Xylozen',
     description:
-      'In-depth technical perspectives on AI-native architectures, high-concurrency systems, and scalable commerce.',
+      'In-depth technical perspectives on AI-native architectures, workflow automation, and agentic systems.',
     images: ['/opengraph.webp'],
   },
 }
@@ -76,11 +77,11 @@ export default function BlogsPage() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-2xl sm:text-3xl lg:text-h2 font-bold text-brand-900 tracking-tight leading-tight mb-3 max-w-2xl">
+            <h1 className="text-2xl sm:text-3xl lg:text-h2 font-bold text-brand-900 tracking-tight leading-tight mb-3 max-w-3xl">
               Engineering Perspectives &amp; Insights
             </h1>
 
-            {/* Lead Motto from aboutUs.MD */}
+            {/* Lead Motto */}
             <p className="text-base sm:text-lead font-medium text-brand-700 mb-2 max-w-2xl">
               From workflow to product. From idea to revenue.
             </p>
@@ -93,66 +94,100 @@ export default function BlogsPage() {
         </section>
 
         {/* ===================================================================== */}
-        {/* ARTICLES GRID                                                         */}
+        {/* FEATURED ARTICLES SECTION                                             */}
         {/* ===================================================================== */}
         <section className="py-12 sm:py-16 bg-[#FAFBFD] border-b border-line">
           <div className="container-section">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="space-y-8">
               {blogPosts.map((post) => (
-                <Link
+                <div
                   key={post.id}
-                  href={`/blogs/${post.slug}`}
-                  className="bg-white rounded-2xl border border-line overflow-hidden shadow-2xs hover:shadow-md hover:border-brand-500/40 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                  className="bg-white rounded-2xl sm:rounded-3xl border border-line overflow-hidden shadow-sm hover:shadow-md hover:border-brand-500/30 transition-all duration-300"
                 >
-                  <div>
-                    {/* Thumbnail Image */}
-                    <div className="relative aspect-[16/10] w-full bg-slate-100 overflow-hidden border-b border-line">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                    {/* Left: Visual Cover with Badge */}
+                    <div className="lg:col-span-5 relative min-h-[260px] sm:min-h-[340px] lg:min-h-[440px] bg-slate-100 border-b lg:border-b-0 lg:border-r border-line overflow-hidden group">
                       <Image
                         src={post.image}
                         alt={post.title}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                        priority
+                        sizes="(max-width: 1024px) 100vw, 42vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       />
-                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-brand-900 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold border border-slate-200/80 shadow-xs">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:hidden" />
+                      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md text-brand-900 px-3 py-1 rounded-full text-[11px] font-mono font-semibold border border-slate-200/80 shadow-xs flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3 text-cta" />
                         {post.category}
                       </div>
                     </div>
 
-                    {/* Card Content */}
-                    <div className="p-5 sm:p-6">
-                      <div className="flex items-center gap-3 text-caption text-ink-500 mb-2">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                          {post.date}
-                        </span>
-                        <span>&bull;</span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5 text-slate-400" />
-                          {post.readTime}
-                        </span>
+                    {/* Right: Rich Metadata & Content */}
+                    <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+                      <div>
+                        {/* Meta Line */}
+                        <div className="flex flex-wrap items-center gap-3 text-caption text-ink-500 mb-3">
+                          <span className="flex items-center gap-1.5">
+                            <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                            {post.date}
+                          </span>
+                          <span>&bull;</span>
+                          <span className="flex items-center gap-1.5">
+                            <Clock className="w-3.5 h-3.5 text-slate-400" />
+                            {post.readTime}
+                          </span>
+                          <span>&bull;</span>
+                          <span className="text-slate-600 font-medium">{post.author}</span>
+                        </div>
+
+                        {/* Title */}
+                        <Link href={`/blogs/${post.slug}`} className="group block">
+                          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-brand-900 group-hover:text-brand-600 transition-colors leading-snug mb-3">
+                            {post.title}
+                          </h2>
+                        </Link>
+
+                        {/* Summary */}
+                        <p className="text-small sm:text-body text-ink-500 leading-relaxed mb-6">
+                          {post.summary}
+                        </p>
+
+                        {/* Core Pillars / Topics */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6 pt-5 border-t border-line">
+                          <div className="flex items-center gap-2 text-caption text-slate-700">
+                            <CheckCircle2 className="w-4 h-4 text-cta shrink-0" />
+                            <span>Workflow Automation vs Simple Tools</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-caption text-slate-700">
+                            <CheckCircle2 className="w-4 h-4 text-cta shrink-0" />
+                            <span>AI vs Traditional Automation Matrix</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-caption text-slate-700">
+                            <CheckCircle2 className="w-4 h-4 text-cta shrink-0" />
+                            <span>6-Step Practical Implementation Roadmap</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-caption text-slate-700">
+                            <CheckCircle2 className="w-4 h-4 text-cta shrink-0" />
+                            <span>AI-Native Architecture &amp; FAQs</span>
+                          </div>
+                        </div>
                       </div>
 
-                      <h2 className="text-base sm:text-h3 font-bold text-brand-900 group-hover:text-brand-600 transition-colors leading-snug mb-2.5">
-                        {post.title}
-                      </h2>
-
-                      <p className="text-small text-ink-500 line-clamp-3 leading-relaxed">
-                        {post.summary}
-                      </p>
+                      {/* Card Action */}
+                      <div className="pt-4 border-t border-line flex flex-wrap items-center justify-between gap-4">
+                        <Link href={`/blogs/${post.slug}`}>
+                          <Button variant="primary-cta" className="gap-2">
+                            <span className="text-white font-medium">Read Full Article</span>
+                            <ArrowRight className="w-4 h-4 text-white" />
+                          </Button>
+                        </Link>
+                        <span className="text-caption text-ink-500 font-mono">
+                          {post.industry}
+                        </span>
+                      </div>
                     </div>
                   </div>
-
-                  {/* Card Footer */}
-                  <div className="px-5 sm:px-6 pb-5 pt-3 border-t border-line flex items-center justify-between">
-                    <span className="text-caption font-semibold text-brand-700">
-                      Read Perspective
-                    </span>
-                    <span className="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-brand-500 group-hover:text-white flex items-center justify-center transition-colors">
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
-                </Link>
+                </div>
               ))}
             </div>
           </div>

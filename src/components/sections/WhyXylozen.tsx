@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Layers, Rocket, Users, ArrowRight } from 'lucide-react'
 import type { Differentiator } from '@/types'
@@ -80,13 +81,13 @@ export function WhyXylozen() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="flex justify-center md:justify-start"
         >
-          <a
-            href="#how-we-work"
-            className="inline-flex items-center gap-2 text-small sm:text-btn font-semibold text-brand-700 hover:text-[#C13010] transition-colors hover:gap-3 transition-all"
+          <Link
+            href="/our-work#how-we-work"
+            className="inline-flex items-center gap-2 text-small sm:text-btn font-medium text-brand-700 hover:text-[#C13010] transition-colors hover:gap-3"
           >
-            Learn How We Work
+            <span>Learn How We Work</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -7,7 +7,6 @@ import {
   AboutHero,
   AboutStats,
   AboutWhyUs,
-  AboutHowWeWork,
   AboutCommitment,
   aboutFaqs,
 } from '@/components/about'
@@ -72,9 +71,6 @@ export default function AboutPage() {
 
         {/* Why Xylozen: 5 Core Pillars in Signature Industries Showcase UI format */}
         <AboutWhyUs />
-
-        {/* 8-Stage Disciplined Delivery Framework in Editorial Horizontal Carousel */}
-        <AboutHowWeWork />
 
         {/* Core Studio Commitment & Philosophy */}
         <AboutCommitment />

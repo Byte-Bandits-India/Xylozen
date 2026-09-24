@@ -33,11 +33,11 @@ export function IndustryApproach() {
       <div className="container-section">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-line text-badge text-ink-900 mb-3 font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-line text-badge text-ink-900 mb-3 font-medium">
             <span className="w-2 h-2 rounded-full bg-cta" />
             <span>CORE PHILOSOPHY</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-h2 font-bold text-brand-900 tracking-tight leading-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl lg:text-h2 font-medium text-brand-900 tracking-tight leading-tight mb-3">
             Built for Different Industries.{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-900 via-brand-700 to-brand-500">
               Designed for Specific Outcomes.
@@ -62,12 +62,12 @@ export function IndustryApproach() {
                     <div className="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-700 flex items-center justify-center group-hover:bg-brand-500 group-hover:text-white transition-colors">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="font-mono text-small text-slate-400 font-bold">
+                    <span className="font-mono text-small text-slate-400 font-medium">
                       {p.number}
                     </span>
                   </div>
 
-                  <h3 className="text-h3 font-bold text-slate-900 mb-2.5">
+                  <h3 className="text-h3 font-medium text-slate-900 mb-2.5">
                     {p.title}
                   </h3>
                   <p className="text-small text-slate-600 leading-relaxed">

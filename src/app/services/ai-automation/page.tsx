@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { FinalCTA } from '@/components/sections/FinalCTA'
 import { ServiceBadge } from '@/components/ui/ServiceBadge'
-import { Button } from '@/components/ui/Button'
 import { servicePillars } from '@/lib/services-data'
 import { AiAutomationArchitectureVisual } from '@/components/services/AiAutomationArchitectureVisual'
 import { AiAutomationHeroVisual } from '@/components/services/AiAutomationHeroVisual'
@@ -132,7 +132,7 @@ export default function AiAutomationPage() {
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
-    { name: 'Services', url: '/#what-we-do' },
+    { name: 'Services', url: '/services' },
     { name: 'Agentic AI & Automation', url: '/services/ai-automation' },
   ]
 
@@ -165,7 +165,9 @@ export default function AiAutomationPage() {
                     Home
                   </Link>
                   <span>/</span>
-                  <span className="text-ink-500">Services</span>
+                  <Link href="/services" className="hover:text-brand-500 transition-colors">
+                    Services
+                  </Link>
                   <span>/</span>
                   <span className="text-brand-900 font-semibold">AI &amp; Automation</span>
                 </div>
@@ -190,10 +192,12 @@ export default function AiAutomationPage() {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4">
-                  <Link href="/contact">
-                    <Button variant="primary-cta">
-                      <span>Schedule Technical Scoping</span>
-                    </Button>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 min-h-[44px] px-6 py-2.5 text-btn rounded-button bg-cta text-white hover:bg-[#C13010] active:bg-[#C13010] shadow-sm shadow-cta/20 hover:shadow-md gap-2"
+                  >
+                    <span className="text-white font-medium">Schedule Technical Scoping</span>
+                    <ArrowRight className="w-4 h-4 text-white" />
                   </Link>
                 </div>
               </div>

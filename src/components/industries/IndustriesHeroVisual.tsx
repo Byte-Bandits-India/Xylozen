@@ -219,7 +219,7 @@ export function IndustriesHeroVisual() {
                 <ActiveIcon className="w-5 h-5 stroke-[2]" />
               </div>
               <div className="pr-2">
-                <h4 className="text-[13px] sm:text-sm font-bold text-slate-900 tracking-tight leading-snug">
+                <h4 className="text-[13px] sm:text-sm font-medium text-slate-900 tracking-tight leading-snug">
                   {active.title}
                 </h4>
                 <p className="text-[11px] sm:text-[12px] text-slate-500 leading-snug mt-0.5 line-clamp-2">
@@ -250,7 +250,7 @@ export function IndustriesHeroVisual() {
           <button
             type="button"
             onClick={() => scrollToSector(active.targetId)}
-            className="text-[11px] font-semibold text-brand-600 hover:text-brand-800 flex items-center gap-1 cursor-pointer transition-colors"
+            className="text-[11px] font-medium text-brand-600 hover:text-brand-800 flex items-center gap-1 cursor-pointer transition-colors"
           >
             <span>Explore {active.tabLabel}</span>
             <ArrowRight className="w-3 h-3" />
