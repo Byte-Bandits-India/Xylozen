@@ -38,8 +38,8 @@ In your DNS provider (Cloudflare, GoDaddy, Namecheap, Route53, etc.), configure 
 
 | Type | Name / Host | Target / Value | TTL | Proxy Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **A** | `@` (or `xylozentech.com`) | `3.24.216.177` | Auto / 300 | DNS Only (or Proxied) |
-| **A** | `www` (or `www.xylozentech.com`) | `3.24.216.177` | Auto / 300 | DNS Only (or Proxied) |
+| **A** | `@` (or `xylozentech.com`) | `15.135.74.113` | Auto / 300 | DNS Only (or Proxied) |
+| **A** | `www` (or `www.xylozentech.com`) | `15.135.74.113` | Auto / 300 | DNS Only (or Proxied) |
 
 > **Note**: Caddy automatically provisions and renews Let's Encrypt / ZeroSSL SSL certificates on port 80 & 443 once DNS points to the server.
 
@@ -57,7 +57,7 @@ git push origin main
 The GitHub Actions workflow will automatically:
 1. Build the multi-stage Next.js standalone container image.
 2. Push it to GitHub Container Registry (`ghcr.io/byte-bandits-india/xylozen:latest`).
-3. SSH into `3.24.216.177`.
+3. SSH into `15.135.74.113`.
 4. Pull the latest image and launch the containers via Docker Compose.
 5. Provide automatic zero-downtime container updates and SSL configuration.
 
@@ -72,7 +72,7 @@ On the EC2 server, the environment file is stored at:
 
 To edit SMTP passwords or production API URLs directly on the server:
 ```bash
-ssh -i ~/Downloads/xylozen.pem ec2-user@3.24.216.177
+ssh -i ~/Downloads/xylozen.pem ec2-user@15.135.74.113
 cd /home/ec2-user/xylozen
 nano .env
 ```

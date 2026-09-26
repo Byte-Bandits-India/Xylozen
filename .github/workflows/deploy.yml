@@ -142,5 +142,15 @@ jobs:
             echo "🧹 Cleaning up old images..."
             docker image prune -f
 
+            # Ensure Caddy reverse proxy has xylozentech.com configured
+            DASHBOARD_CADDYFILE="/home/${{ secrets.EC2_USER }}/dashboard/Caddyfile"
+            if [ -f "$DASHBOARD_CADDYFILE" ]; then
+              if ! grep -q "xylozentech.com" "$DASHBOARD_CADDYFILE"; then
+                echo "⚠️ Adding missing xylozentech.com configuration to Caddyfile..."
+                printf "\nxylozentech.com, www.xylozentech.com {\n    encode gzip zstd\n    reverse_proxy xylozen-app:3000\n    header {\n        X-Content-Type-Options nosniff\n        X-Frame-Options DENY\n        Referrer-Policy strict-origin-when-cross-origin\n    }\n}\n" >> "$DASHBOARD_CADDYFILE"
+                docker compose -f /home/${{ secrets.EC2_USER }}/dashboard/docker-compose.yml restart caddy || true
+              fi
+            fi
+
             echo "✅ Successfully deployed!"
             docker compose ps
