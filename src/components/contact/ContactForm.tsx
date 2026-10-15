@@ -625,7 +625,7 @@ export function ContactForm() {
                       type="submit"
                       disabled={isLoading}
                       variant="primary-cta"
-                      className="w-full sm:w-auto shadow-sm shadow-cta/20"
+                      className="w-full !text-white sm:w-auto shadow-sm shadow-cta/20"
                     >
                       {isLoading ? (
                         <>
