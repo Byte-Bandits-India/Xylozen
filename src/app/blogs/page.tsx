@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: 'Blogs & Engineering Perspectives | Xylozen',
     description:
       'In-depth technical perspectives on AI-native architectures, workflow automation, and agentic systems.',
-    url: 'https://xylozen.com/blogs',
+    url: 'https://xylozentech.com/blogs',
     siteName: 'Xylozen Technologies',
     images: [
       {

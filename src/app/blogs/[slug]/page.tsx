@@ -33,9 +33,9 @@ export async function generateMetadata({ params }: BlogSlugPageProps): Promise<M
     }
   }
 
-  const postUrl = `https://xylozen.com/blogs/${slug}`
+  const postUrl = `https://xylozentech.com/blogs/${slug}`
   const rawImage = typeof post.image === 'string' ? post.image : post.image.src
-  const imageUrl = rawImage.startsWith('http') ? rawImage : `https://xylozen.com${rawImage.startsWith('/') ? '' : '/'}${rawImage}`
+  const imageUrl = rawImage.startsWith('http') ? rawImage : `https://xylozentech.com${rawImage.startsWith('/') ? '' : '/'}${rawImage}`
 
   return {
     title: `${post.title} | Xylozen Blogs`,

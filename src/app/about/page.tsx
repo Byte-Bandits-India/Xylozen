@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: 'About Us & Delivery Framework | Xylozen Technologies',
     description:
       'Discover our AI-native product studio, core engineering pillars, and 8-stage disciplined delivery process from Chennai to global enterprises.',
-    url: 'https://xylozen.com/about',
+    url: 'https://xylozentech.com/about',
     siteName: 'Xylozen Technologies',
     images: [
       {

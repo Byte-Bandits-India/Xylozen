@@ -17,13 +17,16 @@ import {
 } from '@/lib/seo-schema'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://xylozen.com'),
+  metadataBase: new URL('https://xylozentech.com'),
   title: {
     default: 'Xylozen Technologies | Precision Operationalized',
     template: '%s | Xylozen Technologies',
   },
   description:
     'From your first website to a fully automated business, designed, built, integrated, and maintained by one team. International-standard engineering for web, commerce, and AI automation.',
+  applicationName: 'Xylozen Technologies',
+  category: 'technology',
+  formatDetection: { telephone: false, email: false, address: false },
   keywords: [
     'web development',
     'software engineering',
@@ -35,7 +38,7 @@ export const metadata: Metadata = {
     'Chennai',
     'India',
   ],
-  authors: [{ name: 'Xylozen Technologies', url: 'https://xylozen.com' }],
+  authors: [{ name: 'Xylozen Technologies', url: 'https://xylozentech.com' }],
   creator: 'Xylozen Technologies',
   publisher: 'Xylozen Technologies',
   robots: {
@@ -66,7 +69,7 @@ export const metadata: Metadata = {
     title: 'Xylozen Technologies | Precision Operationalized',
     description:
       'From your first website to a fully automated business, designed, built, integrated, and maintained by one team.',
-    url: 'https://xylozen.com',
+    url: 'https://xylozentech.com',
     siteName: 'Xylozen Technologies',
     images: [
       {

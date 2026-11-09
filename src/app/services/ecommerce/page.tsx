@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Ecommerce Engineering & Checkout Systems | Xylozen Technologies',
     description:
       'High-converting ecommerce platforms engineered for speed, frictionless checkout, and unbroken operation during high-volume traffic surges.',
-    url: 'https://xylozen.com/services/ecommerce',
+    url: 'https://xylozentech.com/services/ecommerce',
     siteName: 'Xylozen Technologies',
     images: [
       {

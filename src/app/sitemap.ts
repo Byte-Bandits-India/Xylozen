@@ -2,8 +2,9 @@ import type { MetadataRoute } from 'next'
 import { blogPosts } from '@/lib/blogs-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://xylozen.com'
-  const currentDate = new Date()
+  const baseUrl = 'https://xylozentech.com'
+  // Fixed date: update when site content materially changes
+  const currentDate = new Date('2026-11-09')
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {

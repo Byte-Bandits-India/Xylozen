@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: 'Careers | Xylozen Technologies',
     description:
       'Join our AI-native product studio in Chennai. Explore open engineering roles in Web, Ecommerce, and Autonomous AI systems.',
-    url: 'https://xylozen.com/careers',
+    url: 'https://xylozentech.com/careers',
     siteName: 'Xylozen Technologies',
     images: [
       {

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: 'Services & Architecture | Xylozen Technologies',
     description:
       'Explore our core engineering capabilities: Enterprise Web Systems, Headless Commerce Engines, and Autonomous Agentic AI.',
-    url: 'https://xylozen.com/services',
+    url: 'https://xylozentech.com/services',
     siteName: 'Xylozen Technologies',
     images: [
       {

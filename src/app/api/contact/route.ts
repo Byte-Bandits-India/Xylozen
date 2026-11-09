@@ -138,7 +138,7 @@ export async function POST(req: NextRequest) {
               <p style="margin: 0; font-size: 13px; color: #4a5568; white-space: pre-wrap;">${message}</p>
             </div>
 
-            <p style="font-size: 14px; color: #4a5568;">In the meantime, feel free to explore our case studies and engineering perspectives at <a href="https://xylozen.com/our-work" style="color: #265dc3;">xylozen.com/our-work</a>.</p>
+            <p style="font-size: 14px; color: #4a5568;">In the meantime, feel free to explore our case studies and engineering perspectives at <a href="https://xylozentech.com/our-work" style="color: #265dc3;">xylozen.com/our-work</a>.</p>
             
             <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e6ed; font-size: 12px; color: #6b7480;">
               Xylozen Technologies &bull; Chennai, India &bull; <a href="mailto:contact@xylozen.com" style="color: #265dc3;">contact@xylozen.com</a>

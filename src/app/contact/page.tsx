@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: 'Contact Us & Technical Scoping | Xylozen Technologies',
     description:
       'Turn complex operational challenges into intelligent, scalable digital products. Reach out to our engineering architects in Chennai.',
-    url: 'https://xylozen.com/contact',
+    url: 'https://xylozentech.com/contact',
     siteName: 'Xylozen Technologies',
     images: [
       {

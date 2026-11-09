@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: 'Pricing & Engagement Models | Xylozen Technologies',
     description:
       'Transparent, predictable engagement models tailored for high-velocity software engineering. Fixed-Scope MVPs, Dedicated Pods, and AI Audits.',
-    url: 'https://xylozen.com/pricing',
+    url: 'https://xylozentech.com/pricing',
     siteName: 'Xylozen Technologies',
     images: [
       {

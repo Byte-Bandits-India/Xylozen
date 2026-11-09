@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: 'Web & Software Engineering | Xylozen Technologies',
     description:
       'Custom web applications, internal systems, and scalable cloud architectures purpose-built for operational scale and high concurrency.',
-    url: 'https://xylozen.com/services/web-software',
+    url: 'https://xylozentech.com/services/web-software',
     siteName: 'Xylozen Technologies',
     images: [
       {

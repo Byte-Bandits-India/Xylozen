@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: 'Xylozen Technologies | Precision Operationalized',
     description:
       'From your first website to a fully automated business, designed, built, integrated, and maintained by one team.',
-    url: 'https://xylozen.com',
+    url: 'https://xylozentech.com',
     siteName: 'Xylozen Technologies',
     images: [
       {

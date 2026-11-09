@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: 'Industries We Serve | Xylozen Technologies',
     description:
       'Domain-adapted engineering for Retail, Healthcare, Logistics, Real Estate, and Manufacturing.',
-    url: 'https://xylozen.com/industries',
+    url: 'https://xylozentech.com/industries',
     siteName: 'Xylozen Technologies',
     images: [
       {

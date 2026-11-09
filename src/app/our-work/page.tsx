@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: 'Our Work & Case Studies | Xylozen Technologies',
     description:
       'Real products. Complex challenges. Measurable outcomes. Explore production case studies built by Xylozen.',
-    url: 'https://xylozen.com/our-work',
+    url: 'https://xylozentech.com/our-work',
     siteName: 'Xylozen Technologies',
     images: [
       {

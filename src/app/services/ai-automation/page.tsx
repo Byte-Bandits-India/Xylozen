@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Agentic AI & Workflow Automation | Xylozen Technologies',
     description:
       'Autonomous agentic workflows, computer vision systems, and intelligent document NLP that execute tasks end-to-end within your business systems.',
-    url: 'https://xylozen.com/services/ai-automation',
+    url: 'https://xylozentech.com/services/ai-automation',
     siteName: 'Xylozen Technologies',
     images: [
       {

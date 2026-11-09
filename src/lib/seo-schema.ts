@@ -3,7 +3,7 @@
  * Standards compliant with schema.org specifications
  */
 
-export const BASE_URL = 'https://xylozen.com'
+export const BASE_URL = 'https://xylozentech.com'
 
 export function getOrganizationSchema() {
   return {
@@ -52,7 +52,6 @@ export function getLocalBusinessSchema() {
     name: 'Xylozen Technologies',
     url: BASE_URL,
     image: `${BASE_URL}/images/logo/transparent.webp`,
-    priceRange: '$$$$',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Chennai',
@@ -65,7 +64,6 @@ export function getLocalBusinessSchema() {
       latitude: '13.0827',
       longitude: '80.2707',
     },
-    telephone: '+91-XXXXXXXXXX',
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
