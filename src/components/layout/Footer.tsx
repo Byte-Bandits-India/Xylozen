@@ -3,7 +3,8 @@
 import React from 'react'
 import Link from 'next/link'
 import { Logo } from '@/components/ui/Logo'
-import { Mail, Linkedin, Twitter, ArrowUpRight } from 'lucide-react'
+import { SOCIAL_LINKS } from '@/lib/social-links'
+import { Mail, Linkedin, Twitter, Instagram, ArrowUpRight } from 'lucide-react'
 import { useLenis } from 'lenis/react'
 import { usePathname } from 'next/navigation'
 
@@ -53,24 +54,24 @@ export function Footer() {
             <div className="text-small text-slate-600 mt-3">
               Chennai, India &bull;{' '}
               <a
-                href="mailto:contact@xylozen.com"
+                href="mailto:info@xylozentech.com"
                 className="text-brand-500 hover:underline"
               >
-                contact@xylozen.com
+                info@xylozentech.com
               </a>
             </div>
 
             {/* Social Links */}
             <div className="flex items-center gap-2.5 mt-5">
               <a
-                href="mailto:contact@xylozen.com"
+                href="mailto:info@xylozentech.com"
                 className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                 aria-label="Email Xylozen"
               >
                 <Mail className="w-4 h-4" />
               </a>
               <a
-                href="https://linkedin.com"
+                href={SOCIAL_LINKS.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
@@ -79,13 +80,22 @@ export function Footer() {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
-                href="https://twitter.com"
+                href={SOCIAL_LINKS.x}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
-                aria-label="Twitter profile"
+                aria-label="X (Twitter) profile"
               >
                 <Twitter className="w-4 h-4" />
+              </a>
+              <a
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+                aria-label="Instagram profile"
+              >
+                <Instagram className="w-4 h-4" />
               </a>
             </div>
           </div>

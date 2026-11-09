@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { SOCIAL_LINKS } from '@/lib/social-links'
+import { LEAD_FLAG } from './LeadConversion'
 import {
   Sparkles,
   Loader2,
@@ -15,7 +18,7 @@ import {
   ArrowRight,
   Linkedin,
   Twitter,
-  Github,
+  Instagram,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { PhoneInput } from '@/components/reui/phone-input'
@@ -42,6 +45,7 @@ const initialForm: ContactFormData = {
 }
 
 export function ContactForm() {
+  const router = useRouter()
   const [form, setForm] = useState<ContactFormData>(initialForm)
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({})
   const [touched, setTouched] = useState<Partial<Record<keyof ContactFormData, boolean>>>({})
@@ -165,16 +169,13 @@ export function ContactForm() {
         throw new Error(data.error || 'Failed to submit message. Please try again.')
       }
 
-      setSuccessMessage(
-        'Thank you! Your message has been sent successfully. An engineering architect will get back to you shortly.'
-      )
-      setForm(initialForm)
-      setErrors({})
-      setTouched({})
-
-      setTimeout(() => {
-        setSuccessMessage(null)
-      }, 7000)
+      try {
+        sessionStorage.setItem(LEAD_FLAG, '1')
+      } catch {
+        // ignore: conversion event is skipped, redirect still tracked as a page view
+      }
+      router.push('/thank-you')
+      return
     } catch (err: unknown) {
       const errorObj = err as Error
       setServerError(errorObj.message || 'An error occurred while sending your message.')
@@ -276,10 +277,10 @@ export function ContactForm() {
                     <div>
                       <div className="text-caption font-semibold text-brand-900">Direct Inquiries</div>
                       <a
-                        href="mailto:contact@xylozen.com"
+                        href="mailto:info@xylozentech.com"
                         className="text-small font-semibold text-brand-700 hover:text-brand-900 transition-colors"
                       >
-                        contact@xylozen.com
+                        info@xylozentech.com
                       </a>
                     </div>
                   </div>
@@ -314,14 +315,14 @@ export function ContactForm() {
                 {/* Social Links (Matching Footer style) */}
                 <div className="pt-6 mt-6 border-t border-line flex items-center gap-3">
                   <a
-                    href="mailto:contact@xylozen.com"
+                    href="mailto:info@xylozentech.com"
                     className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
                     aria-label="Email"
                   >
                     <Mail className="w-4 h-4" />
                   </a>
                   <a
-                    href="https://linkedin.com"
+                    href={SOCIAL_LINKS.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
@@ -330,7 +331,7 @@ export function ContactForm() {
                     <Linkedin className="w-4 h-4" />
                   </a>
                   <a
-                    href="https://twitter.com"
+                    href={SOCIAL_LINKS.x}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
@@ -339,13 +340,13 @@ export function ContactForm() {
                     <Twitter className="w-4 h-4" />
                   </a>
                   <a
-                    href="https://github.com"
+                    href={SOCIAL_LINKS.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
-                    aria-label="GitHub"
+                    aria-label="Instagram"
                   >
-                    <Github className="w-4 h-4" />
+                    <Instagram className="w-4 h-4" />
                   </a>
                 </div>
               </div>

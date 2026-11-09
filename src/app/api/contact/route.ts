@@ -49,9 +49,9 @@ export async function POST(req: NextRequest) {
     const smtpUser = cleanEnv(process.env.SMTP_USER)
     const smtpPass = cleanEnv(process.env.SMTP_PASS)
     const smtpFrom =
-      cleanEnv(process.env.SMTP_FROM) || smtpUser || 'contact@xylozen.com'
+      cleanEnv(process.env.SMTP_FROM) || smtpUser || 'info@xylozentech.com'
     const ownerEmail =
-      cleanEnv(process.env.OWNER_EMAIL) || 'contact@xylozen.com'
+      cleanEnv(process.env.OWNER_EMAIL) || 'info@xylozentech.com'
 
     const isDummyPass = !smtpPass || smtpPass === 'YourTitanPasswordHere'
 
@@ -141,7 +141,7 @@ export async function POST(req: NextRequest) {
             <p style="font-size: 14px; color: #4a5568;">In the meantime, feel free to explore our case studies and engineering perspectives at <a href="https://xylozentech.com/our-work" style="color: #265dc3;">xylozen.com/our-work</a>.</p>
             
             <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e6ed; font-size: 12px; color: #6b7480;">
-              Xylozen Technologies &bull; Chennai, India &bull; <a href="mailto:contact@xylozen.com" style="color: #265dc3;">contact@xylozen.com</a>
+              Xylozen Technologies &bull; Chennai, India &bull; <a href="mailto:info@xylozentech.com" style="color: #265dc3;">info@xylozentech.com</a>
             </div>
           </div>
         `,

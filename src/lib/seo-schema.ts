@@ -3,6 +3,8 @@
  * Standards compliant with schema.org specifications
  */
 
+import { SAME_AS } from './social-links'
+
 export const BASE_URL = 'https://xylozentech.com'
 
 export function getOrganizationSchema() {
@@ -21,7 +23,7 @@ export function getOrganizationSchema() {
     image: `${BASE_URL}/images/logo/transparent.webp`,
     description:
       'Engineering Intelligence. Creating Business Value. Precision operationalized with enterprise web development, high-velocity commerce, and autonomous AI systems.',
-    email: 'hello@xylozen.com',
+    email: 'info@xylozentech.com',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Chennai',
@@ -32,15 +34,11 @@ export function getOrganizationSchema() {
       {
         '@type': 'ContactPoint',
         contactType: 'technical support',
-        email: 'hello@xylozen.com',
+        email: 'info@xylozentech.com',
         availableLanguage: ['English'],
       },
     ],
-    sameAs: [
-      'https://github.com/xylozen',
-      'https://www.linkedin.com/company/xylozen',
-      'https://x.com/xylozen',
-    ],
+    sameAs: SAME_AS,
   }
 }
 
