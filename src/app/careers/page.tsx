@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/opengraph.webp',
+        url: '/opengraph.jpg',
         width: 1200,
         height: 630,
         alt: 'Careers at Xylozen',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: 'Careers | Xylozen Technologies',
     description:
       'Join our AI-native product studio in Chennai. Explore open engineering roles in Web, Ecommerce, and Autonomous AI systems.',
-    images: ['/opengraph.webp'],
+    images: ['/opengraph.jpg'],
   },
 }
 

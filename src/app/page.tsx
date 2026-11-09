@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/opengraph.webp',
+        url: '/opengraph.jpg',
         width: 1200,
         height: 630,
         alt: 'Xylozen Technologies',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: 'Xylozen Technologies | Precision Operationalized',
     description:
       'From your first website to a fully automated business, designed, built, integrated, and maintained by one team.',
-    images: ['/opengraph.webp'],
+    images: ['/opengraph.jpg'],
   },
 }
 

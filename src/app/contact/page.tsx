@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/opengraph.webp',
+        url: '/opengraph.jpg',
         width: 1200,
         height: 630,
         alt: 'Contact Xylozen Technologies',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: 'Contact Us & Technical Scoping | Xylozen Technologies',
     description:
       'Turn complex operational challenges into intelligent, scalable digital products. Reach out to our engineering architects in Chennai.',
-    images: ['/opengraph.webp'],
+    images: ['/opengraph.jpg'],
   },
 }
 

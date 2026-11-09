@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/opengraph.webp',
+        url: '/opengraph.jpg',
         width: 1200,
         height: 630,
         alt: 'Xylozen Engineering Perspectives',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: 'Blogs & Engineering Perspectives | Xylozen',
     description:
       'In-depth technical perspectives on AI-native architectures, workflow automation, and agentic systems.',
-    images: ['/opengraph.webp'],
+    images: ['/opengraph.jpg'],
   },
 }
 

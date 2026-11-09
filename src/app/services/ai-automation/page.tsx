@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/opengraph.webp',
+        url: '/opengraph.jpg',
         width: 1200,
         height: 630,
         alt: 'AI Agent Orchestration Architecture',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: 'Agentic AI & Workflow Automation | Xylozen Technologies',
     description:
       'Autonomous agentic workflows, computer vision systems, and intelligent document NLP that execute tasks end-to-end within your business systems.',
-    images: ['/opengraph.webp'],
+    images: ['/opengraph.jpg'],
   },
 }
 

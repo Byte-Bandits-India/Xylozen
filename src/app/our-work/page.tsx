@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/opengraph.webp',
+        url: '/opengraph.jpg',
         width: 1200,
         height: 630,
         alt: 'Xylozen Case Studies & Systems',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: 'Our Work & Case Studies | Xylozen Technologies',
     description:
       'Real products. Complex challenges. Measurable outcomes. Explore production case studies built by Xylozen.',
-    images: ['/opengraph.webp'],
+    images: ['/opengraph.jpg'],
   },
 }
 

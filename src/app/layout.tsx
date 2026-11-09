@@ -1,8 +1,13 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { cn } from "@/lib/utils";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+
+const GTM_ID = 'GTM-TVNM6KT5'
+// Analytics only loads when the site is served from these hostnames
+const ANALYTICS_HOSTS = ['xylozentech.com', 'www.xylozentech.com']
 
 const inter = Inter({
   subsets: ['latin'],
@@ -55,16 +60,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/opengraph.webp', type: 'image/webp' },
-    ],
-    shortcut: '/favicon.ico',
-    apple: [
-      { url: '/opengraph.webp', sizes: '180x180', type: 'image/webp' },
-    ],
-  },
   openGraph: {
     title: 'Xylozen Technologies | Precision Operationalized',
     description:
@@ -73,7 +68,7 @@ export const metadata: Metadata = {
     siteName: 'Xylozen Technologies',
     images: [
       {
-        url: '/opengraph.webp',
+        url: '/opengraph.jpg',
         width: 1200,
         height: 630,
         alt: 'Xylozen Technologies',
@@ -87,7 +82,7 @@ export const metadata: Metadata = {
     title: 'Xylozen Technologies | Precision Operationalized',
     description:
       'From your first website to a fully automated business, designed, built, integrated, and maintained by one team.',
-    images: ['/opengraph.webp'],
+    images: ['/opengraph.jpg'],
   },
 }
 
@@ -103,6 +98,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(inter.variable, "font-sans")}>
       <body className="font-sans antialiased text-ink-900 bg-white selection:bg-brand-500/15 selection:text-brand-900">
+        <Script id="gtm" strategy="afterInteractive">
+          {`if(${JSON.stringify(ANALYTICS_HOSTS)}.indexOf(window.location.hostname)!==-1){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');}`}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
