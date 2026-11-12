@@ -9,7 +9,7 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'lenis'],
   },
   images: {
-    formats: ['image/avif', 'image/webp'],
+    unoptimized: true,
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
