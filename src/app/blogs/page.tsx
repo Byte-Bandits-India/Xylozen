@@ -99,7 +99,7 @@ export default function BlogsPage() {
         <section className="py-12 sm:py-16 bg-[#FAFBFD] border-b border-line">
           <div className="container-section">
             <div className="space-y-8">
-              {blogPosts.map((post) => (
+              {blogPosts.map((post, idx) => (
                 <div
                   key={post.id}
                   className="bg-white rounded-2xl sm:rounded-3xl border border-line overflow-hidden shadow-sm hover:shadow-md hover:border-brand-500/30 transition-all duration-300"
@@ -111,8 +111,9 @@ export default function BlogsPage() {
                         src={post.image}
                         alt={post.title}
                         fill
-                        priority
-                        quality={95}
+                        priority={idx === 0}
+                        placeholder="blur"
+                        quality={92}
                         sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 50vw, 800px"
                         className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       />

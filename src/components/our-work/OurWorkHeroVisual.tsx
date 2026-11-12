@@ -86,7 +86,9 @@ export function OurWorkHeroVisual() {
           alt="Xylozen Engineering Lead architecting production enterprise systems"
           fill
           priority
-          unoptimized
+          placeholder="blur"
+          quality={92}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 960px"
           className="object-cover object-center"
         />
 

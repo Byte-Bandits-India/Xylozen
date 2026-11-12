@@ -26,7 +26,8 @@ export function CareersHeroVisual() {
           alt="Careers at Xylozen Studio"
           fill
           priority
-          quality={95}
+          placeholder="blur"
+          quality={92}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 960px"
           className="object-cover object-center"
         />

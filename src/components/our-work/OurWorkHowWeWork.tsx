@@ -203,7 +203,9 @@ export function OurWorkHowWeWork() {
                     src={stage.image}
                     alt={`${stage.title} delivery step`}
                     fill
-                    unoptimized
+                    placeholder="blur"
+                    quality={90}
+                    sizes="(max-width: 768px) 85vw, (max-width: 1200px) 540px, 580px"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out will-change-transform"
                   />
                 </div>

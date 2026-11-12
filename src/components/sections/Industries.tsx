@@ -328,7 +328,8 @@ export function Industries() {
                           alt={item.name}
                           fill
                           priority={isCenter}
-                          quality={95}
+                          placeholder="blur"
+                          quality={92}
                           sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 720px"
                           className="object-cover object-center"
                         />

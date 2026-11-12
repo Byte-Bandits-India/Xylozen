@@ -154,6 +154,9 @@ export function AccordionGallery({
                 src={item.image}
                 alt={item.label || item.description || 'Architectural workflow visualization'}
                 fill
+                priority={index === activeIndex || index === defaultIndex}
+                placeholder="blur"
+                quality={90}
                 sizes="(max-width: 768px) 100vw, 800px"
                 className={`object-cover transition-transform duration-700 ease-out ${
                   parallax

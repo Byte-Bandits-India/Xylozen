@@ -128,6 +128,8 @@ export function AboutHowWeWork() {
                     src={stage.image}
                     alt={`${stage.title} delivery step`}
                     fill
+                    placeholder="blur"
+                    quality={90}
                     sizes="(max-width: 768px) 85vw, (max-width: 1200px) 560px, 600px"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                   />

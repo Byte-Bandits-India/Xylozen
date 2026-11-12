@@ -289,9 +289,12 @@ export function ServicesShowcase() {
                         <Image
                           src={item.image}
                           alt={item.name}
-                          width={340}
-                          height={340}
-                          className="w-full h-full object-cover object-center"
+                          fill
+                          priority={isCenter}
+                          placeholder="blur"
+                          quality={92}
+                          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 720px"
+                          className="object-cover object-center"
                         />
 
                         {/* Frosted Glassmorphism Badge Overlay */}
