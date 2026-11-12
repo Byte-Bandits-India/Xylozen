@@ -7,13 +7,13 @@ import podArchitect from './avatars/pod-architect.webp'
 import podFullstack from './avatars/pod-fullstack.webp'
 import podDelivery from './avatars/pod-delivery.webp'
 
-// Heroes
+// Heroes (Optimized 2400px Retina WebP)
 import contactHero from './contact-hero.webp'
 import ourWorkHero from './our-work-hero.webp'
-import heroCareers from './careers/hero-careers.jpg'
-import aboutHero from './about/human-resources-business-profession-graphic-concept.jpg'
-import blogHero from './blog/ai-chip-intelligence-technology-deep-learning.jpg'
-import pricingHero from './pricing/closeup-shot-entrepreneur-working-from-home-doing-calculations.jpg'
+import heroCareers from './careers/hero-careers.webp'
+import aboutHero from './about/about-hero.webp'
+import blogHero from './blog/blog-hero.webp'
+import pricingHero from './pricing/pricing-hero.webp'
 
 // Agents
 import agentEngineer from './agents/engineer.webp'
@@ -22,15 +22,15 @@ import agentOperations from './agents/operations.webp'
 import agentRealestate from './agents/realestate.webp'
 import agentScheduler from './agents/scheduler.webp'
 
-// Industries (All 8 High-Quality Photographs from Industry Directory)
-import industryRetail from './Industry/representation-user-experience-interface-design.jpg'
-import industryRealEstate from './Industry/african-american-businessman-reviews-financial-plans-using-online-tools.jpg'
-import industryHealthcare from './Industry/sleek-desktop-workspace-displays-active-code-windows-artificial-intelligence.jpg'
-import industryLogistics from './Industry/data-center-manager-supervising-technician-monitoring-system-performance.jpg'
-import industryManufacturing from './Industry/solar-panels-plant-expert-instructing-technician-how-best-harness-sun-power.jpg'
-import industryFintech from './Industry/joyous-coworkers-having-fun-vibrant-office-while-reviewing-financial-graphs.jpg'
-import industryAiSupport from './Industry/call-center-worker-office-using-ai-chatbot-reply-customers-closeup.jpg'
-import industryCloudInfrastructure from './Industry/close-up-server-hub-it-professional-debugging-optimizing-code.jpg'
+// Industries (All 8 High-Quality 2400px Retina WebP Photographs)
+import industryRetail from './Industry/representation-user-experience-interface-design.webp'
+import industryRealEstate from './Industry/african-american-businessman-reviews-financial-plans-using-online-tools.webp'
+import industryHealthcare from './Industry/sleek-desktop-workspace-displays-active-code-windows-artificial-intelligence.webp'
+import industryLogistics from './Industry/data-center-manager-supervising-technician-monitoring-system-performance.webp'
+import industryManufacturing from './Industry/solar-panels-plant-expert-instructing-technician-how-best-harness-sun-power.webp'
+import industryFintech from './Industry/joyous-coworkers-having-fun-vibrant-office-while-reviewing-financial-graphs.webp'
+import industryAiSupport from './Industry/call-center-worker-office-using-ai-chatbot-reply-customers-closeup.webp'
+import industryCloudInfrastructure from './Industry/close-up-server-hub-it-professional-debugging-optimizing-code.webp'
 
 // Architecture Web & Software
 import archEdgeNetwork from './architecture/edge_network.webp'
