@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Plus, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
@@ -25,6 +25,15 @@ export function IndustriesShowcase() {
   const handleNext = () => {
     setActiveIndex((prev) => (prev === total - 1 ? 0 : prev + 1))
   }
+
+  // Automatically advance to the next industry slide every 3.5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev === total - 1 ? 0 : prev + 1))
+    }, 3500)
+
+    return () => clearInterval(timer)
+  }, [activeIndex, total])
 
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null)
@@ -214,14 +223,16 @@ export function IndustriesShowcase() {
                           : ''
                       }`}
                     >
-                      {/* Top Media Frame with 3D Character Avatar & Frosted Glass Badge */}
+                      {/* Top Media Frame with High-Quality Photograph & Frosted Glass Badge */}
                       <div className="rounded-xl sm:rounded-2xl h-44 sm:h-52 md:h-56 bg-gradient-to-b from-[#EFF3F8] to-[#E0E7F0] relative overflow-hidden flex items-center justify-center mb-3 sm:mb-4">
                         <Image
                           src={item.image}
                           alt={item.name}
-                          width={340}
-                          height={340}
-                          className="w-full h-full object-cover object-top"
+                          fill
+                          priority={isCenter}
+                          quality={95}
+                          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 720px"
+                          className="object-cover object-center"
                         />
 
                         {/* Frosted Glassmorphism Badge Overlay */}

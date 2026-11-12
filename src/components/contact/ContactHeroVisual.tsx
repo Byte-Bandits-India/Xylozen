@@ -98,7 +98,8 @@ export function ContactHeroVisual() {
           alt="Xylozen Senior Engineering Architect in Chennai Technology Studio"
           fill
           priority
-          sizes="(max-width: 768px) 100vw, 480px"
+          quality={95}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 960px"
           className="object-cover object-top"
         />
 

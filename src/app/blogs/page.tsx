@@ -60,7 +60,7 @@ export default function BlogsPage() {
         {/* HERO SECTION                                                          */}
         {/* ===================================================================== */}
         <section className="border-b border-line pb-12 sm:pb-16 bg-white">
-          <div className="container-section">
+          <div className="container-section flex flex-col items-start justify-start">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-caption text-ink-500 mb-6">
               <Link href="/" className="hover:text-brand-500 transition-colors">
@@ -112,7 +112,8 @@ export default function BlogsPage() {
                         alt={post.title}
                         fill
                         priority
-                        sizes="(max-width: 1024px) 100vw, 42vw"
+                        quality={95}
+                        sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 50vw, 800px"
                         className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:hidden" />

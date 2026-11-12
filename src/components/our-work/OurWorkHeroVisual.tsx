@@ -79,14 +79,14 @@ export function OurWorkHeroVisual() {
         initial={{ opacity: 0, scale: 0.98, y: 12 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative rounded-[2.25rem] overflow-hidden border border-slate-200/80 shadow-2xl shadow-slate-900/8 bg-slate-100 aspect-[4/4.6]"
+        className="relative rounded-[2rem] sm:rounded-[2.25rem] overflow-hidden border border-slate-200/80 shadow-2xl shadow-slate-900/8 bg-slate-100 aspect-[1/1]"
       >
         <Image
           src={ourWorkHero}
           alt="Xylozen Engineering Lead architecting production enterprise systems"
           fill
           priority
-          sizes="(max-width: 768px) 100vw, 480px"
+          unoptimized
           className="object-cover object-center"
         />
 

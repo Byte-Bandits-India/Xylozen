@@ -19,9 +19,9 @@ export function ServicesHero() {
   return (
     <section className="bg-white pb-14 sm:pb-16 lg:pb-20 border-b border-line">
       <div className="container-section">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Breadcrumb, Pill Eyebrow, Heading, Narrative, Actions */}
-          <div className="lg:col-span-7 xl:col-span-7">
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col items-start justify-start self-start">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-caption text-ink-500 mb-6">
               <Link href="/" className="hover:text-brand-500 transition-colors">
@@ -86,7 +86,7 @@ export function ServicesHero() {
           </div>
 
           {/* Right Column: Console Visual */}
-          <div className="lg:col-span-5 xl:col-span-5 flex items-center justify-center">
+          <div className="lg:col-span-5 xl:col-span-5 flex items-start justify-center self-start">
             <ServicesHeroVisual />
           </div>
         </div>

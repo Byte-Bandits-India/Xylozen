@@ -1,12 +1,25 @@
-import { Store, Building2, Stethoscope, Truck, Factory, LucideIcon } from 'lucide-react'
+import {
+  Store,
+  Building2,
+  Stethoscope,
+  Truck,
+  Factory,
+  Landmark,
+  Headphones,
+  Server,
+  LucideIcon,
+} from 'lucide-react'
 import { FAQItem } from '@/components/services/ServiceSubpageFAQs'
 import { StaticImageData } from 'next/image'
 import {
-  agentScheduler,
-  agentRealestate,
-  agentEngineer,
-  agentOperations,
-  agentManufacturing,
+  industryRetail,
+  industryRealEstate,
+  industryHealthcare,
+  industryLogistics,
+  industryManufacturing,
+  industryFintech,
+  industryAiSupport,
+  industryCloudInfrastructure,
 } from '@/assets/images'
 
 export interface IndustryData {
@@ -47,7 +60,7 @@ export const industriesData: IndustryData[] = [
     description:
       'From headless storefronts and automated catalog ingestion to frictionless one-click checkouts and multi-warehouse inventory reconciliation, we engineer commerce architectures that handle high-concurrency peak traffic without dropoffs.',
     icon: Store,
-    image: agentScheduler,
+    image: industryRetail,
     accentColor: 'from-brand-500 to-indigo-600',
     operationalChallenge:
       'Fragmented ERP stock records, slow checkout abandonment, and inability to handle sudden traffic surges during flash sales and product drops.',
@@ -89,7 +102,7 @@ export const industriesData: IndustryData[] = [
     description:
       'Custom listing portals, high-performance property filtering engines, automated lead routing, and lease management workflows that bridge agents, brokers, buyers, and tenants into a single synchronized interface.',
     icon: Building2,
-    image: agentRealestate,
+    image: industryRealEstate,
     accentColor: 'from-blue-600 to-cyan-600',
     operationalChallenge:
       'Unorganized multi-broker listing updates, slow inquiries handling, manual property onboarding, and zero transparency in tenant lease lifecycle workflows.',
@@ -131,7 +144,7 @@ export const industriesData: IndustryData[] = [
     description:
       'Enterprise telehealth infrastructure, connected optical & medical diagnostic telemetry, HIPAA/GDPR-compliant electronic record synchronizers, and clinical appointment hubs engineered with zero compromises on security.',
     icon: Stethoscope,
-    image: agentEngineer,
+    image: industryHealthcare,
     accentColor: 'from-teal-500 to-emerald-600',
     operationalChallenge:
       'Siloed medical records, fragmented remote consultations, strict regulatory compliance constraints, and unreliable device connectivity across regional clinic branches.',
@@ -173,7 +186,7 @@ export const industriesData: IndustryData[] = [
     description:
       'High-throughput GPS telemetry ingestion pipelines, predictive route dispatch engines, dock scheduling consoles, and automated customs/manifest documentation tools built for mission-critical supply networks.',
     icon: Truck,
-    image: agentOperations,
+    image: industryLogistics,
     accentColor: 'from-amber-500 to-orange-600',
     operationalChallenge:
       'Blind freight transit gaps, manual driver dispatching, error-prone paper manifests, and lack of real-time SLA breach notifications.',
@@ -215,7 +228,7 @@ export const industriesData: IndustryData[] = [
     description:
       'Shop-floor PLC and sensor data ingestion, edge computer vision for PPE & defect detection, Overall Equipment Effectiveness (OEE) dashboards, and enterprise ERP bridges connecting assembly lines to leadership.',
     icon: Factory,
-    image: agentManufacturing,
+    image: industryManufacturing,
     accentColor: 'from-violet-600 to-indigo-700',
     operationalChallenge:
       'Disconnected machine floors with dark data, delayed safety incident awareness, manual shift log reporting, and lagging maintenance downtime.',
@@ -246,14 +259,141 @@ export const industriesData: IndustryData[] = [
       label: 'Continuous Automated Floor Monitoring',
     },
   },
+  {
+    id: 'fintech',
+    name: 'FinTech & Banking',
+    anchor: 'fintech',
+    badgeText: 'Algorithmic ledgers & real-time analytics',
+    tagline: 'Real-time financial analytics & ledger sync',
+    summary:
+      'We engineer real-time financial dashboards, algorithmic ledger reconciliation, and secure transactional pipelines for institutional and consumer fintech.',
+    description:
+      'Ultra-low-latency transaction streaming, automated fraud anomaly detection, audit-compliant immutable ledgers, and multi-currency clearing engines built for high-stakes financial operations.',
+    icon: Landmark,
+    image: industryFintech,
+    accentColor: 'from-amber-600 to-emerald-600',
+    operationalChallenge:
+      'Slow end-of-day ledger reconciliation, compliance audit friction, and latency bottlenecks during peak market settlement windows.',
+    xylozenSolution:
+      'Event-sourced CQRS distributed ledgers with sub-second Kafka event streams and cryptographic verification for zero-loss accounting.',
+    capabilities: [
+      {
+        title: 'Real-Time Transaction Stream Processing',
+        detail: 'High-throughput Apache Kafka pipelines handling thousands of concurrent settlements per second.',
+      },
+      {
+        title: 'Automated Ledger Reconciliation',
+        detail: 'Continuous bi-directional balancing between banking cores, payment gateways, and accounting ledgers.',
+      },
+      {
+        title: 'Predictive Fraud & Risk Anomaly Detection',
+        detail: 'Machine learning scoring models evaluating transaction risk in under 15 milliseconds.',
+      },
+      {
+        title: 'Regulatory Audit & Tax Reporting Pipelines',
+        detail: 'Automated generation of audit-ready compliance reports and cryptographic ledger proofs.',
+      },
+    ],
+    techStack: ['Python', 'Go', 'PostgreSQL', 'Kafka', 'Redis', 'Next.js'],
+    metrics: {
+      value: 99,
+      suffix: '.99%',
+      label: 'Automated Ledger Balance Accuracy',
+    },
+  },
+  {
+    id: 'ai-support',
+    name: 'Customer Experience & AI Support',
+    anchor: 'ai-support',
+    badgeText: 'Conversational copilots & ticket triage',
+    tagline: 'AI agents & multi-channel automated resolution',
+    summary:
+      'We build autonomous conversational AI copilots, multi-channel support triage, and sub-second knowledge routing for enterprise support teams.',
+    description:
+      'Agentic LLM support engines with verified enterprise knowledge retrieval (RAG), voice/chat omnichannel integration, smart sentiment routing, and human-in-the-loop escalation workflows.',
+    icon: Headphones,
+    image: industryAiSupport,
+    accentColor: 'from-purple-600 to-indigo-600',
+    operationalChallenge:
+      'High agent burnout, repetitive tier-1 customer inquiries, fragmented CRM context across channels, and long first-response queues.',
+    xylozenSolution:
+      'Domain-tuned autonomous AI support copilots that ingest full customer history to solve 80% of routine inquiries autonomously while preparing instant context for specialists.',
+    capabilities: [
+      {
+        title: 'Omnichannel Agentic Support Copilots',
+        detail: 'Integrated across Web chat, WhatsApp, Email, and Slack with unified conversation memory.',
+      },
+      {
+        title: 'Vector Knowledge Retrieval (RAG)',
+        detail: 'Instant context lookups against internal knowledge bases, technical manuals, and order databases.',
+      },
+      {
+        title: 'Predictive Intent & Sentiment Routing',
+        detail: 'Real-time classification directing high-urgency or sensitive tickets to senior specialists instantly.',
+      },
+      {
+        title: 'Human-in-the-Loop Collaboration Hub',
+        detail: 'Auto-drafted replies and one-click approvals enabling human agents to handle 4x the volume.',
+      },
+    ],
+    techStack: ['Next.js', 'FastAPI', 'Python', 'pgvector', 'Docker', 'Tailwind CSS'],
+    metrics: {
+      value: 80,
+      suffix: '%',
+      label: 'First-Touch Automated Ticket Resolution',
+    },
+  },
+  {
+    id: 'cloud-infrastructure',
+    name: 'Cloud & IT Infrastructure',
+    anchor: 'cloud-infrastructure',
+    badgeText: 'High-availability microservices & server hubs',
+    tagline: 'Edge networks & distributed microservices',
+    summary:
+      'We architect distributed cloud backends, low-latency microservices meshes, and edge server optimization for mission-critical digital systems.',
+    description:
+      'Multi-region container orchestration, automated zero-downtime CI/CD deployments, edge caching networks, and real-time observability stacks engineered for 99.999% uptime.',
+    icon: Server,
+    image: industryCloudInfrastructure,
+    accentColor: 'from-blue-600 to-slate-800',
+    operationalChallenge:
+      'Single points of failure, runaway cloud compute costs, unmonitored microservice latencies, and downtime during complex release cycles.',
+    xylozenSolution:
+      'Self-healing Docker container topologies paired with edge caching proxies and Prometheus/Grafana distributed tracing for end-to-end reliability.',
+    capabilities: [
+      {
+        title: 'Distributed Container Orchestration',
+        detail: 'Automated horizontal pod autoscaling responding to real-time traffic spikes in under 3 seconds.',
+      },
+      {
+        title: 'Edge Caching & Dynamic Acceleration',
+        detail: 'Global CDN edge compute layers reducing database round-trips and global latency to <15ms.',
+      },
+      {
+        title: 'Distributed Tracing & Observability',
+        detail: 'OpenTelemetry instrumentation delivering full request traces across complex microservice boundaries.',
+      },
+      {
+        title: 'Infrastructure as Code & CI/CD Pipelines',
+        detail: 'Declarative Terraform and GitHub Actions workflows with automated canary releases and rollback.',
+      },
+    ],
+    techStack: ['Docker', 'PostgreSQL', 'Redis', 'Python', 'FastAPI', 'Next.js'],
+    metrics: {
+      value: 15,
+      suffix: 'ms',
+      prefix: '<',
+      label: 'Edge Network Response Latency',
+    },
+  },
 ]
 
 export const industryStats = [
   {
-    value: 5,
+    value: 8,
     suffix: '+',
     label: 'Core Industry Verticals',
-    detail: 'Retail, Real Estate, Healthcare, Logistics, and Manufacturing.',
+    detail: 'Retail, Real Estate, Healthcare, Logistics, Manufacturing, FinTech, and AI.',
   },
   {
     value: 100,

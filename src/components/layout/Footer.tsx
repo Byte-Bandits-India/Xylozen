@@ -37,25 +37,25 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-white border-t border-slate-200/90 py-12 sm:py-16 text-slate-900 selection:bg-brand-500 selection:text-white">
-      <div className="px-6 w-full">
+    <footer className="bg-[#051C50] border-t border-white/10 py-12 sm:py-16 text-slate-200 selection:bg-brand-500 selection:text-white">
+      <div className="max-w-[1600px] mx-auto px-6 w-full">
         {/* Main Grid: 4 Clean Columns with Perfect Alignment */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* ================================================================= */}
           {/* Column 1: Brand Logo, Description & Socials (5 cols)              */}
           {/* ================================================================= */}
           <div className="lg:col-span-5 flex flex-col items-start">
-            <Logo variant="light" size="lg" showTagline scrollToTop />
+            <Logo variant="dark" size="lg" showTagline scrollToTop />
 
-            <p className="text-body text-slate-600 mt-4 leading-relaxed max-w-sm">
+            <p className="text-body text-slate-300 mt-4 leading-relaxed max-w-sm">
               AI-native product engineering studio. We help organizations turn complex ideas and operational challenges into intelligent, scalable digital products.
             </p>
 
-            <div className="text-small text-slate-600 mt-3">
+            <div className="text-small text-slate-400 mt-3">
               Chennai, India &bull;{' '}
               <a
                 href="mailto:info@xylozentech.com"
-                className="text-brand-500 hover:underline"
+                className="text-teal-400 hover:text-teal-300 hover:underline transition-colors"
               >
                 info@xylozentech.com
               </a>
@@ -65,7 +65,7 @@ export function Footer() {
             <div className="flex items-center gap-2.5 mt-5">
               <a
                 href="mailto:info@xylozentech.com"
-                className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+                className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white border border-white/10 flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                 aria-label="Email Xylozen"
               >
                 <Mail className="w-4 h-4" />
@@ -74,7 +74,7 @@ export function Footer() {
                 href={SOCIAL_LINKS.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+                className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white border border-white/10 flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                 aria-label="LinkedIn profile"
               >
                 <Linkedin className="w-4 h-4" />
@@ -83,7 +83,7 @@ export function Footer() {
                 href={SOCIAL_LINKS.x}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+                className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white border border-white/10 flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                 aria-label="X (Twitter) profile"
               >
                 <Twitter className="w-4 h-4" />
@@ -92,7 +92,7 @@ export function Footer() {
                 href={SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+                className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white border border-white/10 flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                 aria-label="Instagram profile"
               >
                 <Instagram className="w-4 h-4" />
@@ -107,28 +107,28 @@ export function Footer() {
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-10 xl:gap-12 items-start lg:pt-[76px]">
             {/* Column 2: Services */}
             <div className="flex flex-col items-start">
-              <h3 className="text-sm uppercase font-semibold tracking-wider text-slate-900 mb-4">
+              <h3 className="text-sm uppercase font-semibold tracking-wider text-white mb-4">
                 Services
               </h3>
               <div className="flex flex-col gap-3">
                 <Link
                   href="/services/web-software"
                   prefetch={true}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   Web &amp; Software
                 </Link>
                 <Link
                   href="/services/ecommerce"
                   prefetch={true}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   Ecommerce
                 </Link>
                 <Link
                   href="/services/ai-automation"
                   prefetch={true}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   AI &amp; Automation
                 </Link>
@@ -137,7 +137,7 @@ export function Footer() {
 
             {/* Column 3: Industries */}
             <div className="flex flex-col items-start">
-              <h3 className="text-sm uppercase font-semibold tracking-wider text-slate-900 mb-4">
+              <h3 className="text-sm uppercase font-semibold tracking-wider text-white mb-4">
                 Industries
               </h3>
               <div className="flex flex-col gap-3">
@@ -145,7 +145,7 @@ export function Footer() {
                   href="/industries#retail"
                   prefetch={true}
                   onClick={(e) => handleAnchorClick(e, '/industries#retail')}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   Retail &amp; Ecommerce
                 </Link>
@@ -153,7 +153,7 @@ export function Footer() {
                   href="/industries#real-estate"
                   prefetch={true}
                   onClick={(e) => handleAnchorClick(e, '/industries#real-estate')}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   Real Estate
                 </Link>
@@ -161,7 +161,7 @@ export function Footer() {
                   href="/industries#healthcare"
                   prefetch={true}
                   onClick={(e) => handleAnchorClick(e, '/industries#healthcare')}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   Healthcare
                 </Link>
@@ -169,7 +169,7 @@ export function Footer() {
                   href="/industries#logistics"
                   prefetch={true}
                   onClick={(e) => handleAnchorClick(e, '/industries#logistics')}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   Logistics
                 </Link>
@@ -177,7 +177,7 @@ export function Footer() {
                   href="/industries#manufacturing"
                   prefetch={true}
                   onClick={(e) => handleAnchorClick(e, '/industries#manufacturing')}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   Manufacturing
                 </Link>
@@ -186,28 +186,28 @@ export function Footer() {
 
             {/* Column 4: Resources & Studio */}
             <div className="flex flex-col items-start">
-              <h3 className="text-sm uppercase font-semibold tracking-wider text-slate-900 mb-4">
+              <h3 className="text-sm uppercase font-semibold tracking-wider text-white mb-4">
                 Resources &amp; Studio
               </h3>
               <div className="flex flex-col gap-3">
                 <Link
                   href="/blogs"
                   prefetch={true}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   Blogs
                 </Link>
                 <Link
                   href="/our-work"
                   prefetch={true}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   Case Studies
                 </Link>
                 <Link
                   href="/pricing"
                   prefetch={true}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   Pricing Models
                 </Link>
@@ -215,28 +215,28 @@ export function Footer() {
                   href="/our-work#how-we-work"
                   prefetch={true}
                   onClick={(e) => handleAnchorClick(e, '/our-work#how-we-work')}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   How We Work
                 </Link>
                 <Link
                   href="/about"
                   prefetch={true}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   About Us
                 </Link>
                 <Link
                   href="/careers"
                   prefetch={true}
-                  className="text-small text-slate-600 hover:text-brand-500 transition-colors text-left cursor-pointer"
+                  className="text-small text-slate-300 hover:text-white transition-colors text-left cursor-pointer"
                 >
                   Careers
                 </Link>
                 <Link
                   href="/contact"
                   prefetch={true}
-                  className="text-small font-semibold text-cta hover:text-[#C13010] transition-colors text-left cursor-pointer flex items-center gap-1"
+                  className="text-small font-semibold text-cta hover:text-[#FF5A2C] transition-colors text-left cursor-pointer flex items-center gap-1"
                 >
                   <span>Start a Project</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -249,18 +249,18 @@ export function Footer() {
         {/* ===================================================================== */}
         {/* Bottom Bar: Copyright & Legal                                         */}
         {/* ===================================================================== */}
-        <div className="pt-8 mt-12 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-caption text-slate-500">
-          <p className='text-small'>
+        <div className="pt-8 mt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-caption text-slate-400">
+          <p className='text-small' suppressHydrationWarning>
             &copy; {new Date().getFullYear()} Xylozen Technologies. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <span className="hover:text-slate-900 cursor-pointer transition-colors">
+            <span className="hover:text-white cursor-pointer transition-colors">
               Privacy Policy
             </span>
-            <span className="hover:text-slate-900 cursor-pointer transition-colors">
+            <span className="hover:text-white cursor-pointer transition-colors">
               Terms of Service
             </span>
-            <span className="hover:text-slate-900 cursor-pointer transition-colors">
+            <span className="hover:text-white cursor-pointer transition-colors">
               Security
             </span>
           </div>

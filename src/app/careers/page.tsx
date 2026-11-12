@@ -6,6 +6,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { FinalCTA } from '@/components/sections/FinalCTA'
 import { Button } from '@/components/ui/Button'
+import { CareersHeroVisual } from '@/components/careers/CareersHeroVisual'
 
 import { JsonLd } from '@/components/seo/JsonLd'
 import { getBreadcrumbSchema } from '@/lib/seo-schema'
@@ -123,46 +124,56 @@ export default function CareersPage() {
         {/* ===================================================================== */}
         {/* HERO SECTION                                                          */}
         {/* ===================================================================== */}
-        <section className="border-b border-line pb-12 sm:pb-16 bg-white">
+        <section className="border-b border-line pb-14 sm:pb-16 lg:pb-20 bg-white">
           <div className="container-section">
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-caption text-ink-500 mb-6">
-              <Link href="/" className="hover:text-brand-500 transition-colors">
-                Home
-              </Link>
-              <span>/</span>
-              <span className="text-brand-900 font-semibold">Careers</span>
-            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              {/* Left Column: Breadcrumb, Eyebrow, Headline, Narrative, Action */}
+              <div className="lg:col-span-7 xl:col-span-7 flex flex-col items-start justify-start self-start">
+                {/* Breadcrumb */}
+                <div className="flex items-center gap-2 text-caption text-ink-500 mb-6">
+                  <Link href="/" className="hover:text-brand-500 transition-colors">
+                    Home
+                  </Link>
+                  <span>/</span>
+                  <span className="text-brand-900 font-semibold">Careers</span>
+                </div>
 
-            {/* Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-badge text-slate-700 mb-4 font-semibold">
-              <span className="w-2 h-2 rounded-full bg-cta animate-pulse" />
-              <span className="font-mono uppercase">CAREERS AT XYLOZEN</span>
-            </div>
+                {/* Eyebrow Pill */}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-badge text-slate-700 mb-4 font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-cta animate-pulse" />
+                  <span className="font-mono uppercase">CAREERS AT XYLOZEN</span>
+                </div>
 
-            {/* Headline */}
-            <h1 className="text-2xl sm:text-3xl lg:text-h2 font-bold text-brand-900 tracking-tight leading-tight mb-3 max-w-2xl">
-              Engineering Intelligence. Creating Business Value.
-            </h1>
+                {/* Headline */}
+                <h1 className="text-2xl sm:text-3xl lg:text-h2 font-bold text-brand-900 tracking-tight leading-tight mb-3 max-w-2xl">
+                  Engineering Intelligence. Creating Business Value.
+                </h1>
 
-            {/* Motto */}
-            <p className="text-base sm:text-lead font-medium text-brand-700 mb-3 max-w-2xl">
-              From workflow to product. From idea to revenue.
-            </p>
+                {/* Motto */}
+                <p className="text-base sm:text-lead font-medium text-brand-700 mb-3 max-w-2xl">
+                  From workflow to product. From idea to revenue.
+                </p>
 
-            {/* Studio Narrative */}
-            <p className="text-small sm:text-body text-ink-500 max-w-2xl leading-relaxed mb-6">
-              Xylozen is an AI-native product engineering studio headquartered in Chennai. We help startups, growing businesses, and established organizations turn complex ideas and operational challenges into intelligent, scalable digital products.
-            </p>
+                {/* Studio Narrative */}
+                <p className="text-small sm:text-body text-ink-500 max-w-2xl leading-relaxed mb-8">
+                  Xylozen is an AI-native product engineering studio headquartered in Chennai. We help startups, growing businesses, and established organizations turn complex ideas and operational challenges into intelligent, scalable digital products.
+                </p>
 
-            {/* Direct Action Link */}
-            <div>
-              <a href="#roles">
-                <Button variant="primary-cta" className="gap-2 text-white font-medium">
-                  <span className="text-white font-medium">View Open Positions</span>
-                  <ArrowRight className="w-4 h-4 text-white" />
-                </Button>
-              </a>
+                {/* Direct Action Link */}
+                <div className="flex flex-wrap items-center gap-4">
+                  <a href="#roles">
+                    <Button variant="primary-cta" className="gap-2 text-white font-medium">
+                      <span className="text-white font-medium">View Open Positions</span>
+                      <ArrowRight className="w-4 h-4 text-white" />
+                    </Button>
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Column: Hero Visual Card with hero-careers.jpg */}
+              <div className="lg:col-span-5 xl:col-span-5 flex items-start justify-center self-start">
+                <CareersHeroVisual />
+              </div>
             </div>
           </div>
         </section>

@@ -154,7 +154,8 @@ export default async function BlogDetailPage({ params }: BlogSlugPageProps) {
                 alt={post.title}
                 fill
                 priority
-                sizes="(max-width: 768px) 100vw, 768px"
+                quality={95}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                 className="object-cover object-center"
               />
             </div>

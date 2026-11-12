@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, ArrowRight, Cpu, Sparkles, Workflow, Layers, Rocket } from 'lucide-react'
-import { agentEngineer } from '@/assets/images'
+import { aboutHero } from '@/assets/images'
 
 interface StudioCapability {
   id: string
@@ -101,31 +101,32 @@ export function AboutHeroVisual() {
     <div
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-full max-w-[440px] sm:max-w-[480px] lg:max-w-[430px] xl:max-w-[470px] mx-auto select-none pt-4 pb-8 px-2 sm:px-4"
+      className="relative w-full max-w-[480px] sm:max-w-[520px] lg:max-w-[480px] xl:max-w-[540px] mx-auto select-none pt-4 pb-8 px-2 sm:px-4"
     >
       {/* Subtle Ambient Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] bg-gradient-to-tr from-brand-500/10 via-blue-400/10 to-teal-400/8 rounded-full blur-3xl pointer-events-none" />
 
       {/* ===================================================================== */}
-      {/* MAIN PORTRAIT CARD (3D Cartoon Studio Architect)                      */}
+      {/* MAIN CARD (16:11 Aspect Ratio with Full Team Context)                */}
       {/* ===================================================================== */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98, y: 12 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative rounded-[2.25rem] overflow-hidden border border-line shadow-2xl shadow-brand-900/10 bg-surface aspect-[4/4.6]"
+        className="relative rounded-[2rem] sm:rounded-[2.25rem] overflow-hidden border border-slate-200/80 shadow-2xl shadow-slate-900/8 bg-slate-100 aspect-[16/11]"
       >
         <Image
-          src={agentEngineer}
-          alt="Xylozen Engineering Lead"
+          src={aboutHero}
+          alt="Xylozen Engineering Team and Studio Leadership"
           fill
           priority
-          sizes="(max-width: 768px) 100vw, 480px"
-          className="object-cover object-top"
+          quality={95}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 960px"
+          className="object-cover object-center"
         />
 
         {/* Soft Bottom Vignette for Image Depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-900/30 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
       </motion.div>
 
       {/* ===================================================================== */}

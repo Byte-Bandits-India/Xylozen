@@ -3,13 +3,16 @@
 import React, { useState, useEffect } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check, ArrowRight, Store, Building2, Stethoscope, Truck, Factory } from 'lucide-react'
+import { Check, ArrowRight, Store, Building2, Stethoscope, Truck, Factory, Landmark, Headphones, Server } from 'lucide-react'
 import {
-  agentScheduler,
-  agentRealestate,
-  agentEngineer,
-  agentOperations,
-  agentManufacturing,
+  industryRetail,
+  industryRealEstate,
+  industryHealthcare,
+  industryLogistics,
+  industryManufacturing,
+  industryFintech,
+  industryAiSupport,
+  industryCloudInfrastructure,
 } from '@/assets/images'
 
 interface SectorHighlight {
@@ -40,7 +43,7 @@ const sectorHighlights: SectorHighlight[] = [
     description: 'Headless storefronts & sub-second inventory sync across warehouses & physical POS.',
     metricLabel: '40% Faster Checkout',
     targetId: 'retail',
-    image: agentScheduler,
+    image: industryRetail,
   },
   {
     id: 'real-estate',
@@ -54,7 +57,7 @@ const sectorHighlights: SectorHighlight[] = [
     description: 'Geospatial listing search, automated broker lead distribution & lease management.',
     metricLabel: '70% Faster Routing',
     targetId: 'real-estate',
-    image: agentRealestate,
+    image: industryRealEstate,
   },
   {
     id: 'healthcare',
@@ -68,7 +71,7 @@ const sectorHighlights: SectorHighlight[] = [
     description: 'WebSockets hardware diagnostics & HIPAA-compliant teleconsultation portals.',
     metricLabel: '100% Stream Encrypted',
     targetId: 'healthcare',
-    image: agentEngineer,
+    image: industryHealthcare,
   },
   {
     id: 'logistics',
@@ -82,7 +85,7 @@ const sectorHighlights: SectorHighlight[] = [
     description: 'High-frequency GPS track ingestion, automated route assignment & digital manifests.',
     metricLabel: '65% Dispatch Saved',
     targetId: 'logistics',
-    image: agentOperations,
+    image: industryLogistics,
   },
   {
     id: 'manufacturing',
@@ -96,7 +99,49 @@ const sectorHighlights: SectorHighlight[] = [
     description: 'Edge CCTV safety compliance, machine telemetry brokers & real-time OEE dashboards.',
     metricLabel: '24/7 Floor Monitoring',
     targetId: 'manufacturing',
-    image: agentManufacturing,
+    image: industryManufacturing,
+  },
+  {
+    id: 'fintech',
+    tabLabel: 'FinTech',
+    badgeLabel: 'Ledgers & real-time analytics',
+    topPillTitle: 'Kafka streams live',
+    topPillSub: '99.99% balance accuracy',
+    icon: Landmark,
+    iconBg: 'bg-emerald-500/10 text-emerald-700 border-emerald-500/20',
+    title: 'FinTech & Real-Time Ledgers',
+    description: 'Event-sourced CQRS banking ledgers, automated reconciliation & fraud anomaly scoring.',
+    metricLabel: '99.99% Balance Accuracy',
+    targetId: 'fintech',
+    image: industryFintech,
+  },
+  {
+    id: 'ai-support',
+    tabLabel: 'AI Support',
+    badgeLabel: 'Copilots & ticket triage',
+    topPillTitle: 'Agentic Copilot Active',
+    topPillSub: '80% auto ticket resolution',
+    icon: Headphones,
+    iconBg: 'bg-purple-500/10 text-purple-700 border-purple-500/20',
+    title: 'Customer Experience & AI Support',
+    description: 'Agentic LLM support copilots, verified enterprise RAG & omnichannel ticket triage.',
+    metricLabel: '80% Auto Resolution',
+    targetId: 'ai-support',
+    image: industryAiSupport,
+  },
+  {
+    id: 'cloud-infrastructure',
+    tabLabel: 'Cloud & IT',
+    badgeLabel: 'Microservices & edge nodes',
+    topPillTitle: 'Global Edge Network',
+    topPillSub: '<15ms edge response latency',
+    icon: Server,
+    iconBg: 'bg-sky-500/10 text-sky-700 border-sky-500/20',
+    title: 'Cloud & IT Infrastructure',
+    description: 'Distributed container clusters, edge caching proxies & OpenTelemetry tracing meshes.',
+    metricLabel: '<15ms Response Latency',
+    targetId: 'cloud-infrastructure',
+    image: industryCloudInfrastructure,
   },
 ]
 
@@ -131,24 +176,24 @@ export function IndustriesHeroVisual() {
     <div
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-full max-w-[440px] sm:max-w-[480px] lg:max-w-[430px] xl:max-w-[470px] mx-auto select-none pt-4 pb-8 px-2 sm:px-4"
+      className="relative w-full max-w-[480px] sm:max-w-[520px] lg:max-w-[480px] xl:max-w-[540px] mx-auto select-none pt-4 pb-8 px-2 sm:px-4"
     >
       {/* Subtle Ambient Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] bg-gradient-to-tr from-brand-500/10 via-blue-400/10 to-teal-400/8 rounded-full blur-3xl pointer-events-none" />
 
       {/* ===================================================================== */}
-      {/* MAIN PORTRAIT CARD (Crossfading Image per Vertical)                   */}
+      {/* MAIN CARD (Natural Landscape / 16:11 Aspect for Sharp Full View)      */}
       {/* ===================================================================== */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98, y: 12 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative rounded-[2.25rem] overflow-hidden border border-slate-200/80 shadow-2xl shadow-slate-900/8 bg-slate-100 aspect-[4/4.6]"
+        className="relative rounded-[2rem] sm:rounded-[2.25rem] overflow-hidden border border-slate-200/80 shadow-2xl shadow-slate-900/8 bg-slate-100 aspect-[16/11]"
       >
         <AnimatePresence mode="wait">
           <motion.div
             key={active.id}
-            initial={{ opacity: 0.4, scale: 1.03 }}
+            initial={{ opacity: 0.4, scale: 1.02 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0.4 }}
             transition={{ duration: 0.4 }}
@@ -159,7 +204,8 @@ export function IndustriesHeroVisual() {
               alt={active.title}
               fill
               priority
-              sizes="(max-width: 768px) 100vw, 480px"
+              quality={95}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"
               className="object-cover object-center"
             />
           </motion.div>

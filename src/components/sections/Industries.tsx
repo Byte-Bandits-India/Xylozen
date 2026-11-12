@@ -1,16 +1,19 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import { motion } from 'framer-motion'
 import { Plus, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
 import { useLenis } from 'lenis/react'
 import {
-  agentScheduler,
-  agentRealestate,
-  agentEngineer,
-  agentOperations,
-  agentManufacturing,
+  industryRetail,
+  industryRealEstate,
+  industryHealthcare,
+  industryLogistics,
+  industryManufacturing,
+  industryFintech,
+  industryAiSupport,
+  industryCloudInfrastructure,
 } from '@/assets/images'
 
 // =============================================================================
@@ -32,7 +35,7 @@ const industriesData: IndustryItem[] = [
     badgeText: 'Stores that convert and scale',
     description:
       'We help retail and ecommerce businesses improve customer experiences, streamline operations, and build scalable digital commerce platforms.',
-    image: agentScheduler,
+    image: industryRetail,
   },
   {
     id: 'real-estate',
@@ -40,7 +43,7 @@ const industriesData: IndustryItem[] = [
     badgeText: 'Listings, portals, and lead systems',
     description:
       'We develop digital solutions that simplify property management, customer engagement, internal workflows, and real estate operations.',
-    image: agentRealestate,
+    image: industryRealEstate,
   },
   {
     id: 'healthcare',
@@ -48,7 +51,7 @@ const industriesData: IndustryItem[] = [
     badgeText: 'Secure, compliant patient-facing systems',
     description:
       'We build secure and intelligent platforms that improve accessibility, streamline processes, and support better coordination between customers, professionals, and service providers.',
-    image: agentEngineer,
+    image: industryHealthcare,
   },
   {
     id: 'logistics',
@@ -56,7 +59,7 @@ const industriesData: IndustryItem[] = [
     badgeText: 'Tracking, dashboards, and automation',
     description:
       'We engineer technology that improves visibility, automates repetitive workflows, and supports efficient coordination across logistics and supply-chain operations.',
-    image: agentOperations,
+    image: industryLogistics,
   },
   {
     id: 'manufacturing',
@@ -64,7 +67,31 @@ const industriesData: IndustryItem[] = [
     badgeText: 'Internal systems that connect the floor to the office',
     description:
       'We develop intelligent systems that help manufacturing businesses improve operational visibility, automate processes, monitor performance, and make better data-driven decisions.',
-    image: agentManufacturing,
+    image: industryManufacturing,
+  },
+  {
+    id: 'fintech',
+    name: 'FinTech & Banking',
+    badgeText: 'Algorithmic ledgers & real-time analytics',
+    description:
+      'We engineer real-time financial dashboards, algorithmic ledger reconciliation, and secure transactional pipelines for fintech.',
+    image: industryFintech,
+  },
+  {
+    id: 'ai-support',
+    name: 'Customer Experience & AI Support',
+    badgeText: 'Conversational copilots & ticket triage',
+    description:
+      'We build autonomous conversational AI copilots, multi-channel support triage, and sub-second knowledge routing for enterprise support.',
+    image: industryAiSupport,
+  },
+  {
+    id: 'cloud-infrastructure',
+    name: 'Cloud & IT Infrastructure',
+    badgeText: 'High-availability microservices & server hubs',
+    description:
+      'We architect distributed cloud backends, low-latency microservices meshes, and edge server optimization for mission-critical systems.',
+    image: industryCloudInfrastructure,
   },
 ]
 
@@ -94,6 +121,15 @@ export function Industries() {
   const handleNext = () => {
     setActiveIndex((prev) => (prev === total - 1 ? 0 : prev + 1))
   }
+
+  // Automatically advance to the next industry slide every 3.5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev === total - 1 ? 0 : prev + 1))
+    }, 3500)
+
+    return () => clearInterval(timer)
+  }, [activeIndex, total])
 
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null)
@@ -126,14 +162,14 @@ export function Industries() {
   }
 
   return (
-    <section id="industries" className="pb-8 sm:pb-12 bg-[#FFFFFF] relative select-none">
+    <section id="industries" className="pb-8 sm:py-12 bg-[#FFFFFF] relative select-none">
       <div className="container-section w-full">
         {/* ===================================================================== */}
         {/* SECTION HEADER (Strictly from WeServe.MD and HomePage.MD)            */}
         {/* ===================================================================== */}
         <div className="mb-6 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-badge text-slate-700 mb-3">
-            <span className="w-2 h-2 rounded-full bg-cta" />
+            <span className="w-2 h-2 rounded-full bg-cta" /> 
             Industries We Serve
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-h2 font-bold text-brand-900 tracking-tight leading-tight mb-3">
@@ -285,14 +321,16 @@ export function Industries() {
                           : ''
                       }`}
                     >
-                      {/* Top Media Frame with 3D Character Avatar & Frosted Glass Badge */}
+                      {/* Top Media Frame with High-Quality Photograph & Frosted Glass Badge */}
                       <div className="rounded-xl sm:rounded-2xl h-44 sm:h-52 md:h-56 bg-gradient-to-b from-[#EFF3F8] to-[#E0E7F0] relative overflow-hidden flex items-center justify-center mb-3 sm:mb-4">
                         <Image
                           src={item.image}
                           alt={item.name}
-                          width={340}
-                          height={340}
-                          className="w-full h-full object-cover object-top"
+                          fill
+                          priority={isCenter}
+                          quality={95}
+                          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 720px"
+                          className="object-cover object-center"
                         />
 
                         {/* Frosted Glassmorphism Badge Overlay with official one-liner from HomePage.MD */}

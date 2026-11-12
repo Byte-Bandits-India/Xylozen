@@ -178,7 +178,7 @@ export function Header() {
             : 'bg-white/85 backdrop-blur-sm border-b border-line/40'
         )}
       >
-        <div className="px-6" ref={navContainerRef}>
+        <div className="max-w-[1600px] mx-auto px-6" ref={navContainerRef}>
           <div className="flex items-center justify-between h-20">
             
             {/* Left: Logo & Desktop Navigation */}

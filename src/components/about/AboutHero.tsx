@@ -20,11 +20,11 @@ export function AboutHero() {
   return (
     <section className="relative overflow-hidden bg-white border-b border-line pt-4 pb-16 sm:pb-20 lg:pb-24">
       <div className="container-section">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
           {/* ================================================================= */}
           {/* LEFT COLUMN: Narrative, Headline, CTAs, and Quick Jumps            */}
           {/* ================================================================= */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
+          <div className="lg:col-span-7 flex flex-col items-start justify-start text-left self-start">
             {/* Breadcrumb Bar */}
             <div className="flex items-center gap-2 text-caption text-ink-500 mb-6">
               <Link href="/" className="hover:text-brand-500 transition-colors">
@@ -75,7 +75,7 @@ export function AboutHero() {
           {/* ================================================================= */}
           {/* RIGHT COLUMN: Interactive Studio Graphic Visual                   */}
           {/* ================================================================= */}
-          <div className="lg:col-span-5 flex justify-center w-full">
+          <div className="lg:col-span-5 flex items-start justify-center self-start w-full">
             <AboutHeroVisual />
           </div>
         </div>

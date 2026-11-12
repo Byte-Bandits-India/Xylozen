@@ -1,5 +1,5 @@
 import { StaticImageData } from 'next/image'
-import { archAiActionMesh } from '@/assets/images'
+import { blogHero } from '@/assets/images'
 
 export interface FAQItem {
   question: string
@@ -113,7 +113,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Xylozen Engineering',
     summary:
       'Artificial intelligence is no longer limited to chatbots or content tools. Discover how companies are engineering AI into their operational workflows to automate complex processes, scale capacity, and make smarter decisions.',
-    image: archAiActionMesh,
+    image: blogHero,
     introduction: [
       'Artificial intelligence is no longer limited to chatbots, content generation, or experimental technology teams.',
       'Businesses are increasingly using AI to automate workflows, analyze information, support decision-making, improve customer experiences, and build intelligent software products.',

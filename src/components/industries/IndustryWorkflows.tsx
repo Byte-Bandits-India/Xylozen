@@ -10,6 +10,9 @@ import {
   industryRealEstate,
   industryLogistics,
   industryManufacturing,
+  industryFintech,
+  industryAiSupport,
+  industryCloudInfrastructure,
 } from '@/assets/images'
 
 interface IndustryStory {
@@ -72,6 +75,36 @@ const industryStories: IndustryStory[] = [
     image: industryManufacturing,
     linkText: 'Read case study',
     href: '/our-work#vision-safety',
+  },
+  {
+    id: 'fintech',
+    anchor: 'fintech',
+    clientName: 'ApexLedger',
+    outcome:
+      'engineered high-frequency reconciliation pipelines balancing 500k+ multi-currency transactions daily with zero loss.',
+    image: industryFintech,
+    linkText: 'Explore architecture',
+    href: '/contact',
+  },
+  {
+    id: 'ai-support',
+    anchor: 'ai-support',
+    clientName: 'OmniAssist AI',
+    outcome:
+      'deployed verified RAG copilots resolving 80% of tier-1 support inquiries autonomously with sub-second response times.',
+    image: industryAiSupport,
+    linkText: 'Explore architecture',
+    href: '/contact',
+  },
+  {
+    id: 'cloud-infrastructure',
+    anchor: 'cloud-infrastructure',
+    clientName: 'HyperMesh Cloud',
+    outcome:
+      're-architected distributed edge container meshes achieving sub-15ms edge latency across 12 global availability regions.',
+    image: industryCloudInfrastructure,
+    linkText: 'Explore architecture',
+    href: '/contact',
   },
 ]
 
